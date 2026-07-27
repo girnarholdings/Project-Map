@@ -1,813 +1,847 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ZeusBot Project Directory</title>
-<meta name="description" content="ZeusBot Project Directory — Trader Command Zone, Agentic / Personalized, Casino, and Passion Projects. Index of active projects." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>ZeusBot — Project Directory</title>
+<meta name="description" content="A working index of ten built systems — market intelligence desks that publish on a schedule, and creative agentic products that run all the time." />
+<meta name="theme-color" content="#0B0C0F" />
+
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="ZeusBot Project Directory" />
-<meta property="og:title" content="ZeusBot Project Directory" />
-<meta property="og:description" content="Trader Command Zone, Agentic / Personalized, Casino, and Passion Projects — index of active projects." />
+<meta property="og:title" content="ZeusBot — Project Directory" />
+<meta property="og:description" content="A working index of ten built systems — market intelligence desks that publish on a schedule, and creative agentic products that run all the time." />
 <meta property="og:url" content="https://girnarholdings.github.io/Project-Map/" />
 <meta property="og:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="ZeusBot Project Directory" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ZeusBot Project Directory" />
-<meta name="twitter:description" content="Trader Command Zone, Agentic / Personalized, Casino, and Passion Projects — index of active projects." />
+<meta name="twitter:title" content="ZeusBot — Project Directory" />
+<meta name="twitter:description" content="Ten built systems — market intelligence desks and creative agentic products." />
 <meta name="twitter:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
+
 <style>
-  :root {
-    --bg: #05060a;
-    --panel: #0b0d14;
-    --panel-2: #10131c;
-    --border: #1c2130;
-    --text: #e7e9f2;
-    --text-dim: #8890a4;
+/* ============================================================
+   ZeusBot Project Directory — "the signal desk"
 
-    --trader: #33fff0;
-    --trader-dim: rgba(51, 255, 240, 0.14);
-    --agentic: #b98bff;
-    --agentic-dim: rgba(185, 139, 255, 0.14);
-    --casino: #ff4fd8;
-    --casino-dim: rgba(255, 79, 216, 0.14);
-    --passion: #ff8a5c;
-    --passion-dim: rgba(255, 138, 92, 0.14);
-    --gold: #ffd166;
-  }
+   Deliberately single-theme. This is a night trading floor and
+   a broadcast board; the product screenshots it frames are
+   themselves almost all dark. A light variant would fight both.
+   A committed choice, not an omission.
+   ============================================================ */
 
-  * { box-sizing: border-box; }
-  html, body { overflow-x: hidden; }
-  body {
-    margin: 0;
-    background:
-      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(51,255,240,0.09), transparent 60%),
-      radial-gradient(ellipse 900px 600px at 90% 10%, rgba(185,139,255,0.08), transparent 60%),
-      radial-gradient(ellipse 800px 500px at 50% 110%, rgba(255,79,216,0.07), transparent 60%),
-      var(--bg);
-    background-size: 140% 140%, 140% 140%, 140% 140%, 100% 100%;
-    animation: nebula-drift 26s ease-in-out infinite;
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
-  @keyframes nebula-drift {
-    0%   { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; }
-    50%  { background-position: 10% 10%, 88% 12%, 46% 92%, 0 0; }
-    100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; }
-  }
+:root {
+  /* ground — warm-biased ink rather than pure black */
+  --ink:        #0B0C0F;
+  --ink-raised: #101217;
+  --ink-card:   #14161C;
+  --line:       #242730;
+  --line-soft:  #1B1E25;
 
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 48px 24px 96px;
-  }
+  /* text — warm off-white, neutrals biased toward the amber accent */
+  --text:       #EAE7E0;
+  --text-dim:   #A8A296;
+  --text-faint: #6F6A61;
 
-  /* Header */
-  header.page-head { margin-bottom: 36px; }
-  header.page-head .eyebrow {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--trader);
-    text-shadow: 0 0 10px rgba(51,255,240,0.55);
-    margin-bottom: 10px;
-  }
-  header.page-head h1 {
-    font-size: 2.3rem;
-    margin: 0 0 10px;
-    letter-spacing: -0.01em;
-    background: linear-gradient(90deg, #ffffff 0%, var(--trader) 40%, var(--agentic) 65%, var(--casino) 85%, var(--passion) 100%);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: title-shift 7s ease infinite;
-  }
-  @keyframes title-shift {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  header.page-head p {
-    color: var(--text-dim);
-    margin: 0;
-    max-width: 640px;
-    font-size: 0.95rem;
-  }
+  /* signal palette lifted from the products themselves:
+     BoltNews / BoltFactors / FitForge amber, Grand Atlantic crimson */
+  --amber:      #F5B93B;
+  --green:      #4ADE80;
+  --crimson:    #C2384A;
+  --rose:       #E8707E;
 
-  /* Hero — featured flagship app */
-  .hero-frame {
-    border-radius: 22px;
-    padding: 2px;
-    margin: 4px 0 32px;
-    background: linear-gradient(120deg, var(--trader), var(--agentic), var(--casino), var(--gold), var(--trader));
-    background-size: 300% 300%;
-    animation: hero-gradient-move 8s ease infinite;
-    box-shadow: 0 0 40px -12px rgba(255,79,216,0.5);
+  --accent:     var(--amber);
+
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo,
+          Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+          "Liberation Sans", Arial, sans-serif;
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --maxw: 82rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* one atmospheric gesture behind the masthead, not five */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vh 0 auto 0;
+  height: 70vh;
+  background:
+    radial-gradient(60rem 30rem at 22% 0%, rgba(245,185,59,0.10), transparent 68%),
+    radial-gradient(48rem 26rem at 88% 6%, rgba(194,56,74,0.09), transparent 66%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+a { color: inherit; }
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- shared furniture ---------- */
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(74,222,128,0.14);
+  flex: none;
+}
+.dot--off {
+  background: var(--text-faint);
+  box-shadow: 0 0 0 3px rgba(111,106,97,0.12);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem); }
+.masthead .rule { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+.wordmark {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 13vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.wordmark em { font-style: normal; color: var(--amber); }
+
+.masthead-sub {
+  margin: clamp(1rem, 2.5vw, 1.5rem) 0 0;
+  font-family: var(--mono);
+  font-size: clamp(0.75rem, 1.8vw, 0.9375rem);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* lede and running totals share one baseline row on wide screens
+   so the masthead fills its measure instead of trailing off left */
+.masthead-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.masthead-lede {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(1rem, 2.2vw, 1.1875rem);
+  color: var(--text-dim);
+  text-wrap: pretty;
+}
+.masthead-lede strong { color: var(--text); font-weight: 600; }
+
+.masthead-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.masthead-stats b {
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- the tape ---------- */
+
+.tape {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  border-block: 1px solid var(--line-soft);
+  background: var(--ink-raised);
+  overflow: hidden;
+}
+
+.tape-head {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0.625rem var(--gutter) 0;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.tape-track {
+  display: flex;
+  width: max-content;
+  padding-block: 0.625rem 0.75rem;
+  animation: tape 64s linear infinite;
+}
+.tape-group {
+  display: flex;
+  flex: none;
+  gap: 2.25rem;
+  padding-right: 2.25rem;
+}
+.tape-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tape-item .sym  { color: var(--text-faint); letter-spacing: 0.1em; }
+.tape-item .px   { color: var(--text); }
+.tape-item .up   { color: var(--green); }
+.tape-item .down { color: var(--rose); }
+
+@keyframes tape { to { transform: translateX(-50%); } }
+
+/* ---------- section bands ---------- */
+
+.band { padding-block: clamp(3.5rem, 9vw, 6.5rem) 0; }
+.band-head { margin-bottom: clamp(2rem, 5vw, 3rem); }
+
+.band-title {
+  margin: 0.875rem 0 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+.band-title::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.45em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 0.08em;
+}
+
+.band-desc {
+  margin: 1rem 0 0;
+  max-width: 56ch;
+  color: var(--text-dim);
+  text-wrap: pretty;
+}
+
+/* ---------- cards ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--ink-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.card.is-wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* the whole card is the click target */
+.card-link { text-decoration: none; }
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.card-media {
+  position: relative;
+  flex: none;
+  aspect-ratio: 16 / 10;
+  background: #0d0f13;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+.card.is-wide .card-media {
+  width: 56%;
+  aspect-ratio: auto;
+  border-bottom: 0;
+  border-right: 1px solid var(--line-soft);
+}
+
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* a hairline of the section colour across the top of every screenshot */
+.card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6875rem;
+  flex: 1;
+  padding: clamp(1.125rem, 2.4vw, 1.75rem);
+}
+.card.is-wide .card-body {
+  justify-content: center;
+  padding: clamp(1.5rem, 3.2vw, 2.75rem);
+}
+
+.card-kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.card-name {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.card.is-wide .card-name { font-size: clamp(1.5rem, 3.4vw, 2.25rem); }
+
+.card-desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  text-wrap: pretty;
+}
+.card.is-wide .card-desc { font-size: 1rem; max-width: 48ch; }
+
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0.125rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.card-tech li {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1875rem 0.5rem;
+}
+
+.card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: auto 0 0;
+  padding-top: 0.875rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.card.is-wide .card-cta { margin-top: 1.25rem; }
+.card-cta .arrow {
+  margin-left: auto;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+
+/* one coordinated hover response rather than four competing ones */
+@media (hover: hover) {
+  .card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    background: var(--ink-raised);
+    transform: translateY(-2px);
   }
-  @keyframes hero-gradient-move {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .hero-inner {
-    border-radius: 20px;
-    background: linear-gradient(180deg, var(--panel-2), var(--panel));
-    padding: 30px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-scanline {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
-    background-size: 100% 300%;
-    animation: hero-scan 5s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes hero-scan {
-    0% { background-position: 0 -200%; }
-    100% { background-position: 0 200%; }
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-shadow: 0 0 10px rgba(255,209,102,0.6);
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .hero-badge .pulse-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 10px 2px rgba(255,209,102,0.9);
-    animation: pulse-glow 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-  .hero-games-row {
-    display: flex;
-    gap: 16px;
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-    line-height: 1;
-    position: relative;
-  }
-  .hero-games-row span {
-    filter: drop-shadow(0 0 6px rgba(255,255,255,0.15));
-    display: inline-block;
-    transition: transform 0.2s ease, filter 0.2s ease;
-  }
-  .hero-games-row span:hover {
-    transform: translateY(-4px) scale(1.15);
-    filter: drop-shadow(0 0 12px rgba(255,209,102,0.85));
-  }
-  .hero-bankroll-line {
-    position: relative;
-    height: 2px;
+  .card:hover .card-media img { transform: scale(1.035); }
+  .card:hover .card-cta { color: var(--text); }
+  .card:hover .card-cta .arrow { transform: translateX(3px); }
+}
+.card:focus-within {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+
+/* ---------- the one card with nothing to open ---------- */
+
+.card.is-private {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 11px,
+      rgba(255,255,255,0.018) 11px 22px
+    ),
+    var(--ink-card);
+}
+.card.is-private .card-body { padding-block: clamp(1.75rem, 4vw, 2.75rem); }
+.card.is-private .card-kicker,
+.card.is-private .card-cta { color: var(--text-faint); }
+
+/* ---------- footer ---------- */
+
+.foot {
+  margin-top: clamp(4rem, 10vw, 7rem);
+  padding-block: 2rem clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 56rem) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .card.is-wide { flex-direction: column; }
+  .card.is-wide .card-media {
     width: 100%;
-    max-width: 320px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 20px;
+    aspect-ratio: 16 / 10;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
   }
-  .hero-bankroll-dot {
-    position: absolute;
-    top: -3px;
-    left: -8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 10px 2px rgba(255,209,102,0.9);
-    animation: bankroll-flow 3s linear infinite;
-  }
-  @keyframes bankroll-flow {
-    0% { left: -8px; }
-    100% { left: 100%; }
-  }
-  .hero-title {
-    font-size: 1.7rem;
-    margin: 0 0 12px;
-    color: var(--text);
-    letter-spacing: -0.01em;
-    position: relative;
-  }
-  .hero-title-sub {
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-dim);
-    margin-top: 4px;
-  }
-  .hero-desc {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    max-width: 760px;
-    margin: 0 0 18px;
-    position: relative;
-  }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    position: relative;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(90deg, var(--casino), var(--agentic));
-    color: #05060a;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 11px 22px;
-    border-radius: 999px;
-    text-decoration: none;
-    box-shadow: 0 0 24px -4px rgba(255,79,216,0.7);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .hero-cta:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 34px -2px rgba(255,79,216,0.95);
-  }
+}
 
-  /* Tabs */
-  .tabs {
-    display: flex;
-    gap: 10px;
-    margin: 32px 0 28px;
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-  .tab-btn {
-    appearance: none;
-    background: transparent;
-    border: 1px solid transparent;
-    border-bottom: none;
-    color: var(--text-dim);
-    font-size: 0.88rem;
-    font-weight: 600;
-    padding: 12px 20px;
-    border-radius: 10px 10px 0 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transform: translateY(1px);
-    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  }
-  .tab-btn .icon { font-size: 1.1rem; filter: grayscale(0.6) brightness(0.9); transition: filter 0.15s ease; }
-  .tab-btn:hover { color: var(--text); }
+/* ---------- motion ---------- */
 
-  .tab-btn[data-accent="trader"].is-active {
-    color: var(--trader);
-    background: var(--panel);
-    border-color: var(--border);
-    box-shadow: 0 -2px 18px -6px rgba(51,255,240,0.5) inset;
-  }
-  .tab-btn[data-accent="agentic"].is-active {
-    color: var(--agentic);
-    background: var(--panel);
-    border-color: var(--border);
-    box-shadow: 0 -2px 18px -6px rgba(185,139,255,0.5) inset;
-  }
-  .tab-btn[data-accent="casino"].is-active {
-    color: var(--casino);
-    background: var(--panel);
-    border-color: var(--border);
-    box-shadow: 0 -2px 18px -6px rgba(255,79,216,0.5) inset;
-  }
-  .tab-btn[data-accent="passion"].is-active {
-    color: var(--passion);
-    background: var(--panel);
-    border-color: var(--border);
-    box-shadow: 0 -2px 18px -6px rgba(255,138,92,0.5) inset;
-  }
-  .tab-btn.is-active .icon { filter: none; }
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-in { opacity: 1; transform: none; }
 
-  /* Panels */
-  .panel { display: none; }
-  .panel.is-active { display: block; animation: fadeIn 0.25s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-  .panel-intro {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    margin: 0 0 20px;
-    max-width: 720px;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-  }
-
-  .card {
-    position: relative;
-    background: linear-gradient(180deg, var(--panel-2), var(--panel));
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
-  }
-  .card[data-accent="trader"]:hover  { border-color: var(--trader);  box-shadow: 0 0 28px -8px rgba(51,255,240,0.45);  transform: translateY(-2px); }
-  .card[data-accent="agentic"]:hover { border-color: var(--agentic); box-shadow: 0 0 28px -8px rgba(185,139,255,0.45); transform: translateY(-2px); }
-  .card[data-accent="casino"]:hover  { border-color: var(--casino);  box-shadow: 0 0 28px -8px rgba(255,79,216,0.45);  transform: translateY(-2px); }
-  .card[data-accent="passion"]:hover { border-color: var(--passion); box-shadow: 0 0 28px -8px rgba(255,138,92,0.45); transform: translateY(-2px); }
-  .card.is-locked { opacity: 0.88; }
-  .card.is-locked:hover { transform: none; box-shadow: none; border-color: var(--border); }
-
-  /* Whole card is the primary click target (stretched-link pattern) */
-  .card-cover {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-  .card-cover:focus-visible {
-    outline: 2px solid var(--text-dim);
-    outline-offset: -2px;
-  }
-
-  .card-preview {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: var(--bg);
-  }
-  .card-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .card:hover .card-preview img { transform: scale(1.045); }
-  .card-preview::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(11,13,20,0.55));
-    pointer-events: none;
-  }
-
-  .card-body {
-    padding: 18px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex-grow: 1;
-  }
-
-  .card-top { display: flex; align-items: center; gap: 12px; }
-  .card-icon {
-    font-size: 1.4rem;
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    transition: transform 0.18s ease;
-  }
-  .card[data-accent="trader"] .card-icon  { background: var(--trader-dim);  box-shadow: 0 0 16px -4px rgba(51,255,240,0.6); }
-  .card[data-accent="agentic"] .card-icon { background: var(--agentic-dim); box-shadow: 0 0 16px -4px rgba(185,139,255,0.6); }
-  .card[data-accent="casino"] .card-icon  { background: var(--casino-dim);  box-shadow: 0 0 16px -4px rgba(255,79,216,0.6); }
-  .card[data-accent="passion"] .card-icon { background: var(--passion-dim); box-shadow: 0 0 16px -4px rgba(255,138,92,0.6); }
-  .card:hover .card-icon { transform: scale(1.08) rotate(-3deg); }
-
-  .card-title {
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .card-desc { color: var(--text-dim); font-size: 0.86rem; flex-grow: 1; }
-
-  .tech { display: flex; flex-wrap: wrap; gap: 6px; position: relative; z-index: 2; pointer-events: none; }
-  .tech span {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.01em;
-    color: var(--text-dim);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 3px 10px;
-    white-space: nowrap;
-  }
-
-  .card-footer {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    margin-top: 2px;
-  }
-  .card-open {
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: var(--text-dim);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.15s ease;
-  }
-  .card:hover .card-open { color: var(--text); }
-  .card[data-accent="trader"]:hover .card-open  { color: var(--trader); }
-  .card[data-accent="agentic"]:hover .card-open { color: var(--agentic); }
-  .card[data-accent="casino"]:hover .card-open  { color: var(--casino); }
-  .card[data-accent="passion"]:hover .card-open { color: var(--passion); }
-
-  .status-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    margin-right: 6px;
-  }
-  .status-dot.live { background: #4ee39b; box-shadow: 0 0 8px 1px rgba(78,227,155,0.8); animation: pulse-glow 2.4s ease-in-out infinite; }
-  .status-dot.dark { background: #55596b; }
-
-  footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    color: var(--text-dim);
-    font-size: 0.8rem;
-  }
-  footer a { color: var(--trader); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 520px) {
-    .tabs { gap: 4px; }
-    .tab-btn { padding: 10px 12px; font-size: 0.8rem; }
-    .hero-inner { padding: 22px 20px; }
-    .hero-title { font-size: 1.4rem; }
-    .hero-games-row { font-size: 1.25rem; gap: 12px; }
-  }
+  .reveal { opacity: 1; transform: none; }
+  .tape-track { animation: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="page-head">
-    <div class="eyebrow">// girnarholdings / project-map</div>
-    <h1>ZeusBot Project Directory</h1>
-    <p>Index of active projects. Each card opens its live deployment on click. Source repositories
-      are private; where no public deployment exists, the card is informational only.</p>
-  </header>
+<header class="masthead wrap">
+  <div class="rule">girnarholdings · project map</div>
+  <h1 class="wordmark">Zeus<em>Bot</em></h1>
+  <p class="masthead-sub">Project Directory</p>
+  <div class="masthead-foot">
+    <p class="masthead-lede">
+      Ten systems built end to end. Six are <strong>market intelligence desks</strong> that
+      publish on a schedule; four are <strong>creative and agentic products</strong> that run
+      all the time. Every image below is a real screenshot of the thing itself.
+    </p>
+    <ul class="masthead-stats">
+      <li><b>10</b> projects</li>
+      <li><b>9</b> live deployments</li>
+      <li><b>2</b> desks</li>
+    </ul>
+  </div>
+</header>
 
-  <nav class="tabs" role="tablist">
-    <button class="tab-btn is-active" data-accent="trader" data-tab="trader" role="tab" aria-selected="true">
-      <span class="icon">📡</span> Trader Command Zone
-    </button>
-    <button class="tab-btn" data-accent="agentic" data-tab="agentic" role="tab" aria-selected="false">
-      <span class="icon">🤖</span> Agentic / Personalized
-    </button>
-    <button class="tab-btn" data-accent="casino" data-tab="casino" role="tab" aria-selected="false">
-      <span class="icon">🎰</span> Casino
-    </button>
-    <button class="tab-btn" data-accent="passion" data-tab="passion" role="tab" aria-selected="false">
-      <span class="icon">🎨</span> Passion Projects
-    </button>
-  </nav>
+<!-- Real prices, captured from the BoltNews desk at the moment this page was built.
+     Presented as a capture, never as a live feed. -->
+<section class="tape" aria-label="Market tape captured from the BoltNews desk">
+  <p class="tape-head">Tape · captured 27 Jul 2026, 13:44 ET · from the BoltNews desk · not live</p>
+  <div class="tape-track">
+    <div class="tape-group">
+      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,428.75</span><span class="down">−0.25%</span></span>
+      <span class="tape-item"><span class="sym">NQ1</span><span class="px">28,053.25</span><span class="down">−0.81%</span></span>
+      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,950.10</span><span class="up">+0.30%</span></span>
+      <span class="tape-item"><span class="sym">TU1</span><span class="px">102.773</span><span class="up">+0.03%</span></span>
+      <span class="tape-item"><span class="sym">TY1</span><span class="px">108.562</span><span class="up">+0.22%</span></span>
+      <span class="tape-item"><span class="sym">US1</span><span class="px">110.250</span><span class="up">+0.48%</span></span>
+      <span class="tape-item"><span class="sym">CL1</span><span class="px">82.59</span><span class="down">−7.52%</span></span>
+      <span class="tape-item"><span class="sym">NG1</span><span class="px">2.78</span><span class="down">−3.60%</span></span>
+      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,076.40</span><span class="up">+0.14%</span></span>
+      <span class="tape-item"><span class="sym">VIX</span><span class="px">19.56</span><span class="up">+5.27%</span></span>
+    </div>
+    <div class="tape-group" aria-hidden="true">
+      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,428.75</span><span class="down">−0.25%</span></span>
+      <span class="tape-item"><span class="sym">NQ1</span><span class="px">28,053.25</span><span class="down">−0.81%</span></span>
+      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,950.10</span><span class="up">+0.30%</span></span>
+      <span class="tape-item"><span class="sym">TU1</span><span class="px">102.773</span><span class="up">+0.03%</span></span>
+      <span class="tape-item"><span class="sym">TY1</span><span class="px">108.562</span><span class="up">+0.22%</span></span>
+      <span class="tape-item"><span class="sym">US1</span><span class="px">110.250</span><span class="up">+0.48%</span></span>
+      <span class="tape-item"><span class="sym">CL1</span><span class="px">82.59</span><span class="down">−7.52%</span></span>
+      <span class="tape-item"><span class="sym">NG1</span><span class="px">2.78</span><span class="down">−3.60%</span></span>
+      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,076.40</span><span class="up">+0.14%</span></span>
+      <span class="tape-item"><span class="sym">VIX</span><span class="px">19.56</span><span class="up">+5.27%</span></span>
+    </div>
+  </div>
+</section>
 
-  <!-- TRADER COMMAND ZONE -->
-  <section class="panel is-active" id="panel-trader">
-    <p class="panel-intro">Automated market-intelligence pipelines — news synthesis, quant screening, factor and earnings setups, and betting-market intelligence, all deployed as static dashboards.</p>
+<main>
+
+  <!-- ===================== MARKETS & TRADING ===================== -->
+  <section class="band wrap" id="markets" style="--accent: var(--amber);">
+    <div class="band-head reveal">
+      <div class="rule">six systems · published on a schedule</div>
+      <h2 class="band-title">Markets &amp; Trading</h2>
+      <p class="band-desc">
+        Research pipelines that run themselves. Each one ingests messy public data on a
+        cron and ships a finished, readable briefing — no dashboard-wrangling required.
+      </p>
+    </div>
+
     <div class="grid">
 
-      <div class="card" data-accent="trader">
-        <a class="card-cover" href="https://girnarholdings.github.io/BoltNews/" target="_blank" rel="noopener" aria-label="Open BoltNews"></a>
-        <div class="card-preview"><img src="assets/previews/boltnews.png" alt="BoltNews dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">⚡</div>
-            <span class="card-title">BoltNews</span>
-          </div>
-          <div class="card-desc">Daily automated cross-asset news-intelligence pipeline for a fundamental long/short PM — synthesizes pre-market, post-market, and weekend research briefings across equities, rates, credit, FX, commodities, volatility, and crypto via multi-agent discovery lanes.</div>
-          <div class="tech"><span>Python 3.12</span><span>Multi-agent LLM pipeline</span><span>Cron</span><span>Static HTML dashboard</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card is-wide reveal">
+        <div class="card-media">
+          <img src="assets/shots/boltnews.jpg" width="1120" height="700" decoding="async"
+               alt="The BoltNews dashboard: a mid-day edition with equity futures, rates, commodities and volatility panels above a written market summary." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Cross-asset · three editions daily</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/BoltNews/" target="_blank" rel="noopener">BoltNews</a>
+          </h3>
+          <p class="card-desc">
+            An automated news desk for a fundamental long/short PM. Multi-agent discovery
+            lanes sweep equities, rates, credit, FX, commodities, volatility and crypto,
+            then write the pre-market, mid-day and weekend briefings.
+          </p>
+          <ul class="card-tech">
+            <li>Python 3.12</li><li>Multi-agent LLM</li><li>Cron</li><li>GitHub Pages</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="trader">
-        <a class="card-cover" href="https://girnarholdings.github.io/BetNews/" target="_blank" rel="noopener" aria-label="Open BetNews"></a>
-        <div class="card-preview"><img src="assets/previews/betnews.png" alt="BetNews dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🏈</div>
-            <span class="card-title">BetNews</span>
-          </div>
-          <div class="card-desc">Daily automated betting-intelligence briefing: consensus odds, positive-EV screens, and underdog trend analysis aggregated across Polymarket, Kalshi, DraftKings, FanDuel, and 60+ other sportsbooks and analytics sources.</div>
-          <div class="tech"><span>Python 3.11+ (stdlib)</span><span>Polymarket Gamma API</span><span>RSS feeds</span><span>Vanilla JS search</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/boltfactors.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The BoltFactors dashboard showing a market-stats header, a regime playbook and factor lead bars." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Factors · five times a day</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener">BoltFactors</a>
+          </h3>
+          <p class="card-desc">
+            Quantitative factor briefings generated straight off the market-data warehouse,
+            tracking regime shifts across value, momentum, quality and volatility.
+          </p>
+          <ul class="card-tech">
+            <li>Python</li><li>DuckDB</li><li>Polygon</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="trader">
-        <a class="card-cover" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener" aria-label="Open Equity Screener"></a>
-        <div class="card-preview"><img src="assets/previews/equity-screener.png" alt="Equity Screener dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">📈</div>
-            <span class="card-title">Equity Screener</span>
-          </div>
-          <div class="card-desc">Daily dashboard ranking low-priced, $5B+ market-cap VTI stocks across seven deterministic scoring sleeves (RSI inflection, value, momentum, squeeze) plus a wave-stage classifier and an adaptive, factor-momentum-tilted EV master score.</div>
-          <div class="tech"><span>Python</span><span>DuckDB / Polygon warehouse</span><span>pandas</span><span>Cron</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/yt-briefings.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The YouTube Briefings title card: a gold lightning bolt beside the words YouTube Briefings by ZeusBot." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Creator-list intelligence</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener">YouTube Briefings</a>
+          </h3>
+          <p class="card-desc">
+            Turns channel and video activity across a tracked list of creators into a
+            structured, digestible briefing instead of an endless subscriptions feed.
+          </p>
+          <ul class="card-tech">
+            <li>Python</li><li>GitHub Actions</li><li>Static HTML</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="trader">
-        <a class="card-cover" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener" aria-label="Open AI Assisted Earnings Screener"></a>
-        <div class="card-preview"><img src="assets/previews/earnings-screener.png" alt="AI Assisted Earnings Screener dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🧠</div>
-            <span class="card-title">AI Assisted Earnings Screener</span>
-          </div>
-          <div class="card-desc">Identifies stocks with the strongest technical/fundamental setup heading into earnings, cross-referencing VTI holdings against a SEC EDGAR/DoltHub earnings calendar and reusing the equity screener's 7-sleeve scoring engine, enriched with LLM commentary.</div>
-          <div class="tech"><span>Python</span><span>SEC EDGAR</span><span>DoltHub</span><span>DuckDB</span><span>DeepSeek LLM</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/equity-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The Equity Screener cockpit: a universe pulse panel, factor leadership bars and leaders-and-laggards tables." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Seven scoring sleeves · VTI universe</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener">Equity Screener</a>
+          </h3>
+          <p class="card-desc">
+            Ranks low-priced, large-cap names through seven deterministic sleeves — RSI
+            inflection, value, momentum, squeeze — then layers on a wave-stage classifier
+            and a factor-momentum-tilted master score.
+          </p>
+          <ul class="card-tech">
+            <li>Python</li><li>DuckDB</li><li>pandas</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="trader">
-        <a class="card-cover" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener" aria-label="Open BoltFactors"></a>
-        <div class="card-preview"><img src="assets/previews/boltfactors.png" alt="BoltFactors dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🧮</div>
-            <span class="card-title">BoltFactors</span>
-          </div>
-          <div class="card-desc">AI-powered factor briefing — five-times-daily quantitative factor summaries generated from the VTI market-data warehouse, tracking regime shifts across value, momentum, quality, and volatility factors.</div>
-          <div class="tech"><span>Python</span><span>DuckDB / Polygon warehouse</span><span>Cron (5x daily)</span><span>Static HTML dashboard</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/earnings-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The Earnings Screener: summary tiles for universe size and average score, a top-five opportunities list and per-name commentary." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Into the print · with commentary</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">Earnings Screener</a>
+          </h3>
+          <p class="card-desc">
+            Cross-references the holdings universe against a SEC EDGAR earnings calendar to
+            find the best setups heading into a print, reusing the screener's scoring engine
+            and adding written commentary per name.
+          </p>
+          <ul class="card-tech">
+            <li>SEC EDGAR</li><li>DoltHub</li><li>DuckDB</li><li>LLM</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
+
+      <article class="card is-wide reveal">
+        <div class="card-media">
+          <img src="assets/shots/betnews.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The BetNews briefing: an event-level market intelligence header over prediction-market panels for biggest movers and largest positions." />
+        </div>
+        <div class="card-body">
+          <p class="card-kicker">Event markets · 60+ books and sources</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/BetNews/" target="_blank" rel="noopener">BetNews</a>
+          </h3>
+          <p class="card-desc">
+            The same briefing discipline pointed at betting markets: consensus odds,
+            positive-EV screens and underdog trends aggregated across Polymarket, Kalshi and
+            the major sportsbooks.
+          </p>
+          <ul class="card-tech">
+            <li>Python (stdlib only)</li><li>Polymarket Gamma API</li><li>Vanilla JS search</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- AGENTIC WORKFLOWS -->
-  <section class="panel" id="panel-agentic">
-    <p class="panel-intro">Autonomous pipelines that turn unstructured, protected, or high-volume sources into structured intelligence — plus agentic apps that personalize themselves around a single user instead of a market.</p>
+  <!-- ===================== CREATIVE & AGENTIC ===================== -->
+  <section class="band wrap" id="creative" style="--accent: var(--crimson);">
+    <div class="band-head reveal">
+      <div class="rule">four products · always on</div>
+      <h2 class="band-title">Creative &amp; Agentic</h2>
+      <p class="band-desc">
+        Things people use rather than things that publish. Each one shapes itself around a
+        single person — the table you sit at, the plan you can actually follow, the city
+        you're standing in tonight.
+      </p>
+    </div>
+
     <div class="grid">
 
-      <div class="card is-locked" data-accent="agentic">
-        <div class="card-preview"><img src="assets/previews/cre-ai-agent.png" alt="CRE AI Agent — private repository, no public deployment" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🏢</div>
-            <span class="card-title">CRE AI Agent</span>
-          </div>
-          <div class="card-desc">Automated commercial real estate pipeline: scrapes LoopNet listings past Akamai bot protection via Firefox remote-debugging, then serves the deal set through an interactive underwriting dashboard for per-deal deep dives.</div>
-          <div class="tech"><span>Python</span><span>Selenium / Firefox CDP</span><span>Streamlit</span><span>Static HTML dashboard</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot dark"></span>Private — no public deployment</span>
-          </div>
+      <article class="card is-wide reveal">
+        <div class="card-media">
+          <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Five tables · one bankroll</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Grand Atlantic</a>
+          </h3>
+          <p class="card-desc">
+            A casino floor built to teach rather than take: Blackjack, Roulette, Baccarat,
+            Craps and Poker trainers behind one front desk, sharing a single bankroll and a
+            walk-away goal across every table.
+          </p>
+          <ul class="card-tech">
+            <li>React</li><li>Vite</li><li>Client-side only</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Take a seat <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="agentic">
-        <a class="card-cover" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener" aria-label="Open YouTube Briefings"></a>
-        <div class="card-preview"><img src="assets/previews/yt-briefing.png" alt="YouTube Briefings dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">▶️</div>
-            <span class="card-title">YouTube Briefings</span>
-          </div>
-          <div class="card-desc">Intelligence generator for a tracked list of YouTube creators — turns their channel and video activity into a structured, digestible briefing.</div>
-          <div class="tech"><span>Python</span><span>Static HTML dashboard</span><span>GitHub Actions → Pages</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The FitForge app: the headline Your personal trainer, forged around you, above an illustrated figure with highlighted muscle groups and set and protein readouts." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Web + iOS · offline-friendly</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">FitForge</a>
+          </h3>
+          <p class="card-desc">
+            Learns the equipment you have, the lifts you like and the movements you avoid,
+            then substitutes equivalents by muscle group instead of handing out a generic
+            plan. Macro targets follow Mifflin–St Jeor.
+          </p>
+          <ul class="card-tech">
+            <li>Next.js 15</li><li>SwiftUI</li><li>Supabase</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open the demo <span class="arrow">→</span></p>
+        </div>
+      </article>
 
-      <div class="card" data-accent="agentic">
-        <a class="card-cover" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener" aria-label="Open FitForge"></a>
-        <div class="card-preview"><img src="assets/previews/fitforge.png" alt="FitForge dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">💪</div>
-            <span class="card-title">FitForge</span>
-          </div>
-          <div class="card-desc">Preference-driven fitness and nutrition platform — learns available equipment, preferred movements, and exercises to avoid, then deterministically substitutes equivalents instead of handing out generic plans. Macro targets follow the Mifflin–St Jeor method.</div>
-          <div class="tech"><span>Next.js 15</span><span>SwiftUI (iOS)</span><span>Supabase</span><span>In-browser interactive demo</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open demo ↗</span>
-          </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/shots/vibenyc.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The VibeNYC landing page: the headline Read the city before you go, beside a dark panel showing city temperature and signal readouts." />
         </div>
-      </div>
+        <div class="card-body">
+          <p class="card-kicker">Attribution-first · New York</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">VibeNYC</a>
+          </h3>
+          <p class="card-desc">
+            A living read on what's actually happening across the city tonight, built from
+            official facts, local expertise and community signals — with every claim
+            traceable back to its source.
+          </p>
+          <ul class="card-tech">
+            <li>Python</li><li>GitHub Actions</li><li>Static HTML</li>
+          </ul>
+          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+        </div>
+      </article>
+
+      <article class="card is-wide is-private reveal">
+        <div class="card-body">
+          <p class="card-kicker">Private tooling · commercial real estate</p>
+          <h3 class="card-name">CRE AI Agent</h3>
+          <p class="card-desc">
+            Scrapes commercial listings past bot protection using a remote-debugged browser,
+            then serves the resulting deal set through an underwriting dashboard for
+            per-deal deep dives. It works on live broker data, so there is no public
+            deployment — and no screenshot here.
+          </p>
+          <ul class="card-tech">
+            <li>Python</li><li>Selenium / CDP</li><li>Streamlit</li>
+          </ul>
+          <p class="card-cta"><i class="dot dot--off"></i> Private — nothing to open</p>
+        </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- CASINO -->
-  <section class="panel" id="panel-casino">
-    <p class="panel-intro">Mathematically verified casino-game trainers — every payout and edge is checked against theory before it ships.</p>
+</main>
 
-    <!-- FEATURED: GRAND ATLANTIC -->
-    <section class="hero-frame">
-      <div class="hero-inner">
-        <div class="hero-scanline"></div>
-        <div class="hero-badge"><span class="pulse-dot"></span>Featured — The Casino Floor</div>
-        <div class="hero-games-row">
-          <span title="Blackjack">🃏</span><span title="Poker">♠️</span><span title="Roulette">🎡</span><span title="Craps">🎲</span><span title="Baccarat">🐉</span>
-        </div>
-        <div class="hero-bankroll-line"><div class="hero-bankroll-dot"></div></div>
-        <h2 class="hero-title">GRAND ATLANTIC<span class="hero-title-sub">Five-Table Casino Floor Trainer</span></h2>
-        <p class="hero-desc">Five Atlantic City table-game trainers — Blackjack, Roulette, Baccarat, Craps, and Poker — behind one animated casino floor, sharing a single bankroll and a profit goal. Every house edge is shown, taught, and never hidden.</p>
-        <div class="tech"><span>React</span><span>Vite</span><span>Vanilla JS</span><span>localStorage session state</span><span>Client-side only</span></div>
-        <div class="hero-actions">
-          <a class="hero-cta" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Launch App ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="grid">
-
-      <div class="card" data-accent="casino">
-        <a class="card-cover" href="https://girnarholdings.github.io/BlackjackTrainer/" target="_blank" rel="noopener" aria-label="Open Blackjack Trainer"></a>
-        <div class="card-preview"><img src="assets/previews/blackjack.png" alt="Blackjack Trainer preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🃏</div>
-            <span class="card-title">Blackjack Trainer</span>
-          </div>
-          <div class="card-desc">Interactive basic-strategy and Hi-Lo card-counting trainer set at an Atlantic City high-limit table, with move-by-move coaching, count-aware bet sizing, behavioral guardrails, and full-shoe simulation.</div>
-          <div class="tech"><span>React 18</span><span>Vite 5</span><span>Tailwind CSS 3</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open app ↗</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-accent="casino">
-        <a class="card-cover" href="https://girnarholdings.github.io/PokerTrainer/" target="_blank" rel="noopener" aria-label="Open Poker Trainer"></a>
-        <div class="card-preview"><img src="assets/previews/poker.png" alt="Poker Trainer preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">♠️</div>
-            <span class="card-title">Poker Trainer</span>
-          </div>
-          <div class="card-desc">Browser-based No-Limit Texas Hold'em trainer — play against randomized bots with a live Chen-formula/pot-odds strategy coach, a Monte Carlo equity/variance tracker, and interactive range-chart and quiz tools.</div>
-          <div class="tech"><span>Vanilla JS / HTML / CSS</span><span>No build step</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open app ↗</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-accent="casino">
-        <a class="card-cover" href="https://girnarholdings.github.io/RouletteTrainer/" target="_blank" rel="noopener" aria-label="Open Roulette Trainer"></a>
-        <div class="card-preview"><img src="assets/previews/roulette.png" alt="Roulette Trainer preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🎡</div>
-            <span class="card-title">Roulette Trainer</span>
-          </div>
-          <div class="card-desc">Dark-theme double- and single-zero roulette simulator built to test whether wheel-quadrant "droughts" carry tradeable information — live telemetry, χ² stats, bankroll analytics, and a Fallacy Lab running 100k simulated spins.</div>
-          <div class="tech"><span>React</span><span>Vite</span><span>Crypto-secure RNG</span><span>CI-verified Monte Carlo</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open app ↗</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-accent="casino">
-        <a class="card-cover" href="https://girnarholdings.github.io/CrapsTrainer/" target="_blank" rel="noopener" aria-label="Open Craps Trainer"></a>
-        <div class="card-preview"><img src="assets/previews/craps.png" alt="Craps Trainer preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🎲</div>
-            <span class="card-title">Craps Trainer</span>
-          </div>
-          <div class="card-desc">Mathematically verified craps trainer and simulator covering every bet on the table, with a live coach recommending the edge-minimizing next move and a Monte Carlo strategy simulator.</div>
-          <div class="tech"><span>React</span><span>Vite</span><span>Monte Carlo-verified engine</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open app ↗</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-accent="casino">
-        <a class="card-cover" href="https://girnarholdings.github.io/BaccaratTrainer/" target="_blank" rel="noopener" aria-label="Open Baccarat Trainer"></a>
-        <div class="card-preview"><img src="assets/previews/baccarat.png" alt="Baccarat Trainer preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🐉</div>
-            <span class="card-title">Baccarat Trainer</span>
-          </div>
-          <div class="card-desc">Commission-free EZ Baccarat trainer with the Dragon Bonus and Sun 7 / Moon 8 side bets, a full electronic road board, and live coaching — Coach Me, Play, and Drill modes, plus a "Genie" companion for intuition-based calls.</div>
-          <div class="tech"><span>Vanilla JS (ES modules)</span><span>No framework / bundler</span><span>Playwright + Node test runner</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open app ↗</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PASSION PROJECTS -->
-  <section class="panel" id="panel-passion">
-    <p class="panel-intro">Off-thesis builds — things made for the fun of it, not because a PM asked for them.</p>
-    <div class="grid">
-
-      <div class="card" data-accent="passion">
-        <a class="card-cover" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener" aria-label="Open VibeNYC"></a>
-        <div class="card-preview"><img src="assets/previews/vibenyc.png" alt="VibeNYC dashboard preview" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-top">
-            <div class="card-icon">🗽</div>
-            <span class="card-title">VibeNYC</span>
-          </div>
-          <div class="card-desc">Attribution-first, continuously refreshed New York City intelligence — a living feed of what's happening across the city, with every claim traceable back to its source.</div>
-          <div class="tech"><span>Python</span><span>Static HTML dashboard</span><span>GitHub Actions → Pages</span></div>
-          <div class="card-footer">
-            <span class="card-open"><span class="status-dot live"></span>Open dashboard ↗</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    Source and full documentation in <a href="https://github.com/girnarholdings/Project-Map/blob/main/README.md">README.md</a>.
-  </footer>
-
-</div>
+<footer class="foot wrap">
+  <span>girnarholdings · project map</span>
+  <span>Screenshots captured 27 Jul 2026</span>
+</footer>
 
 <script>
-  (function () {
-    var tabs = document.querySelectorAll(".tab-btn");
-    var panels = {
-      trader: document.getElementById("panel-trader"),
-      agentic: document.getElementById("panel-agentic"),
-      casino: document.getElementById("panel-casino"),
-      passion: document.getElementById("panel-passion")
-    };
-    tabs.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var target = btn.getAttribute("data-tab");
-        tabs.forEach(function (b) {
-          b.classList.toggle("is-active", b === btn);
-          b.setAttribute("aria-selected", b === btn ? "true" : "false");
-        });
-        Object.keys(panels).forEach(function (key) {
-          panels[key].classList.toggle("is-active", key === target);
-        });
-        history.replaceState(null, "", "#" + target);
-      });
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(items, function (el) { el.classList.add('is-in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      // stagger siblings so a row resolves in reading order rather than all at once
+      var siblings = Array.prototype.slice.call(el.parentNode.children);
+      var delay = Math.min(siblings.indexOf(el), 3) * 70;
+      setTimeout(function () { el.classList.add('is-in'); }, delay);
+      io.unobserve(el);
     });
-    var hash = window.location.hash.replace("#", "");
-    if (panels[hash]) {
-      var match = document.querySelector('.tab-btn[data-tab="' + hash + '"]');
-      if (match) match.click();
-    }
-  })();
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+})();
 </script>
 
 </body>
