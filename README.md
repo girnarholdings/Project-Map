@@ -1,7 +1,7 @@
 # Project-Map
 
 Index of active projects. This repo publishes a landing page (`index.html`), titled
-**ZeusBot — Project Directory**, via GitHub Pages at
+**Girnar Holdings — Project Directory**, via GitHub Pages at
 **https://girnarholdings.github.io/Project-Map/**.
 
 The page is a **two-tab** directory rather than a long scroll. Each tab is its own room with
@@ -10,7 +10,7 @@ its own visual world:
 | Tab | Room | Contents |
 |---|---|---|
 | **Markets & Trading** | *the desk* — night trading terminal | Six systems that publish on a schedule |
-| **Creative & Agentic** | *the floor* — an establishment after dark | Four products that run all the time |
+| **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Four products that run all the time |
 
 Tabs deep-link (`#desk`, `#floor`), support arrow-key navigation, and use proper
 `tablist`/`tab`/`tabpanel` roles. The tables below are the underlying source of truth, and
@@ -32,10 +32,12 @@ and both rooms are night rooms. There is no light variant, by choice rather than
   explicitly labelled as a capture rather than a live feed, is not wired to any data source,
   and will not update. It belongs to the desk and is hidden on the floor.
 
-**The floor** switches to gold-on-oxblood luxury:
+**The floor** switches to antique gold on lapis:
 
-- **Palette** of gold `#D4AF37` on oxblood velvet, taken from Grand Atlantic's own curtain and
-  chip livery.
+- **Palette sampled directly from the house mark** — navy `#071848`, gold `#D6B788`, cream
+  `#EAD7B4`, read off the logo file rather than eyeballed. An earlier pass used Grand
+  Atlantic's oxblood-and-bright-gold, which made the whole room read as a knock-off of one
+  product inside it; the room now belongs to Girnar Holdings instead.
 - **Playfair Display** (SIL Open Font License) as the display face, self-hosted from
   `assets/fonts/` as a latin-subset variable woff2 (61 KB for both roman and italic). Nothing
   is fetched from a font CDN at runtime. Because the floor panel is `hidden` until opened, the
@@ -45,21 +47,36 @@ and both rooms are night rooms. There is no light variant, by choice rather than
   than an arbitrary number: the Floor, the Training Room, the Concierge, the Back Office.
 - Screenshots are dimmed to `brightness(0.86)` to sit in the room's low light and come back to
   full brightness on hover — which also keeps the one light-themed product (VibeNYC) from
-  glaring against the velvet.
+  glaring against the stone.
 
 ### A note on imagery
 
-There is **no stock photography on this page, and none should be added**. Getty Images and
-similar libraries are licensed stock; republishing their work on a public Pages site would be
-copyright infringement regardless of how the file was obtained. Unsplash, Pexels and Wikimedia
-are all blocked by this environment's network policy anyway.
+There is **no stock photography on this page**. Two separate reasons, and both matter:
+
+1. **Licensing.** Getty Images and similar libraries are licensed stock; republishing their
+   work on a public Pages site would be copyright infringement regardless of how the file was
+   obtained.
+2. **The build environment cannot fetch images at all.** Unsplash, Pexels, Wikimedia, the Met,
+   Smithsonian, Rijksmuseum, Library of Congress, Cleveland Museum and NGA were all tested and
+   every one is refused at CONNECT by the network policy. `WebFetch` returns 403 and only ever
+   yields text, never image bytes. Web *search* works, so images can be found and identified —
+   they just cannot be downloaded.
+
+If you want real photography here, the practical route is to commit the files to this repo
+directly (or attach them in a session) and reference them from `assets/`. Anything added that
+way still needs a licence that permits redistribution — public-domain or CC0 sources such as
+the Met's Open Access collection are safe; Getty is not.
 
 Everything visual here is either the owner's own work or generated for this repo:
 
 - `assets/shots/*.jpg` — real screenshots of the owner's own deployed products.
-- `assets/floor-velvet.jpg` — the oxblood drape, generated procedurally (layered CSS gradients
-  plus an SVG `feTurbulence` grain, rendered to a 1600×900 JPEG in headless Chromium, 31 KB).
-- The gold chip crest on the floor is inline SVG drawn to match Grand Atlantic's house mark.
+- `assets/floor-lapis.jpg` — lapis lazuli with gold pyrite veining, generated for this repo.
+  The veins and flecks are drawn as SVG paths and circles from a **seeded PRNG** (mulberry32,
+  seed `20260729`) so the stone is reproducible, then rendered to a 1600×900 JPEG in headless
+  Chromium (46 KB). An `feTurbulence` version was tried first and looked like clouds rather
+  than stone.
+- `assets/girnar-logo.png` is the house mark as supplied; `girnar-mark.png` and the favicon /
+  apple-touch / 512 icons are all cropped and masked from it to a clean disc.
 
 ## Card screenshots
 
@@ -91,8 +108,10 @@ Caveats worth knowing before regenerating them:
 
 ## Favicon & link-preview assets
 
-`assets/` holds the hosted icon and social files (`favicon.svg`, `favicon-32.png`,
-`favicon-64.png`, `apple-touch-icon.png`, `icon-512.png`, `og-image.png`). These are committed
+`assets/` holds the hosted icon and social files (`favicon-32.png`, `favicon-64.png`,
+`apple-touch-icon.png`, `icon-512.png`, `og-image.png`), all derived from the Girnar Holdings
+house mark and masked to a circular disc so the medallion stays legible at 32 px. The page
+title, `og:site_name`, and both card titles all read **Girnar Holdings**. These are committed
 as real files rather than inline data URIs — link-preview crawlers (iMessage, Slack, X) and
 iOS's apple-touch-icon need a fetchable URL and won't reliably resolve a `data:` URI.
 `og-image.png` is a rendered 1200×630 card matching the page's design.
