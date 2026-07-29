@@ -3,70 +3,121 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>ZeusBot — Project Directory</title>
-<meta name="description" content="A working index of ten built systems — market intelligence desks that publish on a schedule, and creative agentic products that run all the time." />
-<meta name="theme-color" content="#0B0C0F" />
+<title>Girnar Holdings — Project Directory</title>
+<meta name="description" content="Girnar Holdings — ten built systems in two rooms: a trading desk of market intelligence pipelines, and a floor of creative agentic products." />
+<meta name="theme-color" content="#071848" />
 
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="ZeusBot — Project Directory" />
-<meta property="og:description" content="A working index of ten built systems — market intelligence desks that publish on a schedule, and creative agentic products that run all the time." />
+<meta property="og:site_name" content="Girnar Holdings" />
+<meta property="og:title" content="Girnar Holdings — Project Directory" />
+<meta property="og:description" content="Ten built systems in two rooms — a trading desk of market intelligence pipelines, and a floor of creative agentic products." />
 <meta property="og:url" content="https://girnarholdings.github.io/Project-Map/" />
 <meta property="og:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ZeusBot — Project Directory" />
-<meta name="twitter:description" content="Ten built systems — market intelligence desks and creative agentic products." />
+<meta name="twitter:title" content="Girnar Holdings — Project Directory" />
+<meta name="twitter:description" content="Ten built systems in two rooms — the desk, and the floor." />
 <meta name="twitter:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 
 <style>
 /* ============================================================
-   ZeusBot Project Directory — "the signal desk"
+   Girnar Holdings — Project Directory
 
-   Deliberately single-theme. This is a night trading floor and
-   a broadcast board; the product screenshots it frames are
-   themselves almost all dark. A light variant would fight both.
-   A committed choice, not an omission.
+   Two rooms, two visual worlds, one page:
+
+   [desk]   Markets & Trading — night trading terminal. Amber on
+            warm ink, monospace display, a captured market tape.
+   [floor]  Creative & Agentic — the house itself: a vaulted hall in
+            antique gold on lapis, Playfair Display, plaques you press
+            rather than cards you read. Palette sampled from the house
+            mark, so the room belongs to Girnar Holdings rather than to
+            any one product sitting inside it.
+
+   Both are deliberately dark: every product screenshot they frame
+   is itself a dark UI, and the two rooms are both night rooms.
    ============================================================ */
 
+/* Playfair Display (SIL Open Font License), self-hosted latin subset.
+   Used by the house wordmark and throughout the floor. */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/playfair-roman.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/playfair-italic.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  /* ground — warm-biased ink rather than pure black */
+  /* ---- the desk (default) ---- */
   --ink:        #0B0C0F;
   --ink-raised: #101217;
   --ink-card:   #14161C;
   --line:       #242730;
   --line-soft:  #1B1E25;
 
-  /* text — warm off-white, neutrals biased toward the amber accent */
   --text:       #EAE7E0;
   --text-dim:   #A8A296;
   --text-faint: #6F6A61;
 
-  /* signal palette lifted from the products themselves:
-     BoltNews / BoltFactors / FitForge amber, Grand Atlantic crimson */
   --amber:      #F5B93B;
   --green:      #4ADE80;
   --crimson:    #C2384A;
   --rose:       #E8707E;
 
   --accent:     var(--amber);
+  --halo-a:     rgba(245,185,59,0.10);
+  --halo-b:     rgba(194,56,74,0.09);
 
   --mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo,
           Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
           "Liberation Sans", Arial, sans-serif;
+  --serif: "Playfair Display", ui-serif, Georgia, "Iowan Old Style",
+           "Bitstream Charter", "Times New Roman", serif;
 
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --maxw: 82rem;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+/* ---- the floor ----
+   Lapis and antique gold, sampled from the Girnar Holdings house mark
+   (navy #071848, gold #D6B788, cream #EAD7B4). Deliberately not the
+   oxblood-and-bright-gold of Grand Atlantic: this room belongs to the
+   house, not to any one product inside it. */
+body[data-view="floor"] {
+  --ink:        #04102F;
+  --ink-raised: #0A1B4A;
+  --ink-card:   rgba(10, 26, 68, 0.70);
+  --line:       #23407F;
+  --line-soft:  #16295C;
 
+  --text:       #F2E7CF;
+  --text-dim:   #B8C4E0;
+  --text-faint: #7C89AE;
+
+  --gold:       #D6B788;
+  --gold-lt:    #EAD7B4;
+  --gold-br:    #E8C697;
+  --gold-dk:    #8C7148;
+
+  --accent:     var(--gold);
+  --halo-a:     rgba(214,183,136,0.12);
+  --halo-b:     rgba(30,64,160,0.22);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -78,20 +129,38 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* one atmospheric gesture behind the masthead, not five */
+/* atmosphere: a halo on the desk, lapis on the floor */
 body::before {
   content: "";
   position: fixed;
   inset: -20vh 0 auto 0;
   height: 70vh;
   background:
-    radial-gradient(60rem 30rem at 22% 0%, rgba(245,185,59,0.10), transparent 68%),
-    radial-gradient(48rem 26rem at 88% 6%, rgba(194,56,74,0.09), transparent 66%);
+    radial-gradient(60rem 30rem at 22% 0%, var(--halo-a), transparent 68%),
+    radial-gradient(48rem 26rem at 88% 6%, var(--halo-b), transparent 66%);
   pointer-events: none;
   z-index: 0;
+  transition: opacity 0.5s ease;
 }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* scrim over the hall so body copy keeps its contrast at the top of the page */
+  background-image:
+    linear-gradient(180deg, rgba(4,16,47,0.60) 0%, rgba(4,16,47,0.28) 34%, rgba(3,11,34,0.68) 100%),
+    url("assets/floor-hall.jpg");
+  background-size: cover, cover;
+  background-position: center top, center top;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.6s ease;
+}
+body[data-view="floor"]::after { opacity: 0.6; }
 
 .wrap {
   position: relative;
@@ -104,7 +173,7 @@ body::before {
 a { color: inherit; }
 
 :where(a, button):focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -121,102 +190,152 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--text-faint);
 }
-.rule::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
+.rule::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
 .dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--green);
+  width: 0.5rem; height: 0.5rem; border-radius: 50%;
+  background: var(--green, #4ADE80);
   box-shadow: 0 0 0 3px rgba(74,222,128,0.14);
   flex: none;
 }
+body[data-view="floor"] .dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(214,183,136,0.18);
+}
 .dot--off {
-  background: var(--text-faint);
-  box-shadow: 0 0 0 3px rgba(111,106,97,0.12);
+  background: var(--text-faint) !important;
+  box-shadow: 0 0 0 3px rgba(111,106,97,0.12) !important;
 }
 
 /* ---------- masthead ---------- */
 
-.masthead { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem); }
-.masthead .rule { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.masthead { padding-block: clamp(2.25rem, 6vw, 4.25rem) clamp(1.25rem, 2.5vw, 2rem); }
+.masthead .rule { margin-bottom: clamp(1.5rem, 4vw, 2.75rem); }
+
+/* house lockup: the medallion beside the name, the way it sits on letterhead */
+.lockup { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); }
+
+.lockup-mark {
+  flex: none;
+  width: clamp(4rem, 12vw, 8.5rem);
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(214,183,136,0.28), 0 10px 34px rgba(0,0,0,0.55);
+}
 
 .wordmark {
   margin: 0;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: clamp(2.75rem, 13vw, 9.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.055em;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(2.125rem, 8vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: 0.005em;
   text-wrap: balance;
 }
-.wordmark em { font-style: normal; color: var(--amber); }
+.wordmark em {
+  display: block;
+  font-style: normal;
+  color: var(--accent);
+  transition: color 0.5s ease;
+}
 
 .masthead-sub {
-  margin: clamp(1rem, 2.5vw, 1.5rem) 0 0;
+  margin: clamp(0.75rem, 1.6vw, 1rem) 0 0;
   font-family: var(--mono);
-  font-size: clamp(0.75rem, 1.8vw, 0.9375rem);
+  font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
   letter-spacing: 0.42em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
 
-/* lede and running totals share one baseline row on wide screens
-   so the masthead fills its measure instead of trailing off left */
+@media (max-width: 34rem) {
+  .lockup { gap: 0.875rem; }
+}
+
 .masthead-foot {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
 }
 
 .masthead-lede {
   margin: 0;
   max-width: 48ch;
-  font-size: clamp(1rem, 2.2vw, 1.1875rem);
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
   color: var(--text-dim);
   text-wrap: pretty;
 }
 .masthead-lede strong { color: var(--text); font-weight: 600; }
 
 .masthead-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 clamp(1.5rem, 4vw, 3rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  display: flex; flex-wrap: wrap;
+  gap: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+  margin: 0; padding: 0; list-style: none;
   font-family: var(--mono);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-faint);
 }
-.masthead-stats b {
-  color: var(--text);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
+.masthead-stats b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- tabs ---------- */
+
+.tabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid var(--line-soft);
 }
 
-/* ---------- the tape ---------- */
+.tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.875rem 0.25rem 0.8125rem;
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: clamp(0.6875rem, 1.6vw, 0.8125rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.tab .tab-mark {
+  width: 0.4375rem; height: 0.4375rem; border-radius: 50%;
+  background: currentColor; opacity: 0.5; flex: none;
+}
+.tab:hover { color: var(--text-dim); }
+.tab[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+.tab[aria-selected="true"] .tab-mark { background: var(--accent); opacity: 1; }
+.tab .tab-count { color: var(--text-faint); }
+
+/* ---------- the tape (desk only) ---------- */
 
 .tape {
-  margin-top: clamp(2.5rem, 6vw, 4rem);
-  border-block: 1px solid var(--line-soft);
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid var(--line-soft);
   background: var(--ink-raised);
   overflow: hidden;
 }
-
 .tape-head {
-  max-width: var(--maxw);
-  margin-inline: auto;
+  max-width: var(--maxw); margin-inline: auto;
   padding: 0.625rem var(--gutter) 0;
   font-family: var(--mono);
   font-size: 0.625rem;
@@ -224,68 +343,46 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--text-faint);
 }
-
 .tape-track {
-  display: flex;
-  width: max-content;
+  display: flex; width: max-content;
   padding-block: 0.625rem 0.75rem;
   animation: tape 64s linear infinite;
 }
-.tape-group {
-  display: flex;
-  flex: none;
-  gap: 2.25rem;
-  padding-right: 2.25rem;
-}
+.tape-group { display: flex; flex: none; gap: 2.25rem; padding-right: 2.25rem; }
 .tape-item {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  display: inline-flex; align-items: baseline; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .tape-item .sym  { color: var(--text-faint); letter-spacing: 0.1em; }
 .tape-item .px   { color: var(--text); }
 .tape-item .up   { color: var(--green); }
 .tape-item .down { color: var(--rose); }
-
 @keyframes tape { to { transform: translateX(-50%); } }
 
-/* ---------- section bands ---------- */
+/* ---------- panels ---------- */
 
-.band { padding-block: clamp(3.5rem, 9vw, 6.5rem) 0; }
-.band-head { margin-bottom: clamp(2rem, 5vw, 3rem); }
+.panel[hidden] { display: none; }
+.panel { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
 
-.band-title {
+.panel-head { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
+
+.panel-title {
   margin: 0.875rem 0 0;
   font-family: var(--mono);
   font-weight: 700;
   font-size: clamp(1.75rem, 5.5vw, 3rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
-  color: var(--text);
 }
-.band-title::before {
-  content: "";
-  display: inline-block;
-  width: 0.5em;
-  height: 0.5em;
-  margin-right: 0.45em;
-  border-radius: 50%;
-  background: var(--accent);
-  vertical-align: 0.08em;
-}
-
-.band-desc {
+.panel-desc {
   margin: 1rem 0 0;
   max-width: 56ch;
   color: var(--text-dim);
   text-wrap: pretty;
 }
 
-/* ---------- cards ---------- */
+/* ---------- desk: cards ---------- */
 
 .grid {
   display: grid;
@@ -295,8 +392,7 @@ a { color: inherit; }
 
 .card {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   min-width: 0;
   background: var(--ink-card);
   border: 1px solid var(--line-soft);
@@ -304,134 +400,70 @@ a { color: inherit; }
   overflow: hidden;
   transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
 }
+.card.is-wide { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
 
-.card.is-wide {
-  grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: stretch;
-}
-
-/* the whole card is the click target */
 .card-link { text-decoration: none; }
-.card-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
+.card-link::after { content: ""; position: absolute; inset: 0; z-index: 2; }
 
 .card-media {
-  position: relative;
-  flex: none;
+  position: relative; flex: none;
   aspect-ratio: 16 / 10;
   background: #0d0f13;
   border-bottom: 1px solid var(--line-soft);
   overflow: hidden;
 }
 .card.is-wide .card-media {
-  width: 56%;
-  aspect-ratio: auto;
-  border-bottom: 0;
-  border-right: 1px solid var(--line-soft);
+  width: 56%; aspect-ratio: auto;
+  border-bottom: 0; border-right: 1px solid var(--line-soft);
 }
-
 .card-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-
-/* a hairline of the section colour across the top of every screenshot */
 .card-media::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 2px;
-  background: var(--accent);
-  opacity: 0.55;
-  z-index: 1;
+  content: ""; position: absolute; inset: 0 0 auto 0;
+  height: 2px; background: var(--accent); opacity: 0.55; z-index: 1;
 }
 
 .card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6875rem;
-  flex: 1;
+  display: flex; flex-direction: column; gap: 0.6875rem; flex: 1;
   padding: clamp(1.125rem, 2.4vw, 1.75rem);
 }
-.card.is-wide .card-body {
-  justify-content: center;
-  padding: clamp(1.5rem, 3.2vw, 2.75rem);
-}
+.card.is-wide .card-body { justify-content: center; padding: clamp(1.5rem, 3.2vw, 2.75rem); }
 
 .card-kicker {
   margin: 0;
-  font-family: var(--mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-family: var(--mono); font-size: 0.625rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
 }
-
 .card-name {
   margin: 0;
-  font-family: var(--mono);
-  font-weight: 700;
+  font-family: var(--mono); font-weight: 700;
   font-size: clamp(1.25rem, 2.6vw, 1.75rem);
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  line-height: 1.1; letter-spacing: -0.035em;
 }
 .card.is-wide .card-name { font-size: clamp(1.5rem, 3.4vw, 2.25rem); }
 
-.card-desc {
-  margin: 0;
-  font-size: 0.9375rem;
-  color: var(--text-dim);
-  text-wrap: pretty;
-}
+.card-desc { margin: 0; font-size: 0.9375rem; color: var(--text-dim); text-wrap: pretty; }
 .card.is-wide .card-desc { font-size: 1rem; max-width: 48ch; }
 
-.card-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
-  margin: 0.125rem 0 0;
-  padding: 0;
-  list-style: none;
-}
+.card-tech { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0.125rem 0 0; padding: 0; list-style: none; }
 .card-tech li {
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.04em;
-  color: var(--text-faint);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.1875rem 0.5rem;
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
+  color: var(--text-faint); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.1875rem 0.5rem;
 }
 
 .card-cta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: auto 0 0;
-  padding-top: 0.875rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
+  display: flex; align-items: center; gap: 0.5rem;
+  margin: auto 0 0; padding-top: 0.875rem;
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim);
 }
 .card.is-wide .card-cta { margin-top: 1.25rem; }
-.card-cta .arrow {
-  margin-left: auto;
-  color: var(--accent);
-  transition: transform 0.25s ease;
-}
+.card-cta .arrow { margin-left: auto; color: var(--accent); transition: transform 0.25s ease; }
 
-/* one coordinated hover response rather than four competing ones */
 @media (hover: hover) {
   .card:hover {
     border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
@@ -442,29 +474,190 @@ a { color: inherit; }
   .card:hover .card-cta { color: var(--text); }
   .card:hover .card-cta .arrow { transform: translateX(3px); }
 }
-.card:focus-within {
-  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+.card:focus-within { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+
+/* ---------- floor: plaques ---------- */
+
+.floor-head { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.25rem); }
+
+.floor-crest {
+  display: block;
+  width: clamp(4rem, 10vw, 6.25rem);
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(214,183,136,0.3), 0 0 44px rgba(214,183,136,0.18);
 }
 
-/* ---------- the one card with nothing to open ---------- */
+.floor-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 7vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  background: linear-gradient(178deg, #F6ECD2 6%, #D6B788 48%, #97794A 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.floor-sub {
+  margin: 0.875rem auto 0;
+  max-width: 46ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2.4vw, 1.375rem);
+  color: var(--text-dim);
+}
 
-.card.is-private {
+/* a gold hairline flanked rule, the way a menu header is set */
+.floor-flourish {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-top: 1.5rem;
+  font-family: var(--mono); font-size: 0.625rem;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dk);
+}
+.floor-flourish::before, .floor-flourish::after {
+  content: ""; width: clamp(2rem, 12vw, 8rem); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dk));
+}
+.floor-flourish::after { background: linear-gradient(90deg, var(--gold-dk), transparent); }
+
+.plaques { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); }
+
+.plaque {
+  position: relative;
+  display: flex; flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
   background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0 11px,
-      rgba(255,255,255,0.018) 11px 22px
-    ),
-    var(--ink-card);
+    linear-gradient(180deg, rgba(18,42,102,0.62), rgba(5,16,45,0.78));
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card.is-private .card-body { padding-block: clamp(1.75rem, 4vw, 2.75rem); }
-.card.is-private .card-kicker,
-.card.is-private .card-cta { color: var(--text-faint); }
+.plaque.is-wide { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
+
+/* inner gold hairline — the double-rule of an engraved plate */
+.plaque::before {
+  content: "";
+  position: absolute; inset: 5px;
+  border: 1px solid rgba(214,183,136,0.24);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 3;
+  transition: border-color 0.3s ease;
+}
+
+.plaque-media {
+  position: relative; flex: none;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #061532;
+}
+.plaque.is-wide .plaque-media { width: 54%; aspect-ratio: auto; }
+.plaque-media img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  /* seat every screenshot in the room's low light — including the one
+     light-themed product, which otherwise glares against the stone */
+  filter: brightness(0.86) saturate(0.9);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease;
+}
+/* warm the screenshots into the room's light */
+.plaque-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,50,120,0.18), rgba(4,14,40,0.46));
+  pointer-events: none;
+}
+
+.plaque-body {
+  display: flex; flex-direction: column; gap: 0.625rem; flex: 1;
+  padding: clamp(1.25rem, 2.6vw, 1.875rem);
+}
+.plaque.is-wide .plaque-body { justify-content: center; padding: clamp(1.75rem, 3.4vw, 3rem); }
+
+.plaque-room {
+  margin: 0;
+  font-family: var(--mono); font-size: 0.625rem;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dk);
+}
+.plaque-name {
+  margin: 0;
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.06; letter-spacing: 0.01em;
+  color: var(--gold-lt);
+}
+.plaque.is-wide .plaque-name { font-size: clamp(1.875rem, 4vw, 2.75rem); }
+
+.plaque-tag {
+  margin: 0;
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(0.9375rem, 1.9vw, 1.125rem);
+  color: var(--gold);
+}
+.plaque-desc { margin: 0; font-size: 0.9375rem; color: var(--text-dim); text-wrap: pretty; }
+.plaque.is-wide .plaque-desc { max-width: 48ch; }
+
+.plaque-tech { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0.125rem 0 0; padding: 0; list-style: none; }
+.plaque-tech li {
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
+  color: var(--text-faint); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.1875rem 0.5rem;
+}
+
+/* the press-me control the whole plaque acts as */
+.plaque-enter {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.625rem; align-self: flex-start;
+  margin-top: 0.875rem; padding: 0.6875rem 1.375rem;
+  font-family: var(--mono); font-size: 0.6875rem;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: #1B1405;
+  background: linear-gradient(180deg, #EAD7B4, #D6B788 52%, #A98A57);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.plaque-enter .arrow { transition: transform 0.25s ease; }
+
+@media (hover: hover) {
+  .plaque:hover {
+    border-color: rgba(214,183,136,0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.5);
+  }
+  .plaque:hover::before { border-color: rgba(234,215,180,0.55); }
+  .plaque:hover .plaque-media img { transform: scale(1.045); filter: brightness(1) saturate(1); }
+  .plaque:hover .plaque-enter { filter: brightness(1.06); box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 10px 24px rgba(0,0,0,0.5); }
+  .plaque:hover .plaque-enter .arrow { transform: translateX(3px); }
+}
+.plaque:focus-visible { border-color: rgba(234,215,180,0.75); }
+
+/* the room that is closed to the public */
+.plaque.is-closed {
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 12px, rgba(214,183,136,0.035) 12px 24px),
+    linear-gradient(180deg, rgba(14,32,78,0.55), rgba(4,12,34,0.75));
+}
+.plaque.is-closed .plaque-name { color: var(--text-dim); }
+.plaque.is-closed .plaque-tag  { color: var(--text-faint); }
+.plaque.is-closed::before { border-color: rgba(214,183,136,0.13); }
+
+.plaque-closed-note {
+  display: inline-flex; align-items: center; gap: 0.625rem;
+  align-self: flex-start; margin-top: 0.875rem;
+  font-family: var(--mono); font-size: 0.6875rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint);
+}
 
 /* ---------- footer ---------- */
 
 .foot {
-  margin-top: clamp(4rem, 10vw, 7rem);
+  margin-top: clamp(3.5rem, 9vw, 6rem);
   padding-block: 2rem clamp(2.5rem, 6vw, 4rem);
   border-top: 1px solid var(--line-soft);
   font-family: var(--mono);
@@ -472,23 +665,37 @@ a { color: inherit; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-faint);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  justify-content: space-between;
+  display: flex; flex-wrap: wrap;
+  gap: 0.5rem 1.5rem; justify-content: space-between;
 }
 
 /* ---------- responsive ---------- */
 
-@media (max-width: 56rem) {
-  .grid { grid-template-columns: minmax(0, 1fr); }
-  .card.is-wide { flex-direction: column; }
-  .card.is-wide .card-media {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-right: 0;
-    border-bottom: 1px solid var(--line-soft);
+/* keep both tab labels on one line on narrow phones, and let the bar
+   scroll rather than wrap if a translation ever makes them longer */
+@media (max-width: 30rem) {
+  .tabs {
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    gap: 0.4375rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 56rem) {
+  .grid, .plaques { grid-template-columns: minmax(0, 1fr); }
+  .card.is-wide, .plaque.is-wide { flex-direction: column; }
+  .card.is-wide .card-media {
+    width: 100%; aspect-ratio: 16 / 10;
+    border-right: 0; border-bottom: 1px solid var(--line-soft);
+  }
+  .plaque.is-wide .plaque-media { width: 100%; aspect-ratio: 16 / 10; }
 }
 
 /* ---------- motion ---------- */
@@ -511,29 +718,44 @@ a { color: inherit; }
 }
 </style>
 </head>
-<body>
+<body data-view="desk">
 
 <header class="masthead wrap">
   <div class="rule">girnarholdings · project map</div>
-  <h1 class="wordmark">Zeus<em>Bot</em></h1>
-  <p class="masthead-sub">Project Directory</p>
+  <div class="lockup">
+    <img class="lockup-mark" src="assets/girnar-mark.png" width="256" height="256"
+         alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath an Om sunburst." />
+    <div>
+      <h1 class="wordmark">Girnar<em>Holdings</em></h1>
+      <p class="masthead-sub">Project Directory</p>
+    </div>
+  </div>
   <div class="masthead-foot">
     <p class="masthead-lede">
-      Ten systems built end to end. Six are <strong>market intelligence desks</strong> that
-      publish on a schedule; four are <strong>creative and agentic products</strong> that run
-      all the time. Every image below is a real screenshot of the thing itself.
+      Ten systems built end to end, in two rooms. The <strong>desk</strong> runs six market
+      intelligence pipelines that publish on a schedule. The <strong>floor</strong> holds four
+      creative and agentic products that run all the time.
     </p>
     <ul class="masthead-stats">
       <li><b>10</b> projects</li>
-      <li><b>9</b> live deployments</li>
-      <li><b>2</b> desks</li>
+      <li><b>9</b> live</li>
+      <li><b>2</b> rooms</li>
     </ul>
   </div>
 </header>
 
-<!-- Real prices, captured from the BoltNews desk at the moment this page was built.
+<nav class="tabs" role="tablist" aria-label="Project rooms">
+  <button class="tab" id="tab-desk" role="tab" aria-selected="true" aria-controls="panel-desk" type="button">
+    <span class="tab-mark"></span> Markets &amp; Trading <span class="tab-count">6</span>
+  </button>
+  <button class="tab" id="tab-floor" role="tab" aria-selected="false" aria-controls="panel-floor" tabindex="-1" type="button">
+    <span class="tab-mark"></span> Creative &amp; Agentic <span class="tab-count">4</span>
+  </button>
+</nav>
+
+<!-- Real prices captured from the BoltNews desk when this page was built.
      Presented as a capture, never as a live feed. -->
-<section class="tape" aria-label="Market tape captured from the BoltNews desk">
+<section class="tape" id="tape" aria-label="Market tape captured from the BoltNews desk">
   <p class="tape-head">Tape · captured 27 Jul 2026, 13:44 ET · from the BoltNews desk · not live</p>
   <div class="tape-track">
     <div class="tape-group">
@@ -565,14 +787,14 @@ a { color: inherit; }
 
 <main>
 
-  <!-- ===================== MARKETS & TRADING ===================== -->
-  <section class="band wrap" id="markets" style="--accent: var(--amber);">
-    <div class="band-head reveal">
+  <!-- ===================== THE DESK ===================== -->
+  <section class="panel wrap" id="panel-desk" role="tabpanel" aria-labelledby="tab-desk" tabindex="0">
+    <div class="panel-head reveal">
       <div class="rule">six systems · published on a schedule</div>
-      <h2 class="band-title">Markets &amp; Trading</h2>
-      <p class="band-desc">
-        Research pipelines that run themselves. Each one ingests messy public data on a
-        cron and ships a finished, readable briefing — no dashboard-wrangling required.
+      <h2 class="panel-title">Markets &amp; Trading</h2>
+      <p class="panel-desc">
+        Research pipelines that run themselves. Each one ingests messy public data on a cron
+        and ships a finished, readable briefing — no dashboard-wrangling required.
       </p>
     </div>
 
@@ -589,13 +811,11 @@ a { color: inherit; }
             <a class="card-link" href="https://girnarholdings.github.io/BoltNews/" target="_blank" rel="noopener">BoltNews</a>
           </h3>
           <p class="card-desc">
-            An automated news desk for a fundamental long/short PM. Multi-agent discovery
-            lanes sweep equities, rates, credit, FX, commodities, volatility and crypto,
-            then write the pre-market, mid-day and weekend briefings.
+            An automated news desk for a fundamental long/short PM. Multi-agent discovery lanes
+            sweep equities, rates, credit, FX, commodities, volatility and crypto, then write
+            the pre-market, mid-day and weekend briefings.
           </p>
-          <ul class="card-tech">
-            <li>Python 3.12</li><li>Multi-agent LLM</li><li>Cron</li><li>GitHub Pages</li>
-          </ul>
+          <ul class="card-tech"><li>Python 3.12</li><li>Multi-agent LLM</li><li>Cron</li><li>GitHub Pages</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -614,9 +834,7 @@ a { color: inherit; }
             Quantitative factor briefings generated straight off the market-data warehouse,
             tracking regime shifts across value, momentum, quality and volatility.
           </p>
-          <ul class="card-tech">
-            <li>Python</li><li>DuckDB</li><li>Polygon</li>
-          </ul>
+          <ul class="card-tech"><li>Python</li><li>DuckDB</li><li>Polygon</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -635,9 +853,7 @@ a { color: inherit; }
             Turns channel and video activity across a tracked list of creators into a
             structured, digestible briefing instead of an endless subscriptions feed.
           </p>
-          <ul class="card-tech">
-            <li>Python</li><li>GitHub Actions</li><li>Static HTML</li>
-          </ul>
+          <ul class="card-tech"><li>Python</li><li>GitHub Actions</li><li>Static HTML</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -654,12 +870,10 @@ a { color: inherit; }
           </h3>
           <p class="card-desc">
             Ranks low-priced, large-cap names through seven deterministic sleeves — RSI
-            inflection, value, momentum, squeeze — then layers on a wave-stage classifier
-            and a factor-momentum-tilted master score.
+            inflection, value, momentum, squeeze — then layers on a wave-stage classifier and a
+            factor-momentum-tilted master score.
           </p>
-          <ul class="card-tech">
-            <li>Python</li><li>DuckDB</li><li>pandas</li>
-          </ul>
+          <ul class="card-tech"><li>Python</li><li>DuckDB</li><li>pandas</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -675,13 +889,11 @@ a { color: inherit; }
             <a class="card-link" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">Earnings Screener</a>
           </h3>
           <p class="card-desc">
-            Cross-references the holdings universe against a SEC EDGAR earnings calendar to
-            find the best setups heading into a print, reusing the screener's scoring engine
-            and adding written commentary per name.
+            Cross-references the holdings universe against a SEC EDGAR earnings calendar to find
+            the best setups heading into a print, reusing the screener's scoring engine and
+            adding written commentary per name.
           </p>
-          <ul class="card-tech">
-            <li>SEC EDGAR</li><li>DoltHub</li><li>DuckDB</li><li>LLM</li>
-          </ul>
+          <ul class="card-tech"><li>SEC EDGAR</li><li>DoltHub</li><li>DuckDB</li><li>LLM</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -697,13 +909,11 @@ a { color: inherit; }
             <a class="card-link" href="https://girnarholdings.github.io/BetNews/" target="_blank" rel="noopener">BetNews</a>
           </h3>
           <p class="card-desc">
-            The same briefing discipline pointed at betting markets: consensus odds,
-            positive-EV screens and underdog trends aggregated across Polymarket, Kalshi and
-            the major sportsbooks.
+            The same briefing discipline pointed at betting markets: consensus odds, positive-EV
+            screens and underdog trends aggregated across Polymarket, Kalshi and the major
+            sportsbooks.
           </p>
-          <ul class="card-tech">
-            <li>Python (stdlib only)</li><li>Polymarket Gamma API</li><li>Vanilla JS search</li>
-          </ul>
+          <ul class="card-tech"><li>Python (stdlib only)</li><li>Polymarket Gamma API</li><li>Vanilla JS search</li></ul>
           <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
         </div>
       </article>
@@ -711,102 +921,91 @@ a { color: inherit; }
     </div>
   </section>
 
-  <!-- ===================== CREATIVE & AGENTIC ===================== -->
-  <section class="band wrap" id="creative" style="--accent: var(--crimson);">
-    <div class="band-head reveal">
-      <div class="rule">four products · always on</div>
-      <h2 class="band-title">Creative &amp; Agentic</h2>
-      <p class="band-desc">
-        Things people use rather than things that publish. Each one shapes itself around a
-        single person — the table you sit at, the plan you can actually follow, the city
-        you're standing in tonight.
-      </p>
+  <!-- ===================== THE FLOOR ===================== -->
+  <section class="panel wrap" id="panel-floor" role="tabpanel" aria-labelledby="tab-floor" tabindex="0" hidden>
+
+    <div class="floor-head reveal">
+      <img class="floor-crest" src="assets/girnar-mark.png" width="256" height="256" loading="lazy"
+           alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath an Om sunburst." />
+
+      <h2 class="floor-title">Creative &amp; Agentic</h2>
+      <p class="floor-sub">Four rooms under the house mark — things people use, rather than things that publish.</p>
+      <p class="floor-flourish">Shubh · Labh</p>
     </div>
 
-    <div class="grid">
+    <div class="plaques">
 
-      <article class="card is-wide reveal">
-        <div class="card-media">
+      <a class="plaque is-wide reveal" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">
+        <div class="plaque-media">
           <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
                alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
         </div>
-        <div class="card-body">
-          <p class="card-kicker">Five tables · one bankroll</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Grand Atlantic</a>
-          </h3>
-          <p class="card-desc">
-            A casino floor built to teach rather than take: Blackjack, Roulette, Baccarat,
-            Craps and Poker trainers behind one front desk, sharing a single bankroll and a
+        <div class="plaque-body">
+          <p class="plaque-room">The Floor · five tables, one bankroll</p>
+          <h3 class="plaque-name">Grand Atlantic</h3>
+          <p class="plaque-tag">The house always teaches</p>
+          <p class="plaque-desc">
+            A casino floor built to teach rather than take. Blackjack, Roulette, Baccarat, Craps
+            and Poker trainers sit behind one front desk, sharing a single bankroll and a
             walk-away goal across every table.
           </p>
-          <ul class="card-tech">
-            <li>React</li><li>Vite</li><li>Client-side only</li>
-          </ul>
-          <p class="card-cta"><i class="dot"></i> Take a seat <span class="arrow">→</span></p>
+          <ul class="plaque-tech"><li>React</li><li>Vite</li><li>Client-side only</li></ul>
+          <span class="plaque-enter">Take a seat <span class="arrow">→</span></span>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <div class="card-media">
+      <a class="plaque reveal" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">
+        <div class="plaque-media">
           <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The FitForge app: the headline Your personal trainer, forged around you, above an illustrated figure with highlighted muscle groups and set and protein readouts." />
+               alt="The FitForge app: the headline Your personal trainer, forged around you, above an illustrated figure with highlighted muscle groups." />
         </div>
-        <div class="card-body">
-          <p class="card-kicker">Web + iOS · offline-friendly</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">FitForge</a>
-          </h3>
-          <p class="card-desc">
-            Learns the equipment you have, the lifts you like and the movements you avoid,
-            then substitutes equivalents by muscle group instead of handing out a generic
-            plan. Macro targets follow Mifflin–St Jeor.
+        <div class="plaque-body">
+          <p class="plaque-room">The Training Room · web &amp; iOS</p>
+          <h3 class="plaque-name">FitForge</h3>
+          <p class="plaque-tag">Forged around you</p>
+          <p class="plaque-desc">
+            Learns the equipment you have, the lifts you like and the movements you avoid, then
+            substitutes equivalents by muscle group instead of handing out a generic plan.
           </p>
-          <ul class="card-tech">
-            <li>Next.js 15</li><li>SwiftUI</li><li>Supabase</li>
-          </ul>
-          <p class="card-cta"><i class="dot"></i> Open the demo <span class="arrow">→</span></p>
+          <ul class="plaque-tech"><li>Next.js 15</li><li>SwiftUI</li><li>Supabase</li></ul>
+          <span class="plaque-enter">Open the demo <span class="arrow">→</span></span>
         </div>
-      </article>
+      </a>
 
-      <article class="card reveal">
-        <div class="card-media">
+      <a class="plaque reveal" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">
+        <div class="plaque-media">
           <img src="assets/shots/vibenyc.jpg" width="1120" height="700" loading="lazy" decoding="async"
                alt="The VibeNYC landing page: the headline Read the city before you go, beside a dark panel showing city temperature and signal readouts." />
         </div>
-        <div class="card-body">
-          <p class="card-kicker">Attribution-first · New York</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">VibeNYC</a>
-          </h3>
-          <p class="card-desc">
+        <div class="plaque-body">
+          <p class="plaque-room">The Concierge · New York</p>
+          <h3 class="plaque-name">VibeNYC</h3>
+          <p class="plaque-tag">Read the city before you go</p>
+          <p class="plaque-desc">
             A living read on what's actually happening across the city tonight, built from
-            official facts, local expertise and community signals — with every claim
-            traceable back to its source.
+            official facts, local expertise and community signals — every claim traceable back
+            to its source.
           </p>
-          <ul class="card-tech">
-            <li>Python</li><li>GitHub Actions</li><li>Static HTML</li>
-          </ul>
-          <p class="card-cta"><i class="dot"></i> Open live site <span class="arrow">→</span></p>
+          <ul class="plaque-tech"><li>Python</li><li>GitHub Actions</li><li>Static HTML</li></ul>
+          <span class="plaque-enter">Read the city <span class="arrow">→</span></span>
         </div>
-      </article>
+      </a>
 
-      <article class="card is-wide is-private reveal">
-        <div class="card-body">
-          <p class="card-kicker">Private tooling · commercial real estate</p>
-          <h3 class="card-name">CRE AI Agent</h3>
-          <p class="card-desc">
+      <div class="plaque is-wide is-closed reveal">
+        <div class="plaque-body">
+          <p class="plaque-room">The Back Office · private tooling</p>
+          <h3 class="plaque-name">CRE AI Agent</h3>
+          <p class="plaque-tag">Closed to the public</p>
+          <p class="plaque-desc">
             Scrapes commercial listings past bot protection using a remote-debugged browser,
-            then serves the resulting deal set through an underwriting dashboard for
-            per-deal deep dives. It works on live broker data, so there is no public
-            deployment — and no screenshot here.
+            then serves the deal set through an underwriting dashboard for per-deal deep dives.
+            It works on live broker data, so there is no public deployment — and no screenshot
+            here.
           </p>
-          <ul class="card-tech">
-            <li>Python</li><li>Selenium / CDP</li><li>Streamlit</li>
-          </ul>
-          <p class="card-cta"><i class="dot dot--off"></i> Private — nothing to open</p>
+          <ul class="plaque-tech"><li>Python</li><li>Selenium / CDP</li><li>Streamlit</li></ul>
+          <p class="plaque-closed-note"><i class="dot dot--off"></i> No public deployment</p>
         </div>
-      </article>
+      </div>
 
     </div>
   </section>
@@ -814,33 +1013,84 @@ a { color: inherit; }
 </main>
 
 <footer class="foot wrap">
-  <span>girnarholdings · project map</span>
+  <span>Girnar Holdings · project map</span>
   <span>Screenshots captured 27 Jul 2026</span>
 </footer>
 
 <script>
 (function () {
+  var tabs   = [document.getElementById('tab-desk'), document.getElementById('tab-floor')];
+  var panels = [document.getElementById('panel-desk'), document.getElementById('panel-floor')];
+  var views  = ['desk', 'floor'];
+  var tape   = document.getElementById('tape');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var items = document.querySelectorAll('.reveal');
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    Array.prototype.forEach.call(items, function (el) { el.classList.add('is-in'); });
-    return;
+  var io = null;
+  if (!reduce && 'IntersectionObserver' in window) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var siblings = Array.prototype.slice.call(el.parentNode.children);
+        var delay = Math.min(siblings.indexOf(el), 3) * 70;
+        setTimeout(function () { el.classList.add('is-in'); }, delay);
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      // stagger siblings so a row resolves in reading order rather than all at once
-      var siblings = Array.prototype.slice.call(el.parentNode.children);
-      var delay = Math.min(siblings.indexOf(el), 3) * 70;
-      setTimeout(function () { el.classList.add('is-in'); }, delay);
-      io.unobserve(el);
+  function revealIn(panel) {
+    var items = panel.querySelectorAll('.reveal');
+    if (!io) {
+      Array.prototype.forEach.call(items, function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    Array.prototype.forEach.call(items, function (el) {
+      if (!el.classList.contains('is-in')) io.observe(el);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    // anything already on screen when the panel appears should not wait for a scroll
+    requestAnimationFrame(function () {
+      Array.prototype.forEach.call(items, function (el, i) {
+        if (el.classList.contains('is-in')) return;
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          setTimeout(function () { el.classList.add('is-in'); }, Math.min(i, 3) * 70);
+          io.unobserve(el);
+        }
+      });
+    });
+  }
 
-  Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  function activate(index, focusTab) {
+    tabs.forEach(function (tab, i) {
+      var on = i === index;
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+    });
+    document.body.setAttribute('data-view', views[index]);
+    // the tape carries market data; it belongs to the desk only
+    tape.hidden = index !== 0;
+    if (focusTab) tabs[index].focus();
+    revealIn(panels[index]);
+    try { history.replaceState(null, '', '#' + views[index]); } catch (e) {}
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activate(i, false); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      if (next === null) return;
+      e.preventDefault();
+      activate(next, true);
+    });
+  });
+
+  var start = views.indexOf((location.hash || '').replace('#', ''));
+  activate(start === -1 ? 0 : start, false);
 })();
 </script>
 
