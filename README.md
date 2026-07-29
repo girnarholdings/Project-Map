@@ -4,28 +4,62 @@ Index of active projects. This repo publishes a landing page (`index.html`), tit
 **ZeusBot — Project Directory**, via GitHub Pages at
 **https://girnarholdings.github.io/Project-Map/**.
 
-The page is organised into two sections — **Markets & Trading** (six systems that publish on
-a schedule) and **Creative & Agentic** (four products that run all the time). The tables
-below are the underlying source of truth, and they list projects in the same order the page
-does.
+The page is a **two-tab** directory rather than a long scroll. Each tab is its own room with
+its own visual world:
+
+| Tab | Room | Contents |
+|---|---|---|
+| **Markets & Trading** | *the desk* — night trading terminal | Six systems that publish on a schedule |
+| **Creative & Agentic** | *the floor* — an establishment after dark | Four products that run all the time |
+
+Tabs deep-link (`#desk`, `#floor`), support arrow-key navigation, and use proper
+`tablist`/`tab`/`tabpanel` roles. The tables below are the underlying source of truth, and
+they list projects in the same order the page does.
 
 ## Design
 
-The page is a single, committed visual world rather than a light/dark pair: a night trading
-desk and broadcast board. That is a deliberate choice, not an omission — nine of the ten
-screenshots it frames are themselves dark UIs, and a light variant would fight both them and
-the concept.
+Both rooms are deliberately dark — every product screenshot they frame is itself a dark UI,
+and both rooms are night rooms. There is no light variant, by choice rather than omission.
 
-- **Palette** is lifted from the products rather than invented. The amber (`#F5B93B`) is the
-  accent BoltNews, BoltFactors and FitForge already use; the crimson (`#C2384A`) is Grand
-  Atlantic's curtain. Markets & Trading runs amber, Creative & Agentic runs crimson, and each
-  section's colour appears as a hairline across the top of every screenshot in it.
-- **Type** uses monospace as the *display* face — the honest register for a portfolio where
-  nearly every project is a terminal — set against a system grotesque for running text. No
-  webfonts are loaded, so there is no silent-fallback risk and nothing to fetch.
-- **The tape** under the masthead shows real prices captured from the BoltNews desk at
-  2026-07-27 13:44 ET. It is explicitly labelled as a capture rather than a live feed; it is
-  not wired to any data source and will not update.
+**The desk** (default tab) keeps the trading-terminal treatment:
+
+- **Palette lifted from the products, not invented.** Amber `#F5B93B` is the accent BoltNews,
+  BoltFactors and FitForge already use. It appears as a hairline across the top of every
+  screenshot.
+- **Monospace as the display face** — the honest register for a room where every project is a
+  terminal — against a system grotesque for running text.
+- **The tape** shows real prices captured from the BoltNews desk at 2026-07-27 13:44 ET. It is
+  explicitly labelled as a capture rather than a live feed, is not wired to any data source,
+  and will not update. It belongs to the desk and is hidden on the floor.
+
+**The floor** switches to gold-on-oxblood luxury:
+
+- **Palette** of gold `#D4AF37` on oxblood velvet, taken from Grand Atlantic's own curtain and
+  chip livery.
+- **Playfair Display** (SIL Open Font License) as the display face, self-hosted from
+  `assets/fonts/` as a latin-subset variable woff2 (61 KB for both roman and italic). Nothing
+  is fetched from a font CDN at runtime. Because the floor panel is `hidden` until opened, the
+  browser does not download the face until someone actually switches tabs.
+- **Projects are plaques, not cards** — engraved double-rule frames with a gold "enter"
+  control, so each one reads as a thing you press. Each is labelled by the room it is rather
+  than an arbitrary number: the Floor, the Training Room, the Concierge, the Back Office.
+- Screenshots are dimmed to `brightness(0.86)` to sit in the room's low light and come back to
+  full brightness on hover — which also keeps the one light-themed product (VibeNYC) from
+  glaring against the velvet.
+
+### A note on imagery
+
+There is **no stock photography on this page, and none should be added**. Getty Images and
+similar libraries are licensed stock; republishing their work on a public Pages site would be
+copyright infringement regardless of how the file was obtained. Unsplash, Pexels and Wikimedia
+are all blocked by this environment's network policy anyway.
+
+Everything visual here is either the owner's own work or generated for this repo:
+
+- `assets/shots/*.jpg` — real screenshots of the owner's own deployed products.
+- `assets/floor-velvet.jpg` — the oxblood drape, generated procedurally (layered CSS gradients
+  plus an SVG `feTurbulence` grain, rendered to a 1600×900 JPEG in headless Chromium, 31 KB).
+- The gold chip crest on the floor is inline SVG drawn to match Grand Atlantic's house mark.
 
 ## Card screenshots
 
@@ -68,7 +102,7 @@ iOS's apple-touch-icon need a fetchable URL and won't reliably resolve a `data:`
 > Pages subdomains, so every link here points at `girnarholdings.github.io/*`. If a card 404s,
 > check that the project's own Pages deploy has been re-triggered under the new namespace.
 
-## 📡 Markets & Trading
+## 📡 Markets & Trading — *the desk*
 
 Research pipelines that run themselves — each ingests messy public data on a cron and ships a
 finished, readable briefing.
@@ -82,7 +116,7 @@ finished, readable briefing.
 | 5 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary | Cross-references the holdings universe against a SEC EDGAR/DoltHub earnings calendar to find the best setups heading into a print, reusing the screener's scoring engine and adding written commentary per name. |
 | 6 | **BetNews** | [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/) | Python 3.11+ (stdlib only), Polymarket Gamma API, RSS, vanilla JS search | The same briefing discipline pointed at betting markets: consensus odds, positive-EV screens and underdog trends aggregated across Polymarket, Kalshi, DraftKings, FanDuel and 60+ other books and sources. |
 
-## 🎭 Creative & Agentic
+## 🎭 Creative & Agentic — *the floor*
 
 Things people use rather than things that publish — each shapes itself around a single person.
 
