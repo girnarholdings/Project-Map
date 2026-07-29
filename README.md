@@ -63,18 +63,33 @@ There is **no stock photography on this page**. Two separate reasons, and both m
    they just cannot be downloaded.
 
 If you want real photography here, the practical route is to commit the files to this repo
-directly (or attach them in a session) and reference them from `assets/`. Anything added that
-way still needs a licence that permits redistribution — public-domain or CC0 sources such as
-the Met's Open Access collection are safe; Getty is not.
+directly (or attach them in a session, which is how the house mark and the lobby reference
+both arrived) and reference them from `assets/`. Anything added that way still needs a licence
+permitting redistribution — public-domain or CC0 sources such as the Met's Open Access
+collection are safe; Getty is not. Note that a heavily transformed derivative of a licensed
+photograph is still a derivative, so confirm the rights on any reference before it ships.
 
 Everything visual here is either the owner's own work or generated for this repo:
 
 - `assets/shots/*.jpg` — real screenshots of the owner's own deployed products.
-- `assets/floor-lapis.jpg` — lapis lazuli with gold pyrite veining, generated for this repo.
-  The veins and flecks are drawn as SVG paths and circles from a **seeded PRNG** (mulberry32,
-  seed `20260729`) so the stone is reproducible, then rendered to a 1600×900 JPEG in headless
-  Chromium (46 KB). An `feTurbulence` version was tried first and looked like clouds rather
-  than stone.
+- `assets/floor-hall.jpg` — the vaulted hall behind the floor tab, generated for this repo
+  and rendered to a 1600×900 JPEG in headless Chromium.
+
+  It is a **remix of a supplied reference photograph of a gilded hotel lobby**, not a copy of
+  it. The photograph is reduced to a 22×13 grid of average colours and smoothly upscaled, so
+  all that survives is the *fall of light* in a grand hall — luminous crown, dark flanks, a
+  pool underfoot. Those blocks are then recoloured by luminance into the house ramp (deep
+  lapis in shadow, antique gold in the highlights). No edge, ornament or recognisable
+  architecture from the original remains. The architecture you can actually see — the
+  receding vaulted arcade, its coffer ribs, the chandelier points and the floor reflection —
+  is drawn from scratch in SVG over the top.
+
+  Two rendering traps were hit building it, both worth knowing:
+  - Large CSS `blur()` radii on big elements seam visibly in Chromium (it tiles the filter).
+    Downsample-then-upscale through a canvas instead.
+  - A helper class setting `inset: 0` will silently pin a `bottom`-anchored band to the *top*,
+    because `top` + `bottom` + `height` is over-constrained and `bottom` loses. The floor band
+    now sets `top: auto` explicitly.
 - `assets/girnar-logo.png` is the house mark as supplied; `girnar-mark.png` and the favicon /
   apple-touch / 512 icons are all cropped and masked from it to a clean disc.
 
