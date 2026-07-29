@@ -107,12 +107,18 @@ blocks `*.github.io` and cannot reach the live sites directly:
 | `gh-pages` branch (deployed output committed) | BoltNews, BoltFactors, Earnings Screener, BetNews |
 | Static site committed on `main` | Equity Screener (`docs/`), VibeNYC (`site/`), Grand Atlantic (`gateway/`) |
 | Built from source locally (`npm ci`, Next.js static export) | FitForge |
-| Project's own committed brand card | YouTube Briefings (`docs/share-card.png`) |
+| Generated from source locally (`python -c "from src import builder; builder.build_dashboard()"`, the same command its deploy workflow runs) | YouTube Briefings |
 
 Caveats worth knowing before regenerating them:
 
-- Two sites load webfonts from Google Fonts, which the sandbox also blocks, so those
+- Several sites load webfonts from Google Fonts, which the sandbox also blocks, so those
   screenshots render in fallback faces and differ very slightly from production.
+- YouTube Briefings embeds video thumbnails and channel avatars from `i.ytimg.com` and
+  `yt3.googleusercontent.com`, both of which are blocked here. Those images load fine for real
+  visitors. Rather than ship a card full of broken-image glyphs — which would misrepresent the
+  live site as broken — the capture hides any image that failed to load and frames the card on
+  the header, Creator Pulse and creator filters, which render completely. Narrowing the capture
+  viewport to 860 px pushes the video grid below the fold and does this naturally.
 - Grand Atlantic opens on a splash screen; its screenshot is taken after clicking through to
   the training floor, which is the view worth showing.
 - The screenshots are point-in-time. Dashboards that publish daily will have moved on — the
