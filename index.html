@@ -609,17 +609,25 @@ body[data-view="floor"] .dot {
   border-radius: 999px; padding: 0.1875rem 0.5rem;
 }
 
-/* the press-me control the whole plaque acts as */
+/* the press-me control the whole plaque acts as.
+   This is the one place on the floor that runs hotter than the antique
+   gold of the room — a CTA has to out-read the ornament around it, so it
+   takes a brighter, more saturated leaf with a lit edge and a warm cast. */
 .plaque-enter {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 0.625rem; align-self: flex-start;
-  margin-top: 0.875rem; padding: 0.6875rem 1.375rem;
-  font-family: var(--mono); font-size: 0.6875rem;
-  letter-spacing: 0.24em; text-transform: uppercase;
-  color: #1B1405;
-  background: linear-gradient(180deg, #EAD7B4, #D6B788 52%, #A98A57);
-  border-radius: 2px;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 6px 18px rgba(0,0,0,0.45);
+  margin-top: 1rem; padding: 0.8125rem 1.625rem;
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #17100A;
+  background: linear-gradient(180deg, #FCF0C4 0%, #F0CE72 38%, #D9A93A 72%, #A87C22 100%);
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 -1px 0 rgba(120,84,18,0.5) inset,
+    0 0 0 1px rgba(255,236,178,0.45),
+    0 8px 22px rgba(0,0,0,0.55),
+    0 0 30px rgba(232,196,92,0.30);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 .plaque-enter .arrow { transition: transform 0.25s ease; }
@@ -632,7 +640,16 @@ body[data-view="floor"] .dot {
   }
   .plaque:hover::before { border-color: rgba(234,215,180,0.55); }
   .plaque:hover .plaque-media img { transform: scale(1.045); filter: brightness(1) saturate(1); }
-  .plaque:hover .plaque-enter { filter: brightness(1.06); box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 10px 24px rgba(0,0,0,0.5); }
+  .plaque:hover .plaque-enter {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.8) inset,
+      0 -1px 0 rgba(120,84,18,0.5) inset,
+      0 0 0 1px rgba(255,242,200,0.6),
+      0 12px 28px rgba(0,0,0,0.58),
+      0 0 42px rgba(240,206,114,0.45);
+  }
   .plaque:hover .plaque-enter .arrow { transform: translateX(3px); }
 }
 .plaque:focus-visible { border-color: rgba(234,215,180,0.75); }
@@ -968,7 +985,7 @@ body[data-view="floor"] .dot {
             substitutes equivalents by muscle group instead of handing out a generic plan.
           </p>
           <ul class="plaque-tech"><li>Next.js 15</li><li>SwiftUI</li><li>Supabase</li></ul>
-          <span class="plaque-enter">Open the demo <span class="arrow">→</span></span>
+          <span class="plaque-enter">Start training <span class="arrow">→</span></span>
         </div>
       </a>
 
@@ -987,7 +1004,7 @@ body[data-view="floor"] .dot {
             to its source.
           </p>
           <ul class="plaque-tech"><li>Python</li><li>GitHub Actions</li><li>Static HTML</li></ul>
-          <span class="plaque-enter">Read the city <span class="arrow">→</span></span>
+          <span class="plaque-enter">Open demo <span class="arrow">→</span></span>
         </div>
       </a>
 
