@@ -357,6 +357,7 @@ body[data-view="floor"] .dot {
 .tape-item .sym  { color: var(--text-faint); letter-spacing: 0.1em; }
 .tape-item .px   { color: var(--text); }
 .tape-item .up   { color: var(--green); }
+.tape-item .flat { color: var(--text-faint); }
 .tape-item .down { color: var(--rose); }
 @keyframes tape { to { transform: translateX(-50%); } }
 
@@ -475,6 +476,16 @@ body[data-view="floor"] .dot {
   .card:hover .card-cta .arrow { transform: translateX(3px); }
 }
 .card:focus-within { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+
+/* a desk card with nothing to open yet — same hatch as the floor's closed plaque */
+.card.is-quiet {
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 11px, rgba(255,255,255,0.018) 11px 22px),
+    var(--ink-card);
+}
+.card.is-quiet .card-body { padding-block: clamp(1.5rem, 3.4vw, 2.5rem); }
+.card.is-quiet .card-kicker,
+.card.is-quiet .card-cta { color: var(--text-faint); }
 
 /* ---------- floor: plaques ---------- */
 
@@ -749,13 +760,13 @@ body[data-view="floor"] .dot {
   </div>
   <div class="masthead-foot">
     <p class="masthead-lede">
-      Ten systems built end to end, in two rooms. The <strong>desk</strong> runs six market
-      intelligence pipelines that publish on a schedule. The <strong>floor</strong> holds four
-      creative and agentic products that run all the time.
+      Sixteen systems built end to end, in two rooms. The <strong>desk</strong> runs eight market
+      intelligence pipelines that publish on a schedule, behind one question box. The
+      <strong>floor</strong> holds eight creative and agentic products that run all the time.
     </p>
     <ul class="masthead-stats">
-      <li><b>10</b> projects</li>
-      <li><b>9</b> live</li>
+      <li><b>16</b> projects</li>
+      <li><b>12</b> live</li>
       <li><b>2</b> rooms</li>
     </ul>
   </div>
@@ -763,41 +774,41 @@ body[data-view="floor"] .dot {
 
 <nav class="tabs" role="tablist" aria-label="Project rooms">
   <button class="tab" id="tab-desk" role="tab" aria-selected="true" aria-controls="panel-desk" type="button">
-    <span class="tab-mark"></span> Markets &amp; Trading <span class="tab-count">6</span>
+    <span class="tab-mark"></span> Markets &amp; Trading <span class="tab-count">8</span>
   </button>
   <button class="tab" id="tab-floor" role="tab" aria-selected="false" aria-controls="panel-floor" tabindex="-1" type="button">
-    <span class="tab-mark"></span> Creative &amp; Agentic <span class="tab-count">4</span>
+    <span class="tab-mark"></span> Creative &amp; Agentic <span class="tab-count">8</span>
   </button>
 </nav>
 
 <!-- Real prices captured from the BoltNews desk when this page was built.
      Presented as a capture, never as a live feed. -->
 <section class="tape" id="tape" aria-label="Market tape captured from the BoltNews desk">
-  <p class="tape-head">Tape · captured 27 Jul 2026, 13:44 ET · from the BoltNews desk · not live</p>
+  <p class="tape-head">Tape · captured 19 Oct 2026, 18:24 ET · from the BoltNews post-market edition · not live</p>
   <div class="tape-track">
     <div class="tape-group">
-      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,428.75</span><span class="down">−0.25%</span></span>
-      <span class="tape-item"><span class="sym">NQ1</span><span class="px">28,053.25</span><span class="down">−0.81%</span></span>
-      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,950.10</span><span class="up">+0.30%</span></span>
-      <span class="tape-item"><span class="sym">TU1</span><span class="px">102.773</span><span class="up">+0.03%</span></span>
-      <span class="tape-item"><span class="sym">TY1</span><span class="px">108.562</span><span class="up">+0.22%</span></span>
-      <span class="tape-item"><span class="sym">US1</span><span class="px">110.250</span><span class="up">+0.48%</span></span>
-      <span class="tape-item"><span class="sym">CL1</span><span class="px">82.59</span><span class="down">−7.52%</span></span>
-      <span class="tape-item"><span class="sym">NG1</span><span class="px">2.78</span><span class="down">−3.60%</span></span>
-      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,076.40</span><span class="up">+0.14%</span></span>
-      <span class="tape-item"><span class="sym">VIX</span><span class="px">19.56</span><span class="up">+5.27%</span></span>
+      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,743.25</span><span class="up">+0.11%</span></span>
+      <span class="tape-item"><span class="sym">NQ1</span><span class="px">29,765.75</span><span class="up">+0.15%</span></span>
+      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,745.10</span><span class="up">+0.10%</span></span>
+      <span class="tape-item"><span class="sym">TU1</span><span class="px">4.75%</span><span class="flat">+0.0bp</span></span>
+      <span class="tape-item"><span class="sym">TY1</span><span class="px">5.10%</span><span class="up">+0.9bp</span></span>
+      <span class="tape-item"><span class="sym">US1</span><span class="px">5.44%</span><span class="up">+0.7bp</span></span>
+      <span class="tape-item"><span class="sym">CL1</span><span class="px">98.27</span><span class="down">−0.27%</span></span>
+      <span class="tape-item"><span class="sym">NG1</span><span class="px">3.04</span><span class="down">−0.75%</span></span>
+      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,160.70</span><span class="up">+0.01%</span></span>
+      <span class="tape-item"><span class="sym">VIX</span><span class="px">18.44</span><span class="down">−7.75%</span></span>
     </div>
     <div class="tape-group" aria-hidden="true">
-      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,428.75</span><span class="down">−0.25%</span></span>
-      <span class="tape-item"><span class="sym">NQ1</span><span class="px">28,053.25</span><span class="down">−0.81%</span></span>
-      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,950.10</span><span class="up">+0.30%</span></span>
-      <span class="tape-item"><span class="sym">TU1</span><span class="px">102.773</span><span class="up">+0.03%</span></span>
-      <span class="tape-item"><span class="sym">TY1</span><span class="px">108.562</span><span class="up">+0.22%</span></span>
-      <span class="tape-item"><span class="sym">US1</span><span class="px">110.250</span><span class="up">+0.48%</span></span>
-      <span class="tape-item"><span class="sym">CL1</span><span class="px">82.59</span><span class="down">−7.52%</span></span>
-      <span class="tape-item"><span class="sym">NG1</span><span class="px">2.78</span><span class="down">−3.60%</span></span>
-      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,076.40</span><span class="up">+0.14%</span></span>
-      <span class="tape-item"><span class="sym">VIX</span><span class="px">19.56</span><span class="up">+5.27%</span></span>
+      <span class="tape-item"><span class="sym">ES1</span><span class="px">7,743.25</span><span class="up">+0.11%</span></span>
+      <span class="tape-item"><span class="sym">NQ1</span><span class="px">29,765.75</span><span class="up">+0.15%</span></span>
+      <span class="tape-item"><span class="sym">RTY1</span><span class="px">2,745.10</span><span class="up">+0.10%</span></span>
+      <span class="tape-item"><span class="sym">TU1</span><span class="px">4.75%</span><span class="flat">+0.0bp</span></span>
+      <span class="tape-item"><span class="sym">TY1</span><span class="px">5.10%</span><span class="up">+0.9bp</span></span>
+      <span class="tape-item"><span class="sym">US1</span><span class="px">5.44%</span><span class="up">+0.7bp</span></span>
+      <span class="tape-item"><span class="sym">CL1</span><span class="px">98.27</span><span class="down">−0.27%</span></span>
+      <span class="tape-item"><span class="sym">NG1</span><span class="px">3.04</span><span class="down">−0.75%</span></span>
+      <span class="tape-item"><span class="sym">GC1</span><span class="px">4,160.70</span><span class="up">+0.01%</span></span>
+      <span class="tape-item"><span class="sym">VIX</span><span class="px">18.44</span><span class="down">−7.75%</span></span>
     </div>
   </div>
 </section>
@@ -807,11 +818,12 @@ body[data-view="floor"] .dot {
   <!-- ===================== THE DESK ===================== -->
   <section class="panel wrap" id="panel-desk" role="tabpanel" aria-labelledby="tab-desk" tabindex="0">
     <div class="panel-head reveal">
-      <div class="rule">six systems · published on a schedule</div>
+      <div class="rule">eight systems · published on a schedule</div>
       <h2 class="panel-title">Markets &amp; Trading</h2>
       <p class="panel-desc">
         Research pipelines that run themselves. Each one ingests messy public data on a cron
-        and ships a finished, readable briefing — no dashboard-wrangling required.
+        and ships a finished, readable briefing — and <strong>bolt.ceo</strong> reads all six
+        together, so you can ask the desks a question instead of opening six dashboards.
       </p>
     </div>
 
@@ -819,13 +831,33 @@ body[data-view="floor"] .dot {
 
       <article class="card is-wide reveal">
         <div class="card-media">
+          <img src="assets/shots/bolt-suite.jpg" width="1120" height="700" decoding="async"
+               alt="The bolt.ceo landing page: the headline Ask the desks anything above a question box and suggested prompts." />
+        </div>
+        <div class="card-body">
+          <p class="card-kicker">The front door · all six desks, one question box</p>
+          <h3 class="card-name">
+            <a class="card-link" href="https://bolt.ceo" target="_blank" rel="noopener">bolt.ceo</a>
+          </h3>
+          <p class="card-desc">
+            A market-intelligence LLM sitting on top of the six pipelines below. Ask a plain
+            question and it answers with a verdict, a technical read and a levels ladder — every
+            figure computed before a word is written, so a fabricated citation fails hard.
+          </p>
+          <ul class="card-tech"><li>Cloudflare Worker</li><li>6 pipelines</li><li>Zero runtime deps</li><li>246 offline tests</li></ul>
+          <p class="card-cta"><i class="dot"></i> Ask the desks <span class="arrow">→</span></p>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
           <img src="assets/shots/boltnews.jpg" width="1120" height="700" decoding="async"
-               alt="The BoltNews dashboard: a mid-day edition with equity futures, rates, commodities and volatility panels above a written market summary." />
+               alt="The BoltNews dashboard: a post-market edition with equity futures, rates, commodities and volatility panels above a written market summary." />
         </div>
         <div class="card-body">
           <p class="card-kicker">Cross-asset · three editions daily</p>
           <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/BoltNews/" target="_blank" rel="noopener">BoltNews</a>
+            <a class="card-link" href="https://news.bolt.ceo/" target="_blank" rel="noopener">BoltNews</a>
           </h3>
           <p class="card-desc">
             An automated news desk for a fundamental long/short PM. Multi-agent discovery lanes
@@ -915,7 +947,7 @@ body[data-view="floor"] .dot {
         </div>
       </article>
 
-      <article class="card is-wide reveal">
+      <article class="card reveal">
         <div class="card-media">
           <img src="assets/shots/betnews.jpg" width="1120" height="700" loading="lazy" decoding="async"
                alt="The BetNews briefing: an event-level market intelligence header over prediction-market panels for biggest movers and largest positions." />
@@ -935,6 +967,20 @@ body[data-view="floor"] .dot {
         </div>
       </article>
 
+      <article class="card is-wide is-quiet reveal">
+        <div class="card-body">
+          <p class="card-kicker">Housing research · no public deployment yet</p>
+          <h3 class="card-name">HousingTrends</h3>
+          <p class="card-desc">
+            Listing-free US housing reports for buyers, built only from official research files
+            rather than broker inventory — so a ZIP code report says what the public record
+            supports and nothing more. Still a private pipeline with no published site.
+          </p>
+          <ul class="card-tech"><li>Python</li><li>Official research files</li></ul>
+          <p class="card-cta"><i class="dot dot--off"></i> Private — nothing to open</p>
+        </div>
+      </article>
+
     </div>
   </section>
 
@@ -946,7 +992,7 @@ body[data-view="floor"] .dot {
            alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath an Om sunburst." />
 
       <h2 class="floor-title">Creative &amp; Agentic</h2>
-      <p class="floor-sub">Four rooms under the house mark — things people use, rather than things that publish.</p>
+      <p class="floor-sub">Eight rooms under the house mark — things people use, rather than things that publish.</p>
       <p class="floor-flourish">Shubh · Labh</p>
     </div>
 
@@ -968,6 +1014,44 @@ body[data-view="floor"] .dot {
           </p>
           <ul class="plaque-tech"><li>React</li><li>Vite</li><li>Client-side only</li></ul>
           <span class="plaque-enter">Take a seat <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a class="plaque reveal" href="https://girnarholdings.github.io/AgentSwarm/" target="_blank" rel="noopener">
+        <div class="plaque-media">
+          <img src="assets/shots/agentswarm.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The AgentSwarm landing page: the headline Describe it, watch it build itself, above a worked example of a swarm building a game." />
+        </div>
+        <div class="plaque-body">
+          <p class="plaque-room">The Workshop · plain English in, working app out</p>
+          <h3 class="plaque-name">AgentSwarm</h3>
+          <p class="plaque-tag">Describe it. Watch it build itself.</p>
+          <p class="plaque-desc">
+            Type an idea and a swarm of cheap agents builds it in parallel — every file its own
+            agent, priced before anything runs, online in one tap. Easy parts route to free
+            inference pools; only the hard ones reach the paid model.
+          </p>
+          <ul class="plaque-tech"><li>Cloudflare Workers</li><li>Multi-pool routing</li><li>223 tests</li></ul>
+          <span class="plaque-enter">Build something <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a class="plaque reveal" href="https://girnarholdings.github.io/TriDelPhi/" target="_blank" rel="noopener">
+        <div class="plaque-media">
+          <img src="assets/shots/tridelphi.jpg" width="1120" height="700" loading="lazy" decoding="async"
+               alt="The TriDelPhi site: the headline Check your code, choose your route, beside Manual Setup Studio and Cloud Scan Studio panels." />
+        </div>
+        <div class="plaque-body">
+          <p class="plaque-room">The Gatehouse · CI supply-chain security</p>
+          <h3 class="plaque-name">TriDelPhi</h3>
+          <p class="plaque-tag">Before an attacker finds it</p>
+          <p class="plaque-desc">
+            A static Agents Rule of Two analyzer for GitHub Actions: it finds the CI job where a
+            stranger's comment turns into remote code execution. Runs fully offline, makes zero
+            network calls by default, and never certifies anything as safe.
+          </p>
+          <ul class="plaque-tech"><li>Python 3.11–3.13</li><li>Offline by default</li><li>Apache-2.0</li></ul>
+          <span class="plaque-enter">Check your code <span class="arrow">→</span></span>
         </div>
       </a>
 
@@ -1008,6 +1092,36 @@ body[data-view="floor"] .dot {
         </div>
       </a>
 
+      <div class="plaque is-closed reveal">
+        <div class="plaque-body">
+          <p class="plaque-room">The Hatchery · the fleet's always-on mind</p>
+          <h3 class="plaque-name">Hatch</h3>
+          <p class="plaque-tag">It dreams, learns, and versions itself</p>
+          <p class="plaque-desc">
+            A local orchestrator running a three-machine fleet: four coding harnesses, a
+            mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a
+            machine-to-machine bus. It runs on private hardware, so there is nothing to open.
+          </p>
+          <ul class="plaque-tech"><li>Python</li><li>MoE routing</li><li>Fleet M2M bus</li></ul>
+          <p class="plaque-closed-note"><i class="dot dot--off"></i> Private — runs on the fleet</p>
+        </div>
+      </div>
+
+      <div class="plaque is-closed reveal">
+        <div class="plaque-body">
+          <p class="plaque-room">The Bridge · fleet mission control</p>
+          <h3 class="plaque-name">Hatch for iOS</h3>
+          <p class="plaque-tag">The fleet in your pocket</p>
+          <p class="plaque-desc">
+            The cockpit for Hatch — dreams, feed and routines, streaming chat, approvals and
+            dispatch, from a phone. SwiftUI with zero dependencies and VPN optional. It ships as
+            an app against private infrastructure rather than a web page.
+          </p>
+          <ul class="plaque-tech"><li>SwiftUI</li><li>Zero deps</li><li>iOS</li></ul>
+          <p class="plaque-closed-note"><i class="dot dot--off"></i> Private — no public build</p>
+        </div>
+      </div>
+
       <div class="plaque is-wide is-closed reveal">
         <div class="plaque-body">
           <p class="plaque-room">The Back Office · private tooling</p>
@@ -1031,7 +1145,7 @@ body[data-view="floor"] .dot {
 
 <footer class="foot wrap">
   <span>Girnar Holdings · project map</span>
-  <span>Screenshots captured 27–29 Jul 2026</span>
+  <span>Screenshots captured 20 Oct 2026</span>
 </footer>
 
 <script>
