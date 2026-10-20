@@ -9,8 +9,8 @@ its own visual world:
 
 | Tab | Room | Contents |
 |---|---|---|
-| **Markets & Trading** | *the desk* — night trading terminal | Six systems that publish on a schedule |
-| **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Four products that run all the time |
+| **Markets & Trading** | *the desk* — night trading terminal | Eight systems that publish on a schedule |
+| **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Eight products that run all the time |
 
 Tabs deep-link (`#desk`, `#floor`), support arrow-key navigation, and use proper
 `tablist`/`tab`/`tabpanel` roles. The tables below are the underlying source of truth, and
@@ -24,13 +24,15 @@ and both rooms are night rooms. There is no light variant, by choice rather than
 **The desk** (default tab) keeps the trading-terminal treatment:
 
 - **Palette lifted from the products, not invented.** Amber `#F5B93B` is the accent BoltNews,
-  BoltFactors and FitForge already use. It appears as a hairline across the top of every
-  screenshot.
+  BoltFactors and bolt.ceo already use. It appears as a hairline across the top of every
+  screenshot. FitForge has since rebranded to forge-copper and no longer matches, which is why
+  that claim now names the desks rather than the whole portfolio.
 - **Monospace as the display face** — the honest register for a room where every project is a
   terminal — against a system grotesque for running text.
-- **The tape** shows real prices captured from the BoltNews desk at 2026-07-27 13:44 ET. It is
-  explicitly labelled as a capture rather than a live feed, is not wired to any data source,
-  and will not update. It belongs to the desk and is hidden on the floor.
+- **The tape** shows real prices read off the BoltNews post-market edition of 2026-10-19,
+  18:24 ET. It is explicitly labelled as a capture rather than a live feed, is not wired to any
+  data source, and will not update. It belongs to the desk and is hidden on the floor. Refresh
+  it by rebuilding BoltNews and re-reading its market-table values.
 
 **The floor** switches to antique gold on lapis:
 
@@ -107,6 +109,7 @@ blocks `*.github.io` and cannot reach the live sites directly:
 | `gh-pages` branch (deployed output committed) | BoltNews, BoltFactors, Earnings Screener, BetNews |
 | Static site committed on `main` | Equity Screener (`docs/`), VibeNYC (`site/`), Grand Atlantic (`gateway/`) |
 | Built from source locally (`npm ci`, Next.js static export) | FitForge |
+| Static landing committed on `main`, served over HTTP to capture | bolt.ceo (`public/`), AgentSwarm (`gateway-worker/public/`), TriDelPhi (`site/`) |
 | Generated from source locally (`python -c "from src import builder; builder.build_dashboard()"`, the same command its deploy workflow runs) | YouTube Briefings |
 
 Caveats worth knowing before regenerating them:
@@ -121,6 +124,11 @@ Caveats worth knowing before regenerating them:
   viewport to 860 px pushes the video grid below the fold and does this naturally.
 - Grand Atlantic opens on a splash screen; its screenshot is taken after clicking through to
   the training floor, which is the view worth showing.
+- bolt.ceo, AgentSwarm and TriDelPhi reference assets by absolute path (`/styles.css`), which
+  resolves to the filesystem root under `file://` and renders an unstyled page. Serve the
+  landing directory over HTTP and capture from `127.0.0.1` instead. bolt.ceo additionally
+  renders a `Launchpad unavailable (404)` line when captured without its Worker API, so its
+  card is framed above that line rather than by editing the page.
 - The screenshots are point-in-time. Dashboards that publish daily will have moved on — the
   footer records the capture date so the page never implies the numbers are current.
 - **CRE AI Agent is deliberately not screenshotted.** It is a private tool operating on live
@@ -149,12 +157,14 @@ finished, readable briefing.
 
 | # | Project | Live site | Tech | Description |
 |---|---|---|---|---|
-| 1 | **BoltNews** | [girnarholdings.github.io/BoltNews](https://girnarholdings.github.io/BoltNews/) | Python 3.12, multi-agent LLM pipeline, cron, GitHub Pages | Automated news desk for a fundamental long/short PM. Multi-agent discovery lanes sweep equities, rates, credit, FX, commodities, volatility and crypto, then write the pre-market, mid-day and weekend briefings. |
-| 2 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Python, DuckDB/Polygon warehouse, cron (5× daily) | Quantitative factor briefings generated off the market-data warehouse, tracking regime shifts across value, momentum, quality and volatility. |
-| 3 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Python, GitHub Actions → Pages, static HTML | Turns channel and video activity across a tracked list of creators into a structured, digestible briefing instead of an endless subscriptions feed. |
-| 4 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | Python, DuckDB/Polygon warehouse, pandas | Ranks low-priced, large-cap VTI names through seven deterministic scoring sleeves (RSI inflection, value, momentum, squeeze), plus a wave-stage classifier and a factor-momentum-tilted EV master score. |
-| 5 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary | Cross-references the holdings universe against a SEC EDGAR/DoltHub earnings calendar to find the best setups heading into a print, reusing the screener's scoring engine and adding written commentary per name. |
-| 6 | **BetNews** | [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/) | Python 3.11+ (stdlib only), Polymarket Gamma API, RSS, vanilla JS search | The same briefing discipline pointed at betting markets: consensus odds, positive-EV screens and underdog trends aggregated across Polymarket, Kalshi, DraftKings, FanDuel and 60+ other books and sources. |
+| 1 | **bolt.ceo** | [bolt.ceo](https://bolt.ceo) | Cloudflare Worker, zero runtime deps, 246 offline tests | A market-intelligence LLM over the six pipelines below. A plain question returns a verdict, a technical read and a levels ladder; every figure is computed before any prose is generated, so a fabricated citation fails hard. Routing is deterministic regex across eleven analyst profiles, never a model call. |
+| 2 | **BoltNews** | [news.bolt.ceo](https://news.bolt.ceo/) | Python 3.12, multi-agent LLM pipeline, cron, GitHub Pages | Automated news desk for a fundamental long/short PM. Multi-agent discovery lanes sweep equities, rates, credit, FX, commodities, volatility and crypto, then write the pre-market, mid-day and weekend briefings. |
+| 3 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Python, DuckDB/Polygon warehouse, cron (5× daily) | Quantitative factor briefings generated off the market-data warehouse, tracking regime shifts across value, momentum, quality and volatility. |
+| 4 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Python, GitHub Actions → Pages, static HTML | Turns channel and video activity across a tracked list of creators into a structured, digestible briefing instead of an endless subscriptions feed. |
+| 5 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | Python, DuckDB/Polygon warehouse, pandas | Ranks low-priced, large-cap VTI names through seven deterministic scoring sleeves (RSI inflection, value, momentum, squeeze), plus a wave-stage classifier and a factor-momentum-tilted EV master score. |
+| 6 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary | Cross-references the holdings universe against a SEC EDGAR/DoltHub earnings calendar to find the best setups heading into a print, reusing the screener's scoring engine and adding written commentary per name. |
+| 7 | **BetNews** | [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/) | Python 3.11+ (stdlib only), Polymarket Gamma API, RSS, vanilla JS search | The same briefing discipline pointed at betting markets: consensus odds, positive-EV screens and underdog trends aggregated across Polymarket, Kalshi, DraftKings, FanDuel and 60+ other books and sources. |
+| 8 | **HousingTrends** | — *(private, no public deployment)* | Python, official research files only | Listing-free US housing reports for buyers, built only from official research files rather than broker inventory, so a ZIP-code report says what the public record supports and nothing more. |
 
 ## 🎭 Creative & Agentic — *the floor*
 
@@ -163,11 +173,22 @@ Things people use rather than things that publish — each shapes itself around 
 | # | Project | Live site | Tech | Description |
 |---|---|---|---|---|
 | 1 | **Grand Atlantic** | [girnarholdings.github.io/GrandAtlanticLive](https://girnarholdings.github.io/GrandAtlanticLive/) | React, Vite, vanilla JS, client-side only | A casino floor built to teach rather than take: Blackjack, Roulette, Baccarat, Craps and Poker trainers behind one front desk, sharing a single bankroll and walk-away goal across every table. |
-| 2 | **FitForge** | [girnarholdings.github.io/FitForge](https://girnarholdings.github.io/FitForge/) | Next.js 15, SwiftUI (iOS 17+), Supabase, TypeScript shared package | Learns the equipment you have, the lifts you prefer and the movements you avoid, then substitutes equivalents by muscle group and movement pattern instead of handing out a generic plan. Macro targets follow Mifflin–St Jeor. |
-| 3 | **VibeNYC** | [girnarholdings.github.io/VibeNYC](https://girnarholdings.github.io/VibeNYC/) | Python, GitHub Actions → Pages, static HTML | A living read on what's happening across New York tonight, built from official facts, local expertise and community signals — with every claim traceable back to its source. |
-| 4 | **CRE AI Agent** | — *(private, no public deployment)* | Python, Selenium/Firefox CDP scraping, Streamlit | Scrapes commercial listings past Akamai bot protection via Firefox remote-debugging, then serves the deal set through an interactive underwriting dashboard for per-deal deep dives. |
+| 2 | **AgentSwarm** | [girnarholdings.github.io/AgentSwarm](https://girnarholdings.github.io/AgentSwarm/) | Cloudflare Workers, multi-pool inference routing, 223 tests | Describe an app in plain English and a swarm of cheap agents builds it in parallel — every file its own agent, priced before anything runs, online in one tap. Trivial parts fan out across free inference pools; only hard parts reach the paid model. |
+| 3 | **TriDelPhi** | [girnarholdings.github.io/TriDelPhi](https://girnarholdings.github.io/TriDelPhi/) | Python 3.11–3.13, Apache-2.0, zero default network calls | A static *Agents Rule of Two* analyzer for GitHub Actions: it finds the CI job where an attacker's comment becomes remote code execution. Runs fully offline by default and never certifies a project as safe. |
+| 4 | **FitForge** | [girnarholdings.github.io/FitForge](https://girnarholdings.github.io/FitForge/) | Next.js 15, SwiftUI (iOS 17+), Supabase, TypeScript shared package | Learns the equipment you have, the lifts you prefer and the movements you avoid, then substitutes equivalents by muscle group and movement pattern instead of handing out a generic plan. Macro targets follow Mifflin–St Jeor. |
+| 5 | **VibeNYC** | [girnarholdings.github.io/VibeNYC](https://girnarholdings.github.io/VibeNYC/) | Python, GitHub Actions → Pages, static HTML | A living read on what's happening across New York tonight, built from official facts, local expertise and community signals — with every claim traceable back to its source. |
+| 6 | **Hatch** | — *(private, runs on the fleet)* | Python, MoE routing, shared memory, fleet M2M bus | A local orchestrator running a three-machine fleet: four coding harnesses, a mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a machine-to-machine bus. |
+| 7 | **Hatch for iOS** | — *(private, no public build)* | SwiftUI, zero dependencies, VPN optional | Mission control for Hatch from a phone — cockpit (dreams, feed, routines), streaming chat, approvals and dispatch. |
+| 8 | **CRE AI Agent** | — *(private, no public deployment)* | Python, Selenium/Firefox CDP scraping, Streamlit | Scrapes commercial listings past Akamai bot protection via Firefox remote-debugging, then serves the deal set through an interactive underwriting dashboard for per-deal deep dives. |
 
 ### Not listed here
+
+Three repositories created in this period are deliberately absent, because they are
+infrastructure rather than projects: **engine-infra** (machine provisioning and contract
+tests), **nima-infra-vault** (an off-site encrypted secret vault — ciphertext only, and
+nothing that should be advertised), and **agentswarm-e2e-test** (a throwaway artifact
+AgentSwarm built to prove itself).
+
 
 The five individual casino trainers (Blackjack, Poker, Roulette, Craps, Baccarat) are no
 longer separate cards — **Grand Atlantic** is the front door to all five, and listing them
