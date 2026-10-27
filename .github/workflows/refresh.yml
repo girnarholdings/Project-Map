@@ -1,0 +1,96 @@
+name: Refresh directory
+
+# Re-captures every live card and re-reads the market tape, then publishes.
+#
+# This exists because the page was built in a sandbox that cannot reach
+# *.github.io or news.bolt.ceo, so its snapshots had to be rendered from each
+# project's committed build output. An Actions runner has no such restriction:
+# here the captures are of the live sites themselves.
+#
+# Schedule: 23:37 UTC on weekdays — after the BoltNews post-market edition has
+# published, so the tape and the cards agree with each other.
+
+on:
+  schedule:
+    - cron: "37 23 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Only one refresh at a time; a queued run would just fight the first one over
+# the same files. Never cancel a run in progress — it holds a half-written
+# working tree.
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install --no-audit --no-fund
+
+      - name: Install Chromium
+        working-directory: scripts
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture snapshots and tape
+        working-directory: scripts
+        run: node refresh.mjs
+
+      - name: Commit refreshed assets
+        id: commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "nothing changed — the sites and the tape look the same as the committed copies"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git add -A index.html assets/shots
+          git commit -m "Refresh card snapshots and market tape"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # A push made with GITHUB_TOKEN does not start another workflow, so the normal
+  # deploy-on-push never fires for the commit above. Publish from here instead.
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
