@@ -3,28 +3,24 @@
 The Girnar Holdings site — **https://girnarholdings.github.io/Project-Map/** — published from
 `index.html` by GitHub Pages.
 
-It is a pitch, not a directory. Prospective clients land on it to decide whether to hire the
-studio, so the page argues one thing from top to bottom: **every desk is a reading operation,
-the reading outgrew the people, and we build the reader — around how your desk works.** The
-projects are the proof. Each is shown twice over: what it does *today*, live, and what it
-becomes when it is *built for you*.
+It is a **showcase**: the products come first, shown as they run today, with a light
+touch on what else they could do. Prospective clients should leave having *seen* the work —
+the nudge towards "this could be built for you" is there, but it stays quiet.
 
-## The pitch, section by section
+## The page, top to bottom
 
 | Section | Job it does |
 |---|---|
-| **Hero** — *"Your mandate, read overnight."* | The promise, with the core metaphor drawn live: eight kinds of source (a 10-K, the wires, FOMC minutes, the X timeline…) stream into one edition card, which prints line by line as they land. |
-| **Tape** | Proof the engines run today: real figures off the BoltNews desk, rewritten each weekday. |
-| **Premise** | The first-principles case in three steps — the reading outgrew the people; edge is knowing first *and* knowing it holds; so build the reader around the client. |
-| **Configure your desk** | The centrepiece. The visitor picks a seat (rates & credit, equity long/short, macro, allocator, event-driven), what eats their morning, and where it should land — and a sample edition rebuilds itself for that desk. |
-| **Engines** | The six market engines in a bento grid, each with **Today** (true, live, linked) and **Built for you** (the customised version we would build). A seventh tile — *"Engine 07: Yours."* — asks for the reading nobody covers. A second tab holds the eight agents and products. |
-| **Process** | How an engagement runs, in four moves, and four outcomes it is built to deliver. |
-| **Start a build** | The ask. |
+| **Hero** — *"Your mandate, read overnight."* | One line of promise, and on desktop the core metaphor drawn live: kinds of source (a 10-K, the wires, FOMC minutes, the X timeline…) stream into one edition card. On phones the animation is dropped so the products are one swipe away. |
+| **Tape** | Real figures off the BoltNews desk, rewritten each weekday. |
+| **Products** | The six market engines in a bento grid, then the seven agents and products behind a second tab. Each card is what it does **today**, plus one quiet **Possible** line. |
+| **What's possible** | An optional sketch: pick a seat and see how an edition might look on that desk, drawn on today's tape. |
+| **Get in touch** | A soft close. |
 
 ### The configurator
 
-`#configure` is what turns "a portfolio of tools" into "a tool for *you*". Its sample edition is
-assembled in the browser from three things:
+`#configure` sits *below* the products and is opt-in. Its sample edition is assembled in the
+browser from three things:
 
 - **Today's real tape.** The "What moved" figures are read at runtime out of the tape markup
   that the refresh workflow rewrites each weekday, so every refresh updates every sample desk
@@ -36,28 +32,25 @@ assembled in the browser from three things:
 - **A "Tuned:" line per engine** describing the customisation for that seat — the pitch, in a
   sentence each.
 
-"Make it yours" on any engine card ticks that engine in the configurator and scrolls there.
-"Build this desk" carries the visitor's choices into the enquiry (see *Contact* below).
+"Try it on a desk" on any engine card ticks that engine in the sketch and scrolls there.
+"Talk about this" carries the visitor's choices into the enquiry (see *Contact* below).
 
 ### What is promised, and what is not
 
-The brief was to pitch the tools as customisable and to describe optimistic outcomes even
-where they are not built yet. The page does that, inside three rules that keep it from
-misleading a client:
+The page nudges at what the tools could become without leaning on it, inside three rules that
+keep it from misleading a client:
 
 1. **"Today" is only ever true.** Everything under a *Today* label, every live badge and every
    screenshot is the real, running product.
-2. **The future is written as an offer.** *Built for you*, *For you* and *Tuned* lines describe
+2. **The future is written as an offer.** *Possible* and *Tuned* lines describe
    what an engagement would build. None of them claims to exist already.
 3. **No invented evidence.** No testimonials, client names, logos, performance figures or
    delivery timelines appear anywhere — there are none to cite yet, and a client who asks
-   about one should get a true answer. The four outcome statements under *Process*
-   ("The reading is done before you sit down", "It gets sharper every week"…) are commitments
-   the studio is making; keep them only while they are ones you are willing to be held to.
+   about one should get a true answer.
 
 ## Contact — set this before sending the link to anyone
 
-Every "Start a build", "Build this desk", "Or just tell us" and "Ask for a walkthrough" control
+Every "Get in touch", "Talk about this" and "Ask for a walkthrough" control
 is wired by one constant near the top of the page script:
 
 ```js
@@ -65,8 +58,7 @@ var CONTACT_EMAIL = '';
 ```
 
 While it is empty, those controls open the GitHub profile — a working link, but not where a
-client should land. Set it to a real address and they all become `mailto:` links; "Build this
-desk" also pre-fills the subject and body with the visitor's seat, what eats their morning and
+client should land. Set it to a real address and they all become `mailto:` links; "Talk about this" also pre-fills the subject and body with the visitor's seat, what eats their morning and
 where it should land, so the first email arrives already scoped.
 
 ## Design
@@ -197,7 +189,7 @@ was a hand-typed capture. `.github/workflows/refresh.yml` now re-reads both on a
   published, so the tape and the cards agree with each other. Also `workflow_dispatch` for an
   immediate run.
 - **What it does.** `scripts/refresh.mjs` drives Playwright Chromium: it re-captures all
-  eleven live cards, re-reads the ten futures/rates/commodity/volatility rows off the BoltNews market
+  ten live cards, re-reads the ten futures/rates/commodity/volatility rows off the BoltNews market
   table along with that edition's dateline and source count, and rewrites the index in place.
   Then the workflow commits and pushes, and publishes.
 - **Why it deploys itself.** A push made with `GITHUB_TOKEN` does not start another workflow,
@@ -271,7 +263,7 @@ first thing a stranger sees when the link is pasted.
 Six engines that do the overnight reading a person cannot: 115 news sources, hours of video, a
 whole equity universe and the timeline, read while the market is shut and handed back as one
 page you can act on before the open. All six are live. The page lists them in this order, and
-each card pairs **Today** (below) with **Built for you** (the offer, also below).
+each card pairs **Today** (below) with one **Possible** line (also below).
 
 The source count appears twice in the page — in the hero's proof strip and on the BoltNews card
 — and is **not** hand-maintained: the refresh workflow reads it out of the BoltNews dateline and
@@ -284,7 +276,7 @@ rewrites both, so the pitch cannot drift away from what the pipeline actually sw
 | 3 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Hear the call while it is still tradeable. Watches every tracked creator's output and returns each one's actual thesis in a paragraph, instead of an endless subscriptions feed. | Python, GitHub Actions → Pages, static HTML |
 | 4 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Stop trading into the tide. Says which style is paying right now — value, momentum, quality or safety — and refreshes five times a day as the regime shifts. | Python, DuckDB/Polygon warehouse, cron (5× daily) |
 | 5 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | A short list worth your morning. Seven deterministic sleeves (RSI inflection, value, momentum, squeeze) rank the universe nightly, with a wave-stage classifier and a factor-momentum-tilted EV master score — each name carrying the reason it made the cut. | Python, DuckDB/Polygon warehouse, pandas |
-| 6 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Be positioned before the print, not reacting after it. Cross-references the holdings universe against a SEC EDGAR/DoltHub calendar, scores which setups are worth taking and writes the case for each. | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary |
+| 5 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Be positioned before the print, not reacting after it. Cross-references the holdings universe against a SEC EDGAR/DoltHub calendar, scores which setups are worth taking and writes the case for each. | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary |
 
 **On X Feed Intelligence specifically.** Its own pages carry `robots: noindex,nofollow` — the
 owner did not want it in search results. Linking it from this directory does not change that
@@ -297,21 +289,21 @@ owner's real feed, and it reads as AI infrastructure, trading playbooks and prod
 Writing "a fixed-income feed" over that screenshot would have been a caption the picture
 contradicts.
 
-### Built for you — the offer on each engine card
+### The "Possible" line on each engine card
 
-| Engine | Built for you |
+| Engine | Possible |
 |---|---|
-| **BoltNews** | Your coverage universe becomes the source list · your house view becomes the lens, every line footnoted · a desk memory that flags the moment the story changes |
-| **X Feed Intelligence** | Curated to your mandate — fixed income, credit, one sector · the accounts that move your book, tracked by name · an alert the minute a voice you trust changes their call |
-| **YouTube Briefings** | Your expert network, dealer calls and podcasts, distilled · every speaker's view tracked over time, so you can see who was right · earnings calls in paragraphs before the Q&A ends |
-| **BoltFactors** | Your factor model, run on your universe · regime shifts mapped to your positions, not an index · what you did the last time this regime showed up |
-| **Equity Screener** | Your screens and limits — liquidity, caps, exclusions · each pick arriving with its first-draft memo · every screen tested against your own history |
-| **Earnings Screener** | Your book's calendar, not the whole market's · setup memos before the print and "what changed" minutes after · guidance and tone shifts flagged line by line |
+| **BoltNews** | Pointed at your coverage, with your house view as the lens. |
+| **X Feed Intelligence** | Curated to a mandate — fixed income, credit, a single sector. |
+| **YouTube Briefings** | Your expert network, dealer calls and podcasts, distilled. |
+| **BoltFactors** | Run on your own factor model and universe. |
+| **Equity Screener** | Your screens and limits, each pick with a first-draft memo. |
+| **Earnings Screener** | Your book's calendar, with what changed minutes after the print. |
 
 ## 🎭 Agents & products — *the second tab*
 
 The same discipline in other rooms: agents, security, consumer products and private tooling.
-Each card ends with a one-line **For you** — the pattern it would become for a client.
+Each card ends with a one-line **Possible**.
 
 | # | Project | Live site | Tech | Description |
 |---|---|---|---|---|
@@ -319,14 +311,13 @@ Each card ends with a one-line **For you** — the pattern it would become for a
 | 2 | **AgentSwarm** | [girnarholdings.github.io/AgentSwarm](https://girnarholdings.github.io/AgentSwarm/) | Cloudflare Workers, multi-pool inference routing, 223 tests | Describe an app in plain English and a swarm of cheap agents builds it in parallel — every file its own agent, priced before anything runs, online in one tap. Trivial parts fan out across free inference pools; only hard parts reach the paid model. |
 | 3 | **TriDelPhi** | [girnarholdings.github.io/TriDelPhi](https://girnarholdings.github.io/TriDelPhi/) | Python 3.11–3.13, Apache-2.0, zero default network calls | A static *Agents Rule of Two* analyzer for GitHub Actions: it finds the CI job where an attacker's comment becomes remote code execution. Runs fully offline by default and never certifies a project as safe. |
 | 4 | **FitForge** | [girnarholdings.github.io/FitForge](https://girnarholdings.github.io/FitForge/) | Next.js 15, SwiftUI (iOS 17+), Supabase, TypeScript shared package | Learns the equipment you have, the lifts you prefer and the movements you avoid, then substitutes equivalents by muscle group and movement pattern instead of handing out a generic plan. Macro targets follow Mifflin–St Jeor. |
-| 5 | **VibeNYC** | [girnarholdings.github.io/VibeNYC](https://girnarholdings.github.io/VibeNYC/) | Python, GitHub Actions → Pages, static HTML | A living read on what's happening across New York tonight, built from official facts, local expertise and community signals — with every claim traceable back to its source. |
-| 6 | **Hatch** | — *(private, runs on the fleet)* | Python, MoE routing, shared memory, fleet M2M bus | A local orchestrator running a three-machine fleet: four coding harnesses, a mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a machine-to-machine bus. |
-| 7 | **Hatch for iOS** | — *(private, no public build)* | SwiftUI, zero dependencies, VPN optional | Mission control for Hatch from a phone — cockpit (dreams, feed, routines), streaming chat, approvals and dispatch. |
-| 8 | **CRE AI Agent** | — *(private, no public deployment)* | Python, browser automation, Streamlit | Gathers commercial listings into a private, interactive underwriting dashboard for per-deal deep dives. |
+| 5 | **Hatch** | — *(private, runs on the fleet)* | Python, MoE routing, shared memory, fleet M2M bus | A local orchestrator running a three-machine fleet: four coding harnesses, a mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a machine-to-machine bus. |
+| 6 | **Hatch for iOS** | — *(private, no public build)* | SwiftUI, zero dependencies, VPN optional | Mission control for Hatch from a phone — cockpit (dreams, feed, routines), streaming chat, approvals and dispatch. |
+| 7 | **CRE AI Agent** | — *(private, no public deployment)* | Python, browser automation, Streamlit | Gathers commercial listings into a private, interactive underwriting dashboard for per-deal deep dives. |
 
 ### Off the page right now
 
-Three desk projects that used to have cards no longer do. The repositories and, where they
+Four projects that used to have cards no longer do. The repositories and, where they
 exist, the deployments are untouched — this is an editing decision about the directory, not a
 retirement:
 
@@ -334,6 +325,7 @@ retirement:
 |---|---|
 | **bolt.ceo** | Taken down for now, at the owner's instruction. It was the question box over the pipelines; it will come back when it is ready to be the front door again. BoltNews keeps its `news.bolt.ceo` subdomain and is unaffected. |
 | **BetNews** | Live at [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/), but betting markets are a different pitch from the market desk, and mixing them blunted both. |
+| **VibeNYC** | Removed from *Agents & products* at the owner's request. Still live at [girnarholdings.github.io/VibeNYC](https://girnarholdings.github.io/VibeNYC/); its snapshot is no longer captured. |
 | **HousingTrends** | Private, with no public deployment. A card nobody can open does not earn its place on a page whose whole promise is that every door opens. |
 
 If any of them goes back up, its card belongs in the engines grid and its snapshot in

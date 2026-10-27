@@ -40,7 +40,6 @@ const CARDS = [
   { slug: 'tridelphi',         url: 'https://girnarholdings.github.io/TriDelPhi/',                   w: 1440, h: 900 },
   // the floating set/protein readouts collide at narrower widths
   { slug: 'fitforge',          url: 'https://girnarholdings.github.io/FitForge/',                    w: 1280, h: 800 },
-  { slug: 'vibenyc',           url: 'https://girnarholdings.github.io/VibeNYC/',                     w: 1440, h: 900 },
 ];
 
 // The ten rows the tape shows, in tape order.
