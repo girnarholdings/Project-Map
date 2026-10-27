@@ -3,123 +3,99 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Girnar Holdings — Project Directory</title>
-<meta name="description" content="Girnar Holdings — fourteen built systems in two rooms: a desk of six market tools that read overnight so you walk in already knowing, and a floor of eight products built to be used." />
-<meta name="theme-color" content="#071848" />
+<title>Girnar Holdings — Your mandate, read overnight</title>
+<meta name="description" content="Girnar Holdings builds research engines that read the filings, wires, timelines and video in your coverage overnight — then rebuilds each one around how your desk works. Six run in public today." />
+<meta name="theme-color" content="#04060C" />
 
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Girnar Holdings" />
-<meta property="og:title" content="Girnar Holdings — Project Directory" />
-<meta property="og:description" content="Fourteen built systems in two rooms — six market tools that read overnight so you walk in already knowing, and eight products built to be used. Every one is live." />
+<meta property="og:title" content="Girnar Holdings — Your mandate, read overnight" />
+<meta property="og:description" content="Research engines that read your coverage while you sleep, rebuilt around how your desk works. Six run in public today — the next one is yours." />
 <meta property="og:url" content="https://girnarholdings.github.io/Project-Map/" />
 <meta property="og:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Girnar Holdings — Project Directory" />
-<meta name="twitter:description" content="Fourteen built systems in two rooms — the desk, and the floor. Every one is live." />
+<meta name="twitter:title" content="Girnar Holdings — Your mandate, read overnight" />
+<meta name="twitter:description" content="Research engines, built around your desk. Six run in public today — the next one is yours." />
 <meta name="twitter:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 
+<script>document.documentElement.classList.add('js');</script>
 <style>
 /* ============================================================
-   Girnar Holdings — Project Directory
+   Girnar Holdings — research engines, built around your desk
 
-   Two rooms, two visual worlds, one page:
+   The page is a pitch, not a directory. It reads top to bottom
+   as one argument:
 
-   [desk]   Markets & Trading — night trading terminal. Amber on
-            warm ink, monospace display, a captured market tape.
-   [floor]  Creative & Agentic — the house itself: a vaulted hall in
-            antique gold on lapis, Playfair Display, plaques you press
-            rather than cards you read. Palette sampled from the house
-            mark, so the room belongs to Girnar Holdings rather than to
-            any one product sitting inside it.
+     hero       the promise, with the core metaphor drawn live:
+                many sources stream into one edition
+     tape       proof that the engines are running today
+     premise    the first-principles case for the business
+     configure  the visitor builds their own desk; the sample
+                edition is drawn on the real tape above
+     engines    the six market engines, each "today" vs "for you",
+                and the eight other builds behind a second tab
+     process    how an engagement runs, and what changes
+     start      the ask
 
-   Both are deliberately dark: every product screenshot they frame
-   is itself a dark UI, and the two rooms are both night rooms.
+   Palette: lapis and antique gold sampled from the house mark
+   (navy #071848, gold #D6B788, cream #EAD7B4), with the desk's
+   amber and the tape's green and rose kept for data only.
+   Type: Instrument Serif for display, Geist for running text,
+   Geist Mono for labels and figures — all SIL OFL, self-hosted.
    ============================================================ */
 
-/* Playfair Display (SIL Open Font License), self-hosted latin subset.
-   Used by the house wordmark and throughout the floor. */
-@font-face {
-  font-family: "Playfair Display";
-  src: url("assets/fonts/playfair-roman.woff2") format("woff2");
-  font-weight: 400 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Playfair Display";
-  src: url("assets/fonts/playfair-italic.woff2") format("woff2");
-  font-weight: 400 900;
-  font-style: italic;
-  font-display: swap;
-}
+@font-face { font-family: "Geist"; src: url("assets/fonts/geist.woff2") format("woff2");
+  font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("assets/fonts/geist-mono.woff2") format("woff2");
+  font-weight: 400 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap; }
 
 :root {
-  /* ---- the desk (default) ---- */
-  --ink:        #0B0C0F;
-  --ink-raised: #101217;
-  --ink-card:   #14161C;
-  --line:       #242730;
-  --line-soft:  #1B1E25;
+  --ink:    #04060C;
+  --ink-2:  #070B16;
+  --ink-3:  #0B1122;
+  --lapis:  #071848;
 
-  --text:       #EAE7E0;
-  --text-dim:   #A8A296;
-  --text-faint: #6F6A61;
+  --hair:   rgba(234, 215, 180, 0.10);
+  --hair-2: rgba(234, 215, 180, 0.18);
+  --hair-3: rgba(234, 215, 180, 0.30);
 
-  --amber:      #F5B93B;
-  --green:      #4ADE80;
-  --crimson:    #C2384A;
-  --rose:       #E8707E;
+  --text:   #EFE8D8;
+  --text-2: #B6BBC8;
+  --text-3: #7E869A;
 
-  --accent:     var(--amber);
-  --halo-a:     rgba(245,185,59,0.10);
-  --halo-b:     rgba(194,56,74,0.09);
+  --gold:    #D6B788;
+  --gold-lt: #EAD7B4;
+  --gold-hi: #F6E6C4;
+  --gold-dk: #9C7D4E;
+  --amber:   #F5B93B;
+  --green:   #5BE38E;
+  --rose:    #F07A8A;
 
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo,
-          Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-          "Liberation Sans", Arial, sans-serif;
-  --serif: "Playfair Display", ui-serif, Georgia, "Iowan Old Style",
-           "Bitstream Charter", "Times New Roman", serif;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans:  "Geist", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:  "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  --gutter: clamp(1.25rem, 4vw, 4rem);
-  --maxw: 82rem;
-}
-
-/* ---- the floor ----
-   Lapis and antique gold, sampled from the Girnar Holdings house mark
-   (navy #071848, gold #D6B788, cream #EAD7B4). Deliberately not the
-   oxblood-and-bright-gold of Grand Atlantic: this room belongs to the
-   house, not to any one product inside it. */
-body[data-view="floor"] {
-  --ink:        #04102F;
-  --ink-raised: #0A1B4A;
-  --ink-card:   rgba(10, 26, 68, 0.70);
-  --line:       #23407F;
-  --line-soft:  #16295C;
-
-  --text:       #F2E7CF;
-  --text-dim:   #B8C4E0;
-  --text-faint: #7C89AE;
-
-  --gold:       #D6B788;
-  --gold-lt:    #EAD7B4;
-  --gold-br:    #E8C697;
-  --gold-dk:    #8C7148;
-
-  --accent:     var(--gold);
-  --halo-a:     rgba(214,183,136,0.12);
-  --halo-b:     rgba(30,64,160,0.22);
+  --maxw:   76rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --r:      20px;
+  --ease:   cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--ink);
@@ -128,663 +104,582 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+::selection { background: rgba(214, 183, 136, 0.35); color: #fff; }
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip { position: absolute; left: -9999px; top: 0; z-index: 100; padding: 0.75rem 1rem;
+  background: var(--gold); color: #120d05; font-weight: 600; border-radius: 0 0 10px 0; }
+.skip:focus { left: 0; }
+section[id] { scroll-margin-top: 84px; }
 
-/* atmosphere: a halo on the desk, lapis on the floor */
+/* ---------- atmosphere: a lapis aurora, and a grain so the dark never bands ---------- */
 body::before {
-  content: "";
-  position: fixed;
-  inset: -20vh 0 auto 0;
-  height: 70vh;
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
-    radial-gradient(60rem 30rem at 22% 0%, var(--halo-a), transparent 68%),
-    radial-gradient(48rem 26rem at 88% 6%, var(--halo-b), transparent 66%);
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.5s ease;
+    radial-gradient(62rem 38rem at 8% -12%, rgba(29, 59, 134, 0.50), transparent 62%),
+    radial-gradient(46rem 30rem at 102% 8%, rgba(214, 183, 136, 0.09), transparent 62%),
+    radial-gradient(70rem 44rem at 50% 130%, rgba(13, 36, 99, 0.42), transparent 62%),
+    var(--ink);
 }
 body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  /* scrim over the hall so body copy keeps its contrast at the top of the page */
-  background-image:
-    linear-gradient(180deg, rgba(4,16,47,0.60) 0%, rgba(4,16,47,0.28) 34%, rgba(3,11,34,0.68) 100%),
-    url("assets/floor-hall.jpg");
-  background-size: cover, cover;
-  background-position: center top, center top;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.6s ease;
-}
-body[data-view="floor"]::after { opacity: 0.6; }
-
-.wrap {
-  position: relative;
-  z-index: 1;
-  max-width: var(--maxw);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
-a { color: inherit; }
+/* ---------- shared pieces ---------- */
+.live { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--mono);
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
+.ping { position: relative; flex: none; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 10px rgba(91, 227, 142, 0.7); }
+.ping::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--green);
+  animation: ping 2.4s var(--ease) infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(3.4); opacity: 0; } }
 
-:where(a, button):focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  padding: 0.85rem 1.3rem; border-radius: 999px; border: 0; cursor: pointer;
+  font-weight: 600; font-size: 0.9375rem; line-height: 1.1; text-decoration: none; white-space: nowrap;
+  color: #1A1306;
+  background: linear-gradient(180deg, #F4E2BA 0%, #D9BB8C 52%, #B9965F 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 0 0 1px rgba(214, 183, 136, 0.55),
+              0 12px 32px -10px rgba(214, 183, 136, 0.55);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s;
+}
+.btn:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 0 1px rgba(242, 217, 166, 0.85),
+             0 18px 44px -10px rgba(214, 183, 136, 0.75); }
+.btn .arr { transition: transform 0.3s var(--ease); }
+.btn:hover .arr { transform: translateX(3px); }
+.btn-ghost { color: var(--text); background: rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 0 0 1px var(--hair-2); }
+.btn-ghost:hover { background: rgba(214, 183, 136, 0.08); box-shadow: inset 0 0 0 1px var(--hair-3); }
+.btn-sm { padding: 0.6rem 1rem; font-size: 0.8125rem; }
+
+.kicker { display: flex; align-items: center; gap: 0.8rem; margin: 0; font-family: var(--mono);
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.kicker::before { content: ""; width: 30px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+.h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 5.4vw, 4.4rem);
+  line-height: 1.0; letter-spacing: -0.012em; margin: 1.1rem 0 1.1rem; max-width: 20ch; text-wrap: balance; }
+.sub { margin: 0; max-width: 44rem; color: var(--text-2); font-size: clamp(1rem, 1.3vw, 1.125rem); text-wrap: pretty; }
+.sec { padding-block: clamp(4rem, 8vw, 6.5rem); position: relative; }
+
+/* gold-leaf italics, with a slow sheen moving through them */
+.hero h1 em, .h2 em {
+  font-style: italic;
+  background: linear-gradient(100deg, #B8955F 0%, #F6E6C4 22%, #D6B788 46%, #F6E6C4 70%, #B8955F 100%);
+  background-size: 240% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen 10s linear infinite;
+  padding-right: 0.06em;
+}
+@keyframes sheen { to { background-position: -240% 0; } }
+
+/* reveal on scroll — only once JS is known to be running, so nothing is ever stranded invisible */
+.js .reveal { opacity: 0; }
+.js .reveal.is-in { opacity: 1; animation: revealIn 0.9s var(--ease) backwards; animation-delay: var(--rd, 0ms); }
+@keyframes revealIn { from { opacity: 0; transform: translateY(18px); filter: blur(5px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid transparent;
+  transition: background 0.35s, border-color 0.35s; }
+.nav.is-scrolled { background: rgba(4, 6, 12, 0.7); border-bottom-color: var(--hair);
+  -webkit-backdrop-filter: saturate(140%) blur(16px); backdrop-filter: saturate(140%) blur(16px); }
+.nav-in { max-width: var(--maxw); margin: 0 auto; padding: 0.85rem var(--gutter);
+  display: flex; align-items: center; gap: 1.5rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text); }
+.brand img { width: 30px; height: 30px; border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--hair-2), 0 6px 18px rgba(0, 0, 0, 0.5); }
+.brand span { font-family: var(--serif); font-size: 1.3rem; line-height: 1; white-space: nowrap; }
+.nav-links { display: none; margin-left: auto; gap: 1.8rem; }
+.nav-links a { font-size: 0.875rem; color: var(--text-2); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-live { display: none; }
+.nav .btn { margin-left: auto; }
+@media (min-width: 940px) {
+  .nav-links { display: flex; }
+  .nav-live { display: inline-flex; }
+  .nav .btn { margin-left: 0; }
+}
+@media (max-width: 420px) { .brand span { font-size: 1.12rem; } .nav .btn { padding: 0.55rem 0.85rem; } }
+@media (max-width: 480px) { .eyebrow { font-size: 0.6rem; letter-spacing: 0.08em; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; isolation: isolate; overflow: hidden;
+  padding: clamp(3rem, 8vh, 6.5rem) 0 clamp(3.5rem, 8vh, 6rem); }
+.hero::before { /* a fine ledger grid, fading out from behind the headline */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--hair) 1px, transparent 1px), linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+  background-size: 64px 64px; opacity: 0.55;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 35%, #000 10%, transparent 72%);
+          mask-image: radial-gradient(ellipse 70% 60% at 30% 35%, #000 10%, transparent 72%);
+}
+#streams { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero-grid { position: relative; z-index: 1; display: grid; gap: clamp(2.5rem, 5vw, 3.5rem); align-items: center; }
+@media (min-width: 1060px) { .hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); } }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 0.65rem; margin: 0;
+  padding: 0.45rem 0.85rem 0.45rem 0.7rem; border-radius: 999px;
+  background: rgba(214, 183, 136, 0.06); box-shadow: inset 0 0 0 1px var(--hair-2);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-lt); }
+.hero h1 { font-family: var(--serif); font-weight: 400; margin: 1.4rem 0 1.4rem;
+  font-size: clamp(3.1rem, 8.6vw, 6.9rem); line-height: 0.94; letter-spacing: -0.015em; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.hero h1 .line > span { display: inline-block; transform: translateY(108%); animation: lineUp 1.1s var(--ease) forwards; }
+.hero h1 .line:nth-child(2) > span { animation-delay: 0.14s; }
+@keyframes lineUp { to { transform: none; } }
+.lede { margin: 0; max-width: 38rem; color: var(--text-2); font-size: clamp(1.05rem, 1.45vw, 1.24rem); text-wrap: pretty; }
+.lede b { color: var(--text); font-weight: 500; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.1rem; }
+.proof { list-style: none; margin: 2.6rem 0 0; padding: 1.3rem 0 0; border-top: 1px solid var(--hair);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; max-width: 40rem; }
+@media (min-width: 640px) { .proof { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.proof li { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-3); line-height: 1.4; }
+.proof b { display: block; font-family: var(--serif); font-weight: 400; font-size: 2.2rem; line-height: 1;
+  letter-spacing: 0; text-transform: none; color: var(--gold-lt); margin-bottom: 0.35rem; font-variant-numeric: tabular-nums; }
+.js .hero .fade { opacity: 0; transform: translateY(12px); animation: fadeUp 1s var(--ease) forwards; }
+.hero .d1 { animation-delay: 0.05s; } .hero .d2 { animation-delay: 0.32s; }
+.hero .d3 { animation-delay: 0.46s; } .hero .d4 { animation-delay: 0.6s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* the edition the streams pour into */
+.hero-visual { position: relative; display: grid; place-items: center;
+  padding: clamp(3.4rem, 6vw, 4.6rem) clamp(1rem, 3vw, 2.5rem); min-height: 430px; }
+.edition {
+  position: relative; width: min(100%, 390px); border-radius: var(--r);
+  padding: 1.35rem 1.35rem 1.15rem;
+  background: linear-gradient(180deg, rgba(17, 26, 52, 0.58), rgba(7, 11, 22, 0.76));
+  -webkit-backdrop-filter: blur(14px) saturate(130%); backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: inset 0 0 0 1px var(--hair-2), inset 0 1px 0 rgba(255, 255, 255, 0.06),
+              0 50px 120px -40px rgba(0, 0, 0, 0.9), 0 0 90px -24px rgba(214, 183, 136, 0.28);
+  transform: perspective(1200px) rotateY(-9deg) rotateX(4deg);
+  transition: transform 0.8s var(--ease);
+}
+.hero-visual:hover .edition { transform: perspective(1200px) rotateY(-3deg) rotateX(1.5deg); }
+@media (max-width: 1059px) { .edition { transform: none; } .hero-visual:hover .edition { transform: none; } }
+.edition::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px; border-radius: var(--r) var(--r) 0 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.8; }
+.edition-head { display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+.edition-title { margin: 0.9rem 0 0.15rem; font-family: var(--serif); font-size: 1.95rem; line-height: 1.02; }
+.edition-sub { margin: 0; font-family: var(--mono); font-size: 0.68rem; color: var(--text-3); }
+.erows { margin-top: 1.15rem; display: grid; gap: 0.95rem; }
+.elabel { display: block; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.9; }
+.bar { position: relative; display: block; height: 7px; width: var(--w, 80%); margin-top: 0.42rem;
+  border-radius: 4px; overflow: hidden; background: rgba(234, 215, 180, 0.08); }
+.bar::after { content: ""; position: absolute; inset: 0; border-radius: inherit; transform: scaleX(0); transform-origin: left;
+  background: linear-gradient(90deg, rgba(214, 183, 136, 0.85), rgba(246, 230, 196, 0.95));
+  transition: transform 0.9s var(--ease); }
+.bar.is-printed::after { transform: scaleX(1); }
+.edition-foot { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.15rem; padding-top: 0.8rem;
+  border-top: 1px dashed rgba(234, 215, 180, 0.14);
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--text-3); }
+.edition-foot b { color: var(--green); font-weight: 500; }
+
+.srcs { position: absolute; inset: 0; pointer-events: none; }
+.src { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%);
+  padding: 0.34rem 0.65rem; border-radius: 999px; white-space: nowrap;
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.03em; color: var(--text-2);
+  background: rgba(7, 11, 22, 0.78); box-shadow: inset 0 0 0 1px var(--hair-2);
+  animation: bob 7s ease-in-out infinite; animation-delay: var(--d, 0s);
+  transition: color 0.35s, box-shadow 0.35s; }
+.src.is-emitting { color: var(--gold-hi); box-shadow: inset 0 0 0 1px rgba(214, 183, 136, 0.65), 0 0 20px rgba(214, 183, 136, 0.35); }
+@keyframes bob { 50% { transform: translate(-50%, calc(-50% - 6px)); } }
+/* sources sit in the bands above and below the edition, never over it */
+.c1 { --x: 13%; --y: 3%;  --d: -1s; }   .c2 { --x: 38%; --y: 10%; --d: -3s; }
+.c3 { --x: 63%; --y: 3%;  --d: -5s; }   .c4 { --x: 87%; --y: 10%; --d: -2s; }
+.c5 { --x: 12%; --y: 90%; --d: -4s; }   .c6 { --x: 37%; --y: 97%; --d: -6s; }
+.c7 { --x: 62%; --y: 90%; --d: -2.5s; } .c8 { --x: 87%; --y: 97%; --d: -4.5s; }
+@media (max-width: 640px) {
+  .c2, .c4, .c6, .c8 { display: none; }
+  .c1 { --x: 24%; --y: 5%; } .c3 { --x: 76%; --y: 5%; } .c5 { --x: 24%; --y: 95%; } .c7 { --x: 76%; --y: 95%; }
 }
 
-/* ---------- shared furniture ---------- */
-
-.rule {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-.rule::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
-.dot {
-  width: 0.5rem; height: 0.5rem; border-radius: 50%;
-  background: var(--green, #4ADE80);
-  box-shadow: 0 0 0 3px rgba(74,222,128,0.14);
-  flex: none;
-}
-body[data-view="floor"] .dot {
-  background: var(--gold);
-  box-shadow: 0 0 0 3px rgba(214,183,136,0.18);
-}
-.dot--off {
-  background: var(--text-faint) !important;
-  box-shadow: 0 0 0 3px rgba(111,106,97,0.12) !important;
-}
-
-/* ---------- masthead ---------- */
-
-.masthead { padding-block: clamp(2.25rem, 6vw, 4.25rem) clamp(1.25rem, 2.5vw, 2rem); }
-.masthead .rule { margin-bottom: clamp(1.5rem, 4vw, 2.75rem); }
-
-/* house lockup: the medallion beside the name, the way it sits on letterhead */
-.lockup { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); }
-
-.lockup-mark {
-  flex: none;
-  width: clamp(4rem, 12vw, 8.5rem);
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(214,183,136,0.28), 0 10px 34px rgba(0,0,0,0.55);
-}
-
-.wordmark {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 800;
-  font-size: clamp(2.125rem, 8vw, 5.25rem);
-  line-height: 0.95;
-  letter-spacing: 0.005em;
-  text-wrap: balance;
-}
-.wordmark em {
-  display: block;
-  font-style: normal;
-  color: var(--accent);
-  transition: color 0.5s ease;
-}
-
-.masthead-sub {
-  margin: clamp(0.75rem, 1.6vw, 1rem) 0 0;
-  font-family: var(--mono);
-  font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-@media (max-width: 34rem) {
-  .lockup { gap: 0.875rem; }
-}
-
-.masthead-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: clamp(1.25rem, 4vw, 3rem);
-  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
-}
-
-.masthead-lede {
-  margin: 0;
-  max-width: 48ch;
-  font-size: clamp(0.9375rem, 2vw, 1.125rem);
-  color: var(--text-dim);
-  text-wrap: pretty;
-}
-.masthead-lede strong { color: var(--text); font-weight: 600; }
-
-.masthead-stats {
-  display: flex; flex-wrap: wrap;
-  gap: 0 clamp(1.25rem, 3.5vw, 2.5rem);
-  margin: 0; padding: 0; list-style: none;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-.masthead-stats b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; }
-
-/* ---------- tabs ---------- */
-
-.tabs {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: clamp(0.5rem, 2vw, 1.5rem);
-  max-width: var(--maxw);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.tab {
-  appearance: none;
-  background: none;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  padding: 0.875rem 0.25rem 0.8125rem;
-  color: var(--text-faint);
-  font-family: var(--mono);
-  font-size: clamp(0.6875rem, 1.6vw, 0.8125rem);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  transition: color 0.25s ease, border-color 0.25s ease;
-}
-.tab .tab-mark {
-  width: 0.4375rem; height: 0.4375rem; border-radius: 50%;
-  background: currentColor; opacity: 0.5; flex: none;
-}
-.tab:hover { color: var(--text-dim); }
-.tab[aria-selected="true"] {
-  color: var(--text);
-  border-bottom-color: var(--accent);
-}
-.tab[aria-selected="true"] .tab-mark { background: var(--accent); opacity: 1; }
-.tab .tab-count { color: var(--text-faint); }
-
-/* ---------- the tape (desk only) ---------- */
-
-.tape {
-  position: relative;
-  z-index: 1;
-  border-bottom: 1px solid var(--line-soft);
-  background: var(--ink-raised);
-  overflow: hidden;
-}
-.tape-head {
-  max-width: var(--maxw); margin-inline: auto;
-  padding: 0.625rem var(--gutter) 0;
-  font-family: var(--mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-.tape-track {
-  display: flex; width: max-content;
-  padding-block: 0.625rem 0.75rem;
-  animation: tape 64s linear infinite;
-}
-.tape-group { display: flex; flex: none; gap: 2.25rem; padding-right: 2.25rem; }
-.tape-item {
-  display: inline-flex; align-items: baseline; gap: 0.5rem;
-  font-family: var(--mono); font-size: 0.8125rem;
-  font-variant-numeric: tabular-nums; white-space: nowrap;
-}
-.tape-item .sym  { color: var(--text-faint); letter-spacing: 0.1em; }
-.tape-item .px   { color: var(--text); }
-.tape-item .up   { color: var(--green); }
-.tape-item .flat { color: var(--text-faint); }
-.tape-item .down { color: var(--rose); }
+/* ---------- tape ---------- */
+.tape { position: relative; border-block: 1px solid var(--hair);
+  background: linear-gradient(180deg, rgba(7, 11, 22, 0.9), rgba(4, 6, 12, 0.9)); }
+.tape-head { max-width: var(--maxw); margin: 0 auto; padding: 0.7rem var(--gutter) 0;
+  display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); }
+.tape-head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px rgba(245, 185, 59, 0.6); }
+.tape-viewport { overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.tape-track { display: flex; width: max-content; padding-block: 0.65rem 0.85rem; animation: tape 70s linear infinite; }
+.tape:hover .tape-track { animation-play-state: paused; }
+.tape-group { display: flex; flex: none; gap: 2.6rem; padding-right: 2.6rem; }
+.tape-item { display: inline-flex; align-items: baseline; gap: 0.55rem; white-space: nowrap;
+  font-family: var(--mono); font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+.tape-item .sym { color: var(--text-3); letter-spacing: 0.1em; }
+.tape-item .px { color: var(--text); }
+.tape-item .up, .q .up { color: var(--green); }
+.tape-item .down, .q .down { color: var(--rose); }
+.tape-item .flat, .q .flat { color: var(--text-3); }
 @keyframes tape { to { transform: translateX(-50%); } }
 
-/* ---------- panels ---------- */
+/* ---------- premise ---------- */
+.premise-grid { display: grid; gap: 1px; margin-top: 3.5rem; border-radius: var(--r); overflow: hidden;
+  background: var(--hair); box-shadow: 0 0 0 1px var(--hair); }
+@media (min-width: 900px) { .premise-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tenet { position: relative; padding: clamp(1.6rem, 3vw, 2.6rem);
+  background: linear-gradient(180deg, rgba(11, 17, 34, 0.94), rgba(6, 9, 18, 0.96)); }
+.tenet .num { font-family: var(--serif); font-style: italic; font-size: 3.6rem; line-height: 1; color: var(--gold); }
+.tenet h3 { margin: 1.3rem 0 0.75rem; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.12; text-wrap: balance; }
+.tenet p { margin: 0; color: var(--text-2); font-size: 0.98rem; }
 
+/* ---------- configure ---------- */
+.composer { display: grid; gap: clamp(1.25rem, 3vw, 2.5rem); margin-top: 3.5rem; }
+@media (min-width: 1060px) { .composer { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; } }
+.controls { display: grid; gap: 1.9rem; margin: 0; padding: clamp(1.3rem, 2.6vw, 2rem); border-radius: var(--r);
+  background: linear-gradient(180deg, rgba(13, 20, 40, 0.72), rgba(7, 11, 22, 0.8)); box-shadow: inset 0 0 0 1px var(--hair); }
+@media (min-width: 1060px) { .controls { position: sticky; top: 96px; } }
+.field { border: 0; margin: 0; padding: 0; min-width: 0; }
+.field legend { padding: 0; margin-bottom: 0.85rem; font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); }
+.field legend b { color: var(--gold); font-weight: 500; margin-right: 0.6rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.chip span { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.52rem 0.9rem; border-radius: 999px;
+  font-size: 0.875rem; color: var(--text-2); background: rgba(255, 255, 255, 0.015); box-shadow: inset 0 0 0 1px var(--hair-2);
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s; user-select: none; -webkit-user-select: none; }
+.chip:hover span { color: var(--text); box-shadow: inset 0 0 0 1px var(--hair-3); }
+.chip input:checked + span { color: var(--gold-hi); background: rgba(214, 183, 136, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(214, 183, 136, 0.62), 0 8px 22px -12px rgba(214, 183, 136, 0.7); }
+.chip input:focus-visible + span { outline: 2px solid var(--gold-lt); outline-offset: 3px; }
+.chip.is-check span::before { content: ""; width: 0.62rem; height: 0.62rem; border-radius: 3px; flex: none;
+  box-shadow: inset 0 0 0 1px currentColor; opacity: 0.6; transition: background 0.2s, opacity 0.2s; }
+.chip.is-check input:checked + span::before { opacity: 1; background: var(--gold); box-shadow: 0 0 10px rgba(214, 183, 136, 0.6); }
+.chip.flash span { animation: flash 1.1s var(--ease); }
+@keyframes flash { 0% { transform: scale(1); } 25% { transform: scale(1.09); box-shadow: inset 0 0 0 1px var(--gold-hi), 0 0 28px rgba(214, 183, 136, 0.7); } 100% { transform: scale(1); } }
+.hint { margin: 0.8rem 0 0; font-size: 0.82rem; color: var(--gold-lt); }
+
+.brief { position: relative; overflow: hidden; border-radius: var(--r); padding: clamp(1.3rem, 3vw, 2.3rem);
+  background: linear-gradient(180deg, rgba(13, 20, 40, 0.92), rgba(5, 8, 16, 0.96));
+  box-shadow: inset 0 0 0 1px var(--hair-2), 0 50px 130px -50px rgba(13, 36, 99, 0.95); min-height: 420px; }
+.brief::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.75; }
+.brief-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+.brief-title { margin: 1rem 0 0.35rem; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.02; }
+.brief-sub { margin: 0; font-family: var(--mono); font-size: 0.74rem; color: var(--text-3); }
+.brief-sec { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px dashed rgba(234, 215, 180, 0.14); }
+.brief-label { margin: 0 0 0.85rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); }
+.brief-label span { color: var(--text-3); letter-spacing: 0.06em; text-transform: none; }
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 0.5rem; }
+.q { display: flex; flex-direction: column; gap: 0.12rem; padding: 0.7rem 0.85rem; border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02); box-shadow: inset 0 0 0 1px var(--hair); }
+.q .sym { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+.q .px { font-family: var(--mono); font-size: 1.08rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.q .chg { font-family: var(--mono); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.brief-line { margin: 0.95rem 0 0; color: var(--text-2); font-size: 0.95rem; }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.items li { display: grid; grid-template-columns: 9.4rem minmax(0, 1fr); gap: 0.3rem 1rem; align-items: baseline; }
+.eng { justify-self: start; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold-lt); padding: 0.24rem 0.55rem; border-radius: 6px; white-space: nowrap;
+  background: rgba(214, 183, 136, 0.08); box-shadow: inset 0 0 0 1px rgba(214, 183, 136, 0.24); }
+.items p { margin: 0; color: var(--text); font-size: 0.97rem; }
+.items small { grid-column: 2; display: block; color: var(--text-3); font-size: 0.82rem; }
+.items small::before { content: "Tuned: "; color: var(--gold); font-family: var(--mono); font-size: 0.66rem;
+  letter-spacing: 0.1em; text-transform: uppercase; }
+@media (max-width: 560px) {
+  .items li { grid-template-columns: minmax(0, 1fr); }
+  .items small { grid-column: 1; }
+}
+.day { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.day li { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: 1rem; align-items: baseline; font-size: 0.92rem; }
+.day time { font-family: var(--mono); font-size: 0.78rem; color: var(--gold-lt); font-variant-numeric: tabular-nums; }
+.day b { font-weight: 500; color: var(--text); margin-right: 0.45rem; }
+.day span { color: var(--text-3); }
+.brief-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; margin-top: 1.6rem;
+  padding-top: 1rem; border-top: 1px solid var(--hair);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; color: var(--text-3); }
+.brief-foot b { color: var(--gold-lt); font-weight: 500; }
+.compose-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; margin-top: 1.3rem; }
+.fine { margin: 0; max-width: 32rem; font-size: 0.8rem; color: var(--text-3); }
+[data-anim] { animation: rise 0.6s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 55ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(9px); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* ---------- engines ---------- */
+.tabs { display: inline-flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 2.6rem; padding: 0.3rem; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02); box-shadow: inset 0 0 0 1px var(--hair); }
+.tab { appearance: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.72rem 1.15rem; border-radius: 999px; background: transparent; color: var(--text-2);
+  font-size: 0.9rem; font-weight: 500; transition: color 0.2s, background 0.25s, box-shadow 0.25s; }
+.tab:hover { color: var(--text); }
+.tab[aria-selected="true"] { color: #1A1306; background: linear-gradient(180deg, #F4E2BA, #D6B788);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 26px -12px rgba(214, 183, 136, 0.8); }
+.tab .count { font-family: var(--mono); font-size: 0.72rem; opacity: 0.72; }
+.panel { margin-top: 2rem; }
 .panel[hidden] { display: none; }
-.panel { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.panel:focus-visible { outline-offset: 8px; }
 
-.panel-head { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
-
-.panel-title {
-  margin: 0.875rem 0 0;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: clamp(1.75rem, 5.5vw, 3rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-}
-.panel-desc {
-  margin: 1rem 0 0;
-  max-width: 56ch;
-  color: var(--text-dim);
-  text-wrap: pretty;
+.bento { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } .b-hero { grid-column: 1 / -1; } }
+@media (min-width: 1100px) {
+  .bento { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .b-7 { grid-column: span 7; } .b-5 { grid-column: span 5; }
+  .b-4 { grid-column: span 4; } .b-6 { grid-column: span 6; }
+  .b-4 .shot { aspect-ratio: 16 / 9; }
 }
 
-/* ---------- desk: cards ---------- */
+.engine, .product { position: relative; isolation: isolate; display: flex; flex-direction: column; overflow: hidden;
+  border-radius: var(--r); background: linear-gradient(180deg, rgba(13, 20, 40, 0.84), rgba(6, 9, 18, 0.92));
+  box-shadow: inset 0 0 0 1px var(--hair); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+.engine:hover, .product:hover { transform: translateY(-4px);
+  box-shadow: inset 0 0 0 1px var(--hair-2), 0 34px 80px -34px rgba(0, 0, 0, 0.85); }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2.5vw, 1.75rem);
-}
+/* the cursor carries a soft gold light across the grid — on the border, and faintly within */
+.spot { --mx: -999px; --my: -999px; }
+.spot::before { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: radial-gradient(380px circle at var(--mx) var(--my), rgba(246, 230, 196, 0.6), transparent 45%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.4s; }
+.spot::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(520px circle at var(--mx) var(--my), rgba(214, 183, 136, 0.07), transparent 50%);
+  opacity: 0; transition: opacity 0.4s; }
+.spot:hover::before, .spot:hover::after { opacity: 1; }
 
-.card {
-  position: relative;
-  display: flex; flex-direction: column;
-  min-width: 0;
-  background: var(--ink-card);
-  border: 1px solid var(--line-soft);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
-}
-.card.is-wide { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
+.shot { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #090c14; border-bottom: 1px solid var(--hair); }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: saturate(0.9) brightness(0.88); transition: transform 1s var(--ease), filter 0.6s var(--ease); }
+.engine:hover .shot img, .product:hover .shot img { transform: scale(1.04); filter: none; }
+.shot::after { /* a scan line sweeps the screenshot on hover, as if it were being read */
+  content: ""; position: absolute; left: 0; right: 0; top: -40%; height: 40%; pointer-events: none; opacity: 0;
+  background: linear-gradient(180deg, transparent, rgba(246, 230, 196, 0.12) 50%, transparent); }
+.engine:hover .shot::after, .product:hover .shot::after { opacity: 1; animation: scan 1.8s var(--ease) infinite; }
+@keyframes scan { to { top: 100%; } }
+.badge { position: absolute; left: 0.85rem; top: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.32rem 0.65rem; border-radius: 999px; background: rgba(4, 6, 12, 0.76);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 0 0 1px var(--hair-2);
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
+.badge.is-new { left: auto; right: 0.85rem; color: #1A1306; background: linear-gradient(180deg, #F4E2BA, #D6B788); box-shadow: none; }
 
-.card-link { text-decoration: none; }
-.card-link::after { content: ""; position: absolute; inset: 0; z-index: 2; }
+.ebody { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.95rem; flex: 1;
+  padding: clamp(1.2rem, 2.2vw, 1.7rem); }
+.ekicker { margin: 0; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.ename { margin: -0.3rem 0 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 2.6vw, 2.25rem); line-height: 1.04; }
+.tag { display: inline-block; margin-right: 0.5rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--text-3); vertical-align: 0.12em; }
+.etoday { margin: 0; color: var(--text-2); font-size: 0.95rem; }
+.efuture { padding: 0.95rem 1.05rem; border-radius: 14px;
+  background: linear-gradient(180deg, rgba(214, 183, 136, 0.075), rgba(214, 183, 136, 0.02));
+  box-shadow: inset 0 0 0 1px rgba(214, 183, 136, 0.2); }
+.efuture .tag { color: var(--gold); }
+.efuture ul { list-style: none; margin: 0.55rem 0 0; padding: 0; display: grid; gap: 0.42rem; }
+.efuture li { position: relative; padding-left: 1.15rem; font-size: 0.92rem; color: var(--text); }
+.efuture li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 0.5rem; height: 1px; background: var(--gold); }
+.ectas { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: auto; padding-top: 0.2rem; }
+.link-btn { appearance: none; border: 0; background: none; cursor: pointer; padding: 0.55rem 0.2rem;
+  display: inline-flex; align-items: center; gap: 0.45rem; color: var(--gold-lt); font-size: 0.875rem; font-weight: 500;
+  text-decoration: none; transition: color 0.2s; }
+.link-btn:hover { color: var(--gold-hi); }
+.link-btn .arr { transition: transform 0.3s var(--ease); }
+.link-btn:hover .arr { transform: translateX(3px); }
 
-.card-media {
-  position: relative; flex: none;
-  aspect-ratio: 16 / 10;
-  background: #0d0f13;
-  border-bottom: 1px solid var(--line-soft);
-  overflow: hidden;
-}
-.card.is-wide .card-media {
-  width: 56%; aspect-ratio: auto;
-  border-bottom: 0; border-right: 1px solid var(--line-soft);
-}
-.card-media img {
-  display: block; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.card-media::after {
-  content: ""; position: absolute; inset: 0 0 auto 0;
-  height: 2px; background: var(--accent); opacity: 0.55; z-index: 1;
-}
-
-.card-body {
-  display: flex; flex-direction: column; gap: 0.6875rem; flex: 1;
-  padding: clamp(1.125rem, 2.4vw, 1.75rem);
-}
-.card.is-wide .card-body { justify-content: center; padding: clamp(1.5rem, 3.2vw, 2.75rem); }
-
-.card-kicker {
-  margin: 0;
-  font-family: var(--mono); font-size: 0.625rem;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-}
-.card-name {
-  margin: 0;
-  font-family: var(--mono); font-weight: 700;
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
-  line-height: 1.1; letter-spacing: -0.035em;
-}
-.card.is-wide .card-name { font-size: clamp(1.5rem, 3.4vw, 2.25rem); }
-
-.card-desc { margin: 0; font-size: 0.9375rem; color: var(--text-dim); text-wrap: pretty; }
-.card.is-wide .card-desc { font-size: 1rem; max-width: 48ch; }
-
-.card-tech { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0.125rem 0 0; padding: 0; list-style: none; }
-.card-tech li {
-  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
-  color: var(--text-faint); border: 1px solid var(--line);
-  border-radius: 999px; padding: 0.1875rem 0.5rem;
+@media (min-width: 1100px) { /* the hero engine lays out sideways once there is room */
+  .engine.b-wide { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+  .engine.b-wide .shot { aspect-ratio: auto; height: 100%; min-height: 100%; border-bottom: 0; border-right: 1px solid var(--hair); }
 }
 
-.card-cta {
-  display: flex; align-items: center; gap: 0.5rem;
-  margin: auto 0 0; padding-top: 0.875rem;
-  font-family: var(--mono); font-size: 0.75rem;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim);
-}
-.card.is-wide .card-cta { margin-top: 1.25rem; }
-.card-cta .arrow { margin-left: auto; color: var(--accent); transition: transform 0.25s ease; }
-
-@media (hover: hover) {
-  .card:hover {
-    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-    background: var(--ink-raised);
-    transform: translateY(-2px);
-  }
-  .card:hover .card-media img { transform: scale(1.035); }
-  .card:hover .card-cta { color: var(--text); }
-  .card:hover .card-cta .arrow { transform: translateX(3px); }
-}
-.card:focus-within { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
-
-/* a desk card with nothing to open yet — same hatch as the floor's closed plaque */
-.card.is-quiet {
+.engine.is-yours { justify-content: center; padding: clamp(1.6rem, 3vw, 2.6rem); gap: 1rem;
+  border: 1px dashed rgba(214, 183, 136, 0.42); box-shadow: none;
   background:
-    repeating-linear-gradient(-45deg, transparent 0 11px, rgba(255,255,255,0.018) 11px 22px),
-    var(--ink-card);
-}
-.card.is-quiet .card-body { padding-block: clamp(1.5rem, 3.4vw, 2.5rem); }
-.card.is-quiet .card-kicker,
-.card.is-quiet .card-cta { color: var(--text-faint); }
+    radial-gradient(30rem 16rem at 100% 0%, rgba(214, 183, 136, 0.12), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(214, 183, 136, 0.035) 0 10px, transparent 10px 20px),
+    linear-gradient(180deg, rgba(13, 20, 40, 0.6), rgba(6, 9, 18, 0.8)); }
+.engine.is-yours .ename { font-size: clamp(2.1rem, 3.4vw, 2.9rem); }
+.engine.is-yours p { margin: 0; color: var(--text-2); max-width: 30rem; }
+.engine.is-yours .ectas { margin-top: 0.4rem; }
 
-/* ---------- floor: plaques ---------- */
-
-.floor-head { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.25rem); }
-
-.floor-crest {
-  display: block;
-  width: clamp(4rem, 10vw, 6.25rem);
-  height: auto;
-  margin: 0 auto 1.5rem;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(214,183,136,0.3), 0 0 44px rgba(214,183,136,0.18);
-}
-
-.floor-title {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 800;
-  font-size: clamp(2.25rem, 7vw, 4.25rem);
-  line-height: 1.02;
-  letter-spacing: 0.02em;
-  background: linear-gradient(178deg, #F6ECD2 6%, #D6B788 48%, #97794A 96%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.floor-sub {
-  margin: 0.875rem auto 0;
-  max-width: 46ch;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1rem, 2.4vw, 1.375rem);
-  color: var(--text-dim);
-}
-
-/* a gold hairline flanked rule, the way a menu header is set */
-.floor-flourish {
-  display: flex; align-items: center; justify-content: center;
-  gap: 1rem; margin-top: 1.5rem;
-  font-family: var(--mono); font-size: 0.625rem;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dk);
-}
-.floor-flourish::before, .floor-flourish::after {
-  content: ""; width: clamp(2rem, 12vw, 8rem); height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-dk));
-}
-.floor-flourish::after { background: linear-gradient(90deg, var(--gold-dk), transparent); }
-
-.plaques { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); }
-
-.plaque {
-  position: relative;
-  display: flex; flex-direction: column;
-  min-width: 0;
-  text-decoration: none;
-  color: inherit;
+/* agents & products — the old floor, in the same house light */
+.panel-products { position: relative; isolation: isolate; }
+.panel-products::before { content: ""; position: absolute; inset: -5rem 0 -3rem; z-index: -1; pointer-events: none;
+  background: url("assets/floor-hall.jpg") center 30% / cover no-repeat; opacity: 0.16;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 10%, transparent 72%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 10%, transparent 72%); }
+.panel-note { margin: 0 0 1.5rem; max-width: 46rem; color: var(--text-2); }
+.products { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 262px), 1fr)); }
+.pbody { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.62rem; flex: 1; padding: 1.15rem 1.2rem 1.25rem; }
+.pkicker { margin: 0; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+.pname { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.04; }
+.ptoday { margin: 0; color: var(--text-2); font-size: 0.9rem; }
+.pfor { margin: 0; font-size: 0.9rem; color: var(--text); }
+.pfor b { display: block; margin-bottom: 0.15rem; font-family: var(--mono); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.pcta { margin-top: auto; padding-top: 0.3rem; display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--gold-lt); font-size: 0.86rem; font-weight: 500; text-decoration: none; }
+.pcta:hover { color: var(--gold-hi); }
+.shot.is-private { display: grid; place-items: center; align-content: center; gap: 0.7rem; color: var(--text-3);
   background:
-    linear-gradient(180deg, rgba(18,42,102,0.62), rgba(5,16,45,0.78));
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-.plaque.is-wide { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
+    radial-gradient(18rem 10rem at 50% 0%, rgba(29, 59, 134, 0.45), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(234, 215, 180, 0.045) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(0deg, rgba(234, 215, 180, 0.045) 0 1px, transparent 1px 22px),
+    #070b16; }
+.shot.is-private svg { width: 30px; height: 30px; color: var(--gold); opacity: 0.85; }
+.shot.is-private span { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; }
 
-/* inner gold hairline — the double-rule of an engraved plate */
-.plaque::before {
-  content: "";
-  position: absolute; inset: 5px;
-  border: 1px solid rgba(214,183,136,0.24);
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 3;
-  transition: border-color 0.3s ease;
+/* ---------- process ---------- */
+.steps { position: relative; list-style: none; margin: 3.6rem 0 0; padding: 0; display: grid; gap: 2rem; }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
+  .steps::before { content: ""; position: absolute; left: 0.55rem; right: 0; top: 0.52rem; height: 1px;
+    background: linear-gradient(90deg, var(--gold), rgba(214, 183, 136, 0.12));
+    transform-origin: left; transform: scaleX(1); transition: transform 1.8s var(--ease); }
+  .steps.is-in::before { transform: scaleX(1); }
+  .js .steps:not(.is-in)::before { transform: scaleX(0); }
 }
+.step { position: relative; padding-top: 2.4rem; }
+.step .dot { position: absolute; left: 0; top: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%;
+  background: var(--ink); box-shadow: inset 0 0 0 1px var(--gold), 0 0 0 6px var(--ink), 0 0 26px rgba(214, 183, 136, 0.45); }
+.step .dot::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--gold); }
+.step .n { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; color: var(--gold); }
+.step h3 { margin: 0.45rem 0 0.6rem; font-family: var(--serif); font-weight: 400; font-size: 1.65rem; line-height: 1.1; }
+.step p { margin: 0; color: var(--text-2); font-size: 0.96rem; }
 
-.plaque-media {
-  position: relative; flex: none;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: #061532;
-}
-.plaque.is-wide .plaque-media { width: 54%; aspect-ratio: auto; }
-.plaque-media img {
-  display: block; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  /* seat every screenshot in the room's low light — including the one
-     light-themed product, which otherwise glares against the stone */
-  filter: brightness(0.86) saturate(0.9);
-  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease;
-}
-/* warm the screenshots into the room's light */
-.plaque-media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20,50,120,0.18), rgba(4,14,40,0.46));
-  pointer-events: none;
-}
+.outcomes { display: grid; gap: 1px; margin-top: clamp(3.5rem, 7vw, 5rem); border-radius: var(--r); overflow: hidden;
+  background: var(--hair); box-shadow: 0 0 0 1px var(--hair); }
+@media (min-width: 760px) { .outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.outcome { position: relative; padding: clamp(1.6rem, 3vw, 2.4rem); background: linear-gradient(180deg, rgba(10, 16, 32, 0.95), rgba(6, 9, 18, 0.97)); }
+.outcome .mark { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.outcome h3 { margin: 0.7rem 0 0.6rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.55rem, 2.5vw, 2.05rem); line-height: 1.1; text-wrap: balance; }
+.outcome p { margin: 0; color: var(--text-2); }
 
-.plaque-body {
-  display: flex; flex-direction: column; gap: 0.625rem; flex: 1;
-  padding: clamp(1.25rem, 2.6vw, 1.875rem);
-}
-.plaque.is-wide .plaque-body { justify-content: center; padding: clamp(1.75rem, 3.4vw, 3rem); }
-
-.plaque-room {
-  margin: 0;
-  font-family: var(--mono); font-size: 0.625rem;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dk);
-}
-.plaque-name {
-  margin: 0;
-  font-family: var(--serif); font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.06; letter-spacing: 0.01em;
-  color: var(--gold-lt);
-}
-.plaque.is-wide .plaque-name { font-size: clamp(1.875rem, 4vw, 2.75rem); }
-
-.plaque-tag {
-  margin: 0;
-  font-family: var(--serif); font-style: italic;
-  font-size: clamp(0.9375rem, 1.9vw, 1.125rem);
-  color: var(--gold);
-}
-.plaque-desc { margin: 0; font-size: 0.9375rem; color: var(--text-dim); text-wrap: pretty; }
-.plaque.is-wide .plaque-desc { max-width: 48ch; }
-
-.plaque-tech { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0.125rem 0 0; padding: 0; list-style: none; }
-.plaque-tech li {
-  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.04em;
-  color: var(--text-faint); border: 1px solid var(--line);
-  border-radius: 999px; padding: 0.1875rem 0.5rem;
-}
-
-/* the press-me control the whole plaque acts as.
-   This is the one place on the floor that runs hotter than the antique
-   gold of the room — a CTA has to out-read the ornament around it, so it
-   takes a brighter, more saturated leaf with a lit edge and a warm cast. */
-.plaque-enter {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.625rem; align-self: flex-start;
-  margin-top: 1rem; padding: 0.8125rem 1.625rem;
-  font-family: var(--mono); font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: #17100A;
-  background: linear-gradient(180deg, #FCF0C4 0%, #F0CE72 38%, #D9A93A 72%, #A87C22 100%);
-  border-radius: 3px;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.7) inset,
-    0 -1px 0 rgba(120,84,18,0.5) inset,
-    0 0 0 1px rgba(255,236,178,0.45),
-    0 8px 22px rgba(0,0,0,0.55),
-    0 0 30px rgba(232,196,92,0.30);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-}
-.plaque-enter .arrow { transition: transform 0.25s ease; }
-
-@media (hover: hover) {
-  .plaque:hover {
-    border-color: rgba(214,183,136,0.55);
-    transform: translateY(-3px);
-    box-shadow: 0 18px 44px rgba(0,0,0,0.5);
-  }
-  .plaque:hover::before { border-color: rgba(234,215,180,0.55); }
-  .plaque:hover .plaque-media img { transform: scale(1.045); filter: brightness(1) saturate(1); }
-  .plaque:hover .plaque-enter {
-    filter: brightness(1.08);
-    transform: translateY(-1px);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.8) inset,
-      0 -1px 0 rgba(120,84,18,0.5) inset,
-      0 0 0 1px rgba(255,242,200,0.6),
-      0 12px 28px rgba(0,0,0,0.58),
-      0 0 42px rgba(240,206,114,0.45);
-  }
-  .plaque:hover .plaque-enter .arrow { transform: translateX(3px); }
-}
-.plaque:focus-visible { border-color: rgba(234,215,180,0.75); }
-
-/* the room that is closed to the public */
-.plaque.is-closed {
+/* ---------- start ---------- */
+.start-card { position: relative; overflow: hidden; isolation: isolate; text-align: center;
+  border-radius: calc(var(--r) + 10px); padding: clamp(2.6rem, 6vw, 5.2rem) clamp(1.3rem, 5vw, 4rem);
   background:
-    repeating-linear-gradient(-45deg, transparent 0 12px, rgba(214,183,136,0.035) 12px 24px),
-    linear-gradient(180deg, rgba(14,32,78,0.55), rgba(4,12,34,0.75));
-}
-.plaque.is-closed .plaque-name { color: var(--text-dim); }
-.plaque.is-closed .plaque-tag  { color: var(--text-faint); }
-.plaque.is-closed::before { border-color: rgba(214,183,136,0.13); }
-
-.plaque-closed-note {
-  display: inline-flex; align-items: center; gap: 0.625rem;
-  align-self: flex-start; margin-top: 0.875rem;
-  font-family: var(--mono); font-size: 0.6875rem;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint);
-}
+    radial-gradient(60rem 26rem at 50% -12%, rgba(214, 183, 136, 0.24), transparent 60%),
+    linear-gradient(180deg, #0B1A4D 0%, #060B1C 100%);
+  box-shadow: inset 0 0 0 1px rgba(214, 183, 136, 0.28), 0 60px 150px -60px rgba(13, 36, 99, 0.95); }
+.start-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.5;
+  background: repeating-radial-gradient(circle at 50% 120%, transparent 0 46px, rgba(234, 215, 180, 0.07) 46px 47px);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 60%); mask-image: linear-gradient(180deg, transparent, #000 60%); }
+.crest { width: 76px; height: 76px; margin: 0 auto 1.4rem; border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--hair-3), 0 18px 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(214, 183, 136, 0.25); }
+.start-card .kicker { justify-content: center; }
+.start-card .kicker::after { content: ""; width: 30px; height: 1px; background: linear-gradient(270deg, var(--gold), transparent); }
+.start-card .h2 { margin-inline: auto; }
+.start-card .sub { margin-inline: auto; }
+.start-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2.2rem; }
 
 /* ---------- footer ---------- */
+.foot { border-top: 1px solid var(--hair); padding-block: 2.4rem 3rem; }
+.foot-in { display: grid; gap: 1.3rem; align-items: center; }
+@media (min-width: 900px) { .foot-in { grid-template-columns: auto 1fr auto; } }
+.foot .brand span { font-size: 1.12rem; }
+.foot .brand img { width: 26px; height: 26px; }
+.foot-line { margin: 0; color: var(--text-3); font-size: 0.875rem; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; }
+.foot nav a { color: var(--text-2); font-size: 0.875rem; text-decoration: none; }
+.foot nav a:hover { color: var(--text); }
+.foot-meta { grid-column: 1 / -1; margin: 0.4rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--hair);
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-3); }
 
-.foot {
-  margin-top: clamp(3.5rem, 9vw, 6rem);
-  padding-block: 2rem clamp(2.5rem, 6vw, 4rem);
-  border-top: 1px solid var(--line-soft);
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  display: flex; flex-wrap: wrap;
-  gap: 0.5rem 1.5rem; justify-content: space-between;
-}
-
-/* ---------- responsive ---------- */
-
-/* keep both tab labels on one line on narrow phones, and let the bar
-   scroll rather than wrap if a translation ever makes them longer */
-@media (max-width: 30rem) {
-  .tabs {
-    gap: 1rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab {
-    gap: 0.4375rem;
-    font-size: 0.625rem;
-    letter-spacing: 0.07em;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 56rem) {
-  .grid, .plaques { grid-template-columns: minmax(0, 1fr); }
-  .card.is-wide, .plaque.is-wide { flex-direction: column; }
-  .card.is-wide .card-media {
-    width: 100%; aspect-ratio: 16 / 10;
-    border-right: 0; border-bottom: 1px solid var(--line-soft);
-  }
-  .plaque.is-wide .plaque-media { width: 100%; aspect-ratio: 16 / 10; }
-}
-
-/* ---------- motion ---------- */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.reveal.is-in { opacity: 1; transform: none; }
-
+/* ---------- motion, respectfully ---------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important; }
+  .hero h1 .line > span { transform: none; }
+  .js .hero .fade { opacity: 1; transform: none; }
   .tape-track { animation: none; }
+  .tape-viewport { overflow-x: auto; }
+  .bar::after { transform: scaleX(1); }
 }
 </style>
 </head>
-<body data-view="desk">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="masthead wrap">
-  <div class="rule">girnarholdings · project map</div>
-  <div class="lockup">
-    <img class="lockup-mark" src="assets/girnar-mark.png" width="256" height="256"
-         alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath an Om sunburst." />
-    <div>
-      <h1 class="wordmark">Girnar<em>Holdings</em></h1>
-      <p class="masthead-sub">Project Directory</p>
-    </div>
-  </div>
-  <div class="masthead-foot">
-    <p class="masthead-lede">
-      Fourteen systems, built end to end, in two rooms. The <strong>desk</strong> is six market
-      tools that read overnight so you can walk in already knowing. The <strong>floor</strong> is
-      eight products built to be used, not demoed. Everything here is live — open anything.
-    </p>
-    <ul class="masthead-stats">
-      <li><b>14</b> projects</li>
-      <li><b>11</b> live</li>
-      <li><b>2</b> rooms</li>
-    </ul>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Girnar Holdings, back to top">
+      <img src="assets/favicon-64.png" width="30" height="30" alt="" />
+      <span>Girnar Holdings</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#premise">Premise</a>
+      <a href="#configure">Configure</a>
+      <a href="#engines">Engines</a>
+      <a href="#process">Process</a>
+    </nav>
+    <span class="live nav-live"><i class="ping"></i>6 engines live</span>
+    <a class="btn btn-sm" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Start a build <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </header>
 
-<nav class="tabs" role="tablist" aria-label="Project rooms">
-  <button class="tab" id="tab-desk" role="tab" aria-selected="true" aria-controls="panel-desk" type="button">
-    <span class="tab-mark"></span> Markets &amp; Trading <span class="tab-count">6</span>
-  </button>
-  <button class="tab" id="tab-floor" role="tab" aria-selected="false" aria-controls="panel-floor" tabindex="-1" type="button">
-    <span class="tab-mark"></span> Creative &amp; Agentic <span class="tab-count">8</span>
-  </button>
-</nav>
+<main id="main">
 
-<!-- Real prices captured from the BoltNews desk when this page was built.
-     Presented as a capture, never as a live feed. -->
-<section class="tape" id="tape" aria-label="Market tape captured from the BoltNews desk">
-  <p class="tape-head">Tape · <!--tape-asof:start-->BoltNews pre-market edition · 26 Oct 2026, 06:20 ET<!--tape-asof:end--> · not live</p>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <canvas id="streams" aria-hidden="true"></canvas>
+    <div class="hero-grid wrap">
+      <div class="hero-copy">
+        <p class="eyebrow fade d1"><i class="ping"></i>Research engines · built around your desk</p>
+        <h1 id="hero-title">
+          <span class="line"><span>Your mandate,</span></span>
+          <span class="line"><span><em>read overnight.</em></span></span>
+        </h1>
+        <p class="lede fade d2">
+          Every call your desk makes is downstream of reading — filings, wires, timelines, hours of
+          video. We build engines that read all of it while you sleep, then rebuild each one around
+          how <b>your</b> desk actually works. Six run in public right now. <b>The next one is yours.</b>
+        </p>
+        <div class="hero-ctas fade d3">
+          <a class="btn" href="#configure" data-magnetic>Configure your desk <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#engines">See them running</a>
+        </div>
+        <ul class="proof fade d4" aria-label="Running today">
+          <li><b data-count><!--sources:start-->115<!--sources:end--></b>sources read overnight</li>
+          <li><b data-count>3</b>editions a day</li>
+          <li><b data-count>5</b>regime reads a day</li>
+          <li><b data-count>11</b>systems live</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual fade d3" aria-hidden="true">
+        <div class="srcs">
+          <span class="src c1">10-K filing</span>
+          <span class="src c2">Overnight wires</span>
+          <span class="src c3">FOMC minutes</span>
+          <span class="src c4">X timeline</span>
+          <span class="src c5">Earnings call</span>
+          <span class="src c6">Podcast · 52 min</span>
+          <span class="src c7">Auction results</span>
+          <span class="src c8">Rating action</span>
+        </div>
+        <div class="edition">
+          <div class="edition-head"><span class="live"><i class="ping"></i>Your edition</span><span>06:00 ET</span></div>
+          <p class="edition-title">The Morning Edition</p>
+          <p class="edition-sub">built around your desk</p>
+          <div class="erows">
+            <div class="erow"><span class="elabel">What moved</span><i class="bar" style="--w: 94%"></i><i class="bar" style="--w: 66%"></i></div>
+            <div class="erow"><span class="elabel">Why it matters to your book</span><i class="bar" style="--w: 88%"></i><i class="bar" style="--w: 74%"></i></div>
+            <div class="erow"><span class="elabel">Voices worth hearing</span><i class="bar" style="--w: 80%"></i></div>
+            <div class="erow"><span class="elabel">On your calendar</span><i class="bar" style="--w: 70%"></i><i class="bar" style="--w: 48%"></i></div>
+          </div>
+          <div class="edition-foot"><span>every line sourced</span><span><b>●</b> read overnight</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TAPE =====================
+       Rewritten each weekday by .github/workflows/refresh.yml — keep the markers. -->
+  <section class="tape" id="tape" aria-label="Market tape from the BoltNews desk">
+    <p class="tape-head"><i class="dot"></i>Tape · <!--tape-asof:start-->BoltNews pre-market edition · 26 Oct 2026, 06:20 ET<!--tape-asof:end--> · refreshed each weekday, not streaming</p>
+    <div class="tape-viewport">
   <div class="tape-track">
     <!--tape:start-->
     <div class="tape-group">
@@ -813,380 +708,572 @@ body[data-view="floor"] .dot {
     </div>
     <!--tape:end-->
   </div>
-</section>
-
-<main>
-
-  <!-- ===================== THE DESK ===================== -->
-  <section class="panel wrap" id="panel-desk" role="tabpanel" aria-labelledby="tab-desk" tabindex="0">
-    <div class="panel-head reveal">
-      <div class="rule">six tools · working while you sleep</div>
-      <h2 class="panel-title">Markets &amp; Trading</h2>
-      <p class="panel-desc">
-        Six tools that do the overnight reading nobody has time for — <!--sources:start-->115<!--sources:end--> news sources,
-        hours of video, a whole equity universe, your own timeline — and hand you one page you can
-        act on before the open. Every one of them is live right now. Open any card and see this
-        morning's output.
-      </p>
-    </div>
-
-    <div class="grid">
-
-      <article class="card is-wide reveal">
-        <div class="card-media">
-          <img src="assets/shots/boltnews.jpg" width="1120" height="700" decoding="async"
-               alt="The BoltNews dashboard: a post-market edition with equity futures, rates, commodities and volatility panels above a written market summary." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Walk in already knowing · three editions a day</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://news.bolt.ceo/" target="_blank" rel="noopener">BoltNews</a>
-          </h3>
-          <p class="card-desc">
-            Nobody reads <!--sources:start-->115<!--sources:end--> sources before the bell, so most people trade on the
-            two they happened to open. This reads all of them overnight and gives you a single
-            page: what moved, why it moved, and what is set up for today — across stocks, bonds,
-            oil, gold and crypto, in plain English.
-          </p>
-          <ul class="card-tech"><li>Pre-market</li><li>Mid-day</li><li>Weekend</li></ul>
-          <p class="card-cta"><i class="dot"></i> Read this morning's edition <span class="arrow">→</span></p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="assets/shots/x-feed.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The x.bolt.ceo live feed: the headline What your feed is actually saying above a written read of the timeline, four counters for posts scanned, themes tracked, briefs this week and sources read, and a signal chart beside a keyword ranking." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Newest · it reads the timeline so you don't</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://x.bolt.ceo/" target="_blank" rel="noopener">X Feed Intelligence</a>
-          </h3>
-          <p class="card-desc">
-            The call that matters breaks on your timeline first and is buried by lunch. An agent
-            reads the feed on its own schedule, checks what each post actually claims against the
-            sources, and writes back what was really said. Point it at a mandate — fixed income,
-            credit, whatever you are paid to watch — and it keeps only what moves that book.
-            The feed on screen is the owner's own.
-          </p>
-          <ul class="card-tech"><li>Scans on its own</li><li>Every claim sourced</li><li>Shaped to your mandate</li></ul>
-          <p class="card-cta"><i class="dot"></i> See what the feed said <span class="arrow">→</span></p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="assets/shots/yt-briefings.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The YT-Briefing dashboard: a Latest Video Highlights header above a Creator Pulse panel of trailing-7-day themes and a row of creator filter chips." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Catch the call while it still works</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener">YouTube Briefings</a>
-          </h3>
-          <p class="card-desc">
-            The best market commentary is buried in hours of video you will never watch. This
-            watches all of it and gives you each creator's actual thesis in a paragraph — so you
-            hear the call while it is still tradeable instead of a week late.
-          </p>
-          <ul class="card-tech"><li>Every tracked creator</li><li>Daily</li></ul>
-          <p class="card-cta"><i class="dot"></i> See what they're saying <span class="arrow">→</span></p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="assets/shots/boltfactors.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The BoltFactors dashboard showing a market-stats header, a regime playbook and factor lead bars." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Stop fighting the market's current</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener">BoltFactors</a>
-          </h3>
-          <p class="card-desc">
-            Being right about a company and wrong about the regime still loses money. This tells
-            you which style is actually paying right now — value, momentum, quality or safety —
-            and refreshes five times a day, so you are trading with the tide rather than into it.
-          </p>
-          <ul class="card-tech"><li>5× daily</li><li>Four factor families</li></ul>
-          <p class="card-cta"><i class="dot"></i> Check today's regime <span class="arrow">→</span></p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card-media">
-          <img src="assets/shots/equity-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The Equity Screener cockpit: a universe pulse panel, factor leadership bars and leaders-and-laggards tables." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Twenty names worth your morning</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener">Equity Screener</a>
-          </h3>
-          <p class="card-desc">
-            The hard part was never the analysis — it is knowing which handful of names deserve
-            it. Seven independent passes rank the entire universe overnight and hand you a short
-            list that is already sorted, each name carrying the reason it made the cut.
-          </p>
-          <ul class="card-tech"><li>Ranked nightly</li><li>Reason per name</li></ul>
-          <p class="card-cta"><i class="dot"></i> See today's shortlist <span class="arrow">→</span></p>
-        </div>
-      </article>
-
-      <article class="card is-wide reveal">
-        <div class="card-media">
-          <img src="assets/shots/earnings-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The Earnings Screener: summary tiles for universe size and average score, a top-five opportunities list and per-name commentary." />
-        </div>
-        <div class="card-body">
-          <p class="card-kicker">Where the biggest moves get priced</p>
-          <h3 class="card-name">
-            <a class="card-link" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">Earnings Screener</a>
-          </h3>
-          <p class="card-desc">
-            Earnings are where the largest moves happen and the most money gets left on the table.
-            This looks ahead at who is about to report, scores which of those setups is actually
-            worth taking, and writes out the case for each one — so you are positioned before the
-            print rather than reacting after it.
-          </p>
-          <ul class="card-tech"><li>Next 14 days</li><li>Scored and explained</li></ul>
-          <p class="card-cta"><i class="dot"></i> See what's reporting <span class="arrow">→</span></p>
-        </div>
-      </article>
-
     </div>
   </section>
 
-  <!-- ===================== THE FLOOR ===================== -->
-  <section class="panel wrap" id="panel-floor" role="tabpanel" aria-labelledby="tab-floor" tabindex="0" hidden>
-
-    <div class="floor-head reveal">
-      <img class="floor-crest" src="assets/girnar-mark.png" width="256" height="256" loading="lazy"
-           alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath an Om sunburst." />
-
-      <h2 class="floor-title">Creative &amp; Agentic</h2>
-      <p class="floor-sub">Eight rooms under the house mark. Every door opens — step into any of them.</p>
-      <p class="floor-flourish">Shubh · Labh</p>
+  <!-- ===================== PREMISE ===================== -->
+  <section class="sec premise" id="premise" aria-labelledby="premise-title">
+    <div class="wrap">
+      <p class="kicker reveal">The premise</p>
+      <h2 class="h2 reveal" id="premise-title">Every decision is downstream of <em>reading.</em></h2>
+      <p class="sub reveal">
+        Strip a desk to first principles and it is a reading operation with a balance sheet
+        attached. The desks that win read more, read it sooner, and know which claims hold up.
+      </p>
+      <div class="premise-grid">
+        <article class="tenet reveal">
+          <span class="num">01</span>
+          <h3>The reading outgrew the people.</h3>
+          <p>Filings, wires, transcripts, timelines, video. No desk reads a tenth of it — so most read
+             the same two things everyone else did, and call it research.</p>
+        </article>
+        <article class="tenet reveal">
+          <span class="num">02</span>
+          <h3>Edge is knowing first — and knowing it holds.</h3>
+          <p>The call that matters breaks somewhere unglamorous at five in the morning and is buried by
+             lunch. Speed is half of it. A claim you can trust is the other half.</p>
+        </article>
+        <article class="tenet reveal">
+          <span class="num">03</span>
+          <h3>So we build the reader — around you.</h3>
+          <p>Engines that read everything overnight, check it against the source and write the one page
+             your mandate needs. Then we rebuild the closest one around your desk.</p>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="plaques">
+  <!-- ===================== CONFIGURE ===================== -->
+  <section class="sec configure" id="configure" aria-labelledby="configure-title">
+    <div class="wrap">
+      <p class="kicker reveal">Configure your desk</p>
+      <h2 class="h2 reveal" id="configure-title">Tell it how you work. <em>Watch it rebuild.</em></h2>
+      <p class="sub reveal">
+        Pick your seat and what eats your morning. Beside it is a sketch of the edition we would
+        build you — drawn on today's real tape.
+      </p>
 
-      <a class="plaque is-wide reveal" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">
-        <div class="plaque-media">
-          <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
-        </div>
-        <div class="plaque-body">
-          <p class="plaque-room">The Floor · five tables, one bankroll</p>
-          <h3 class="plaque-name">Grand Atlantic</h3>
-          <p class="plaque-tag">The house always teaches</p>
-          <p class="plaque-desc">
-            A casino floor built to teach rather than take. Blackjack, Roulette, Baccarat, Craps
-            and Poker trainers sit behind one front desk, sharing a single bankroll and a
-            walk-away goal across every table.
-          </p>
-          <ul class="plaque-tech"><li>React</li><li>Vite</li><li>Client-side only</li></ul>
-          <span class="plaque-enter">Take a seat <span class="arrow">→</span></span>
-        </div>
-      </a>
+      <div class="composer">
+        <form class="controls reveal" id="composer" aria-label="Configure your desk">
+          <fieldset class="field">
+            <legend><b>01</b>Your seat</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="seat" value="rates" checked /><span>Rates &amp; credit</span></label>
+              <label class="chip"><input type="radio" name="seat" value="equity" /><span>Equity long/short</span></label>
+              <label class="chip"><input type="radio" name="seat" value="macro" /><span>Macro &amp; multi-asset</span></label>
+              <label class="chip"><input type="radio" name="seat" value="allocator" /><span>Allocator &amp; family office</span></label>
+              <label class="chip"><input type="radio" name="seat" value="event" /><span>Event-driven</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend><b>02</b>What eats your morning?</legend>
+            <div class="chips">
+              <label class="chip is-check"><input type="checkbox" name="pain" value="news" checked /><span>The overnight news</span></label>
+              <label class="chip is-check"><input type="checkbox" name="pain" value="x" checked /><span>The voices on X</span></label>
+              <label class="chip is-check"><input type="checkbox" name="pain" value="video" checked /><span>Hours of video</span></label>
+              <label class="chip is-check"><input type="checkbox" name="pain" value="factors" /><span>Regime shifts</span></label>
+              <label class="chip is-check"><input type="checkbox" name="pain" value="screen" /><span>Screening the universe</span></label>
+              <label class="chip is-check"><input type="checkbox" name="pain" value="earnings" /><span>Earnings season</span></label>
+            </div>
+            <p class="hint" id="pain-hint" hidden>Pick at least one — that is where we would start.</p>
+          </fieldset>
+          <fieldset class="field">
+            <legend><b>03</b>Where it lands</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="land" value="inbox" checked /><span>Inbox</span></label>
+              <label class="chip"><input type="radio" name="land" value="slack" /><span>Slack</span></label>
+              <label class="chip"><input type="radio" name="land" value="terminal" /><span>Terminal page</span></label>
+              <label class="chip"><input type="radio" name="land" value="pdf" /><span>PDF on the desk</span></label>
+            </div>
+          </fieldset>
+        </form>
 
-      <a class="plaque reveal" href="https://girnarholdings.github.io/AgentSwarm/" target="_blank" rel="noopener">
-        <div class="plaque-media">
-          <img src="assets/shots/agentswarm.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The AgentSwarm landing page: the headline Describe it, watch it build itself, above a worked example of a swarm building a game." />
+        <div class="brief-wrap reveal">
+          <div class="brief" id="brief">
+            <noscript><p class="fine">Turn on JavaScript to configure a desk — or open the live engines below.</p></noscript>
+          </div>
+          <p class="sr-only" id="brief-status" aria-live="polite"></p>
+          <div class="compose-cta">
+            <a class="btn" id="build-this" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Build this desk <span class="arr" aria-hidden="true">→</span></a>
+            <p class="fine">Sample lines are illustrative. The figures are today's tape, and every engine underneath is running in public — open any of them below.</p>
+          </div>
         </div>
-        <div class="plaque-body">
-          <p class="plaque-room">The Workshop · plain English in, working app out</p>
-          <h3 class="plaque-name">AgentSwarm</h3>
-          <p class="plaque-tag">Describe it. Watch it build itself.</p>
-          <p class="plaque-desc">
-            Type an idea and a swarm of cheap agents builds it in parallel — every file its own
-            agent, priced before anything runs, online in one tap. Easy parts route to free
-            inference pools; only the hard ones reach the paid model.
-          </p>
-          <ul class="plaque-tech"><li>Cloudflare Workers</li><li>Multi-pool routing</li><li>223 tests</li></ul>
-          <span class="plaque-enter">Build something <span class="arrow">→</span></span>
-        </div>
-      </a>
+      </div>
+    </div>
+  </section>
 
-      <a class="plaque reveal" href="https://girnarholdings.github.io/TriDelPhi/" target="_blank" rel="noopener">
-        <div class="plaque-media">
-          <img src="assets/shots/tridelphi.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The TriDelPhi site: the headline Check your code, choose your route, beside Manual Setup Studio and Cloud Scan Studio panels." />
-        </div>
-        <div class="plaque-body">
-          <p class="plaque-room">The Gatehouse · CI supply-chain security</p>
-          <h3 class="plaque-name">TriDelPhi</h3>
-          <p class="plaque-tag">Before an attacker finds it</p>
-          <p class="plaque-desc">
-            A static Agents Rule of Two analyzer for GitHub Actions: it finds the CI job where a
-            stranger's comment turns into remote code execution. Runs fully offline, makes zero
-            network calls by default, and never certifies anything as safe.
-          </p>
-          <ul class="plaque-tech"><li>Python 3.11–3.13</li><li>Offline by default</li><li>Apache-2.0</li></ul>
-          <span class="plaque-enter">Check your code <span class="arrow">→</span></span>
-        </div>
-      </a>
+  <!-- ===================== ENGINES ===================== -->
+  <section class="sec engines" id="engines" aria-labelledby="engines-title">
+    <div class="wrap">
+      <p class="kicker reveal">The engines</p>
+      <h2 class="h2 reveal" id="engines-title">Six run every day. <em>Each one is a starting point.</em></h2>
+      <p class="sub reveal">
+        Open any of them — that is this morning's real output. Then picture it rebuilt around your
+        book: your sources, your universe, your voice.
+      </p>
 
-      <a class="plaque reveal" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">
-        <div class="plaque-media">
-          <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The FitForge app: the headline Your personal trainer, forged around you, beside an illustrated figure with highlighted muscle groups and floating set and protein readouts." />
-        </div>
-        <div class="plaque-body">
-          <p class="plaque-room">The Training Room · web &amp; iOS</p>
-          <h3 class="plaque-name">FitForge</h3>
-          <p class="plaque-tag">Forged around you</p>
-          <p class="plaque-desc">
-            Learns the equipment you have, the lifts you like and the movements you avoid, then
-            substitutes equivalents by muscle group instead of handing out a generic plan.
-          </p>
-          <ul class="plaque-tech"><li>Next.js 15</li><li>SwiftUI</li><li>Supabase</li></ul>
-          <span class="plaque-enter">Start training <span class="arrow">→</span></span>
-        </div>
-      </a>
+      <div class="tabs reveal" role="tablist" aria-label="The work">
+        <button class="tab" type="button" id="tab-markets" role="tab" aria-selected="true" aria-controls="panel-markets" tabindex="0">Market intelligence <span class="count">6</span></button>
+        <button class="tab" type="button" id="tab-products" role="tab" aria-selected="false" aria-controls="panel-products" tabindex="-1">Agents &amp; products <span class="count">8</span></button>
+      </div>
 
-      <a class="plaque reveal" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">
-        <div class="plaque-media">
-          <img src="assets/shots/vibenyc.jpg" width="1120" height="700" loading="lazy" decoding="async"
-               alt="The VibeNYC landing page: the headline Read the city before you go, beside a dark panel showing city temperature and signal readouts." />
-        </div>
-        <div class="plaque-body">
-          <p class="plaque-room">The Concierge · New York</p>
-          <h3 class="plaque-name">VibeNYC</h3>
-          <p class="plaque-tag">Read the city before you go</p>
-          <p class="plaque-desc">
-            A living read on what's actually happening across the city tonight, built from
-            official facts, local expertise and community signals — every claim traceable back
-            to its source.
-          </p>
-          <ul class="plaque-tech"><li>Python</li><li>GitHub Actions</li><li>Static HTML</li></ul>
-          <span class="plaque-enter">Open demo <span class="arrow">→</span></span>
-        </div>
-      </a>
+      <div class="panel" id="panel-markets" role="tabpanel" aria-labelledby="tab-markets" tabindex="0">
+        <div class="bento">
 
-      <div class="plaque is-closed reveal">
-        <div class="plaque-body">
-          <p class="plaque-room">The Hatchery · the fleet's always-on mind</p>
-          <h3 class="plaque-name">Hatch</h3>
-          <p class="plaque-tag">It dreams, learns, and versions itself</p>
-          <p class="plaque-desc">
-            A local orchestrator running a three-machine fleet: four coding harnesses, a
-            mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a
-            machine-to-machine bus. It runs on private hardware, so there is nothing to open.
-          </p>
-          <ul class="plaque-tech"><li>Python</li><li>MoE routing</li><li>Fleet M2M bus</li></ul>
-          <p class="plaque-closed-note"><i class="dot dot--off"></i> Private — runs on the fleet</p>
+          <article class="engine spot b-7 b-hero reveal" data-engine="news">
+            <div class="shot">
+              <img src="assets/shots/boltnews.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The BoltNews dashboard: an edition header with its source count above a cross-asset market table of equity futures, rates, commodities and volatility." />
+              <span class="badge"><i class="ping"></i>Live · news.bolt.ceo</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Walk in already knowing</p>
+              <h3 class="ename">BoltNews</h3>
+              <p class="etoday"><span class="tag">Today</span>Reads <!--sources:start-->115<!--sources:end--> sources overnight and writes three editions a day —
+                what moved, why it moved, and what is set up — across stocks, rates, credit, FX,
+                commodities and crypto.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Your coverage universe becomes the source list</li>
+                  <li>Your house view becomes the lens — every line footnoted</li>
+                  <li>A desk memory that flags the moment the story changes</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://news.bolt.ceo/" target="_blank" rel="noopener">Read this morning's edition <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="news">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-5 reveal" data-engine="x">
+            <div class="shot">
+              <img src="assets/shots/x-feed.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The x.bolt.ceo live feed: the headline What your feed is actually saying above a written read of the timeline, four counters and a signal chart beside a keyword ranking." />
+              <span class="badge"><i class="ping"></i>Live · x.bolt.ceo</span>
+              <span class="badge is-new">Newest</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">It reads the timeline so you don't</p>
+              <h3 class="ename">X Feed Intelligence</h3>
+              <p class="etoday"><span class="tag">Today</span>Reads the timeline on its own schedule, checks what each post
+                actually claims against the sources, and writes back what was really said. The feed
+                on screen is the owner's own.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Curated to your mandate — fixed income, credit, one sector</li>
+                  <li>The accounts that move your book, tracked by name</li>
+                  <li>An alert the minute a voice you trust changes their call</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://x.bolt.ceo/" target="_blank" rel="noopener">See what the feed said <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="x">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="video">
+            <div class="shot">
+              <img src="assets/shots/yt-briefings.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The YT-Briefing dashboard: a Latest Video Highlights header above a Creator Pulse panel of trailing-week themes and a row of creator filters." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Catch the call while it still works</p>
+              <h3 class="ename">YouTube Briefings</h3>
+              <p class="etoday"><span class="tag">Today</span>Watches every tracked creator and returns each one's actual thesis in a paragraph, daily.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Your expert network, dealer calls and podcasts, distilled</li>
+                  <li>Every speaker's view tracked over time — who was right</li>
+                  <li>Earnings calls in paragraphs before the Q&amp;A ends</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener">See what they're saying <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="video">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="factors">
+            <div class="shot">
+              <img src="assets/shots/boltfactors.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The BoltFactors dashboard: a market-stats header, a regime playbook and factor leadership bars." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Trade with the tide</p>
+              <h3 class="ename">BoltFactors</h3>
+              <p class="etoday"><span class="tag">Today</span>Says which style is paying right now — value, momentum, quality or safety — five times a day.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Your factor model, run on your universe</li>
+                  <li>Regime shifts mapped to your positions, not an index</li>
+                  <li>What you did the last time this regime showed up</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener">Check today's regime <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="factors">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="screen">
+            <div class="shot">
+              <img src="assets/shots/equity-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Equity Screener cockpit: a universe pulse panel, factor leadership bars and leaders-and-laggards tables." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Twenty names worth your morning</p>
+              <h3 class="ename">Equity Screener</h3>
+              <p class="etoday"><span class="tag">Today</span>Seven independent passes rank the whole universe overnight; each name arrives with the reason it made the cut.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Your screens and limits — liquidity, caps, exclusions</li>
+                  <li>Each pick arrives with its first-draft memo</li>
+                  <li>Every screen tested against your own history</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener">See today's shortlist <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="screen">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-6 reveal" data-engine="earnings">
+            <div class="shot">
+              <img src="assets/shots/earnings-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Earnings Screener: summary tiles for universe size and average score, a top-five opportunities list and per-name commentary." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Positioned before the print</p>
+              <h3 class="ename">Earnings Screener</h3>
+              <p class="etoday"><span class="tag">Today</span>Looks ahead at who reports, scores which setups are worth taking, and writes the case for each one.</p>
+              <div class="efuture"><span class="tag">Built for you</span>
+                <ul>
+                  <li>Your book's calendar, not the whole market's</li>
+                  <li>Setup memos before the print, "what changed" minutes after</li>
+                  <li>Guidance and tone shifts flagged line by line</li>
+                </ul>
+              </div>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">See what's reporting <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="earnings">Make it yours <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine is-yours spot b-6 reveal">
+            <p class="ekicker">Engine 07</p>
+            <h3 class="ename">Yours.</h3>
+            <p>The reading you never get to — a niche market, a region, an asset class, a set of
+               voices nobody else is tracking. Tell us what it is, and it becomes the seventh engine.</p>
+            <div class="ectas">
+              <a class="btn btn-sm" href="#configure">Configure it <span class="arr" aria-hidden="true">→</span></a>
+              <a class="link-btn" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Or just tell us <span class="arr" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
         </div>
       </div>
 
-      <div class="plaque is-closed reveal">
-        <div class="plaque-body">
-          <p class="plaque-room">The Bridge · fleet mission control</p>
-          <h3 class="plaque-name">Hatch for iOS</h3>
-          <p class="plaque-tag">The fleet in your pocket</p>
-          <p class="plaque-desc">
-            The cockpit for Hatch — dreams, feed and routines, streaming chat, approvals and
-            dispatch, from a phone. SwiftUI with zero dependencies and VPN optional. It ships as
-            an app against private infrastructure rather than a web page.
-          </p>
-          <ul class="plaque-tech"><li>SwiftUI</li><li>Zero deps</li><li>iOS</li></ul>
-          <p class="plaque-closed-note"><i class="dot dot--off"></i> Private — no public build</p>
+      <div class="panel panel-products" id="panel-products" role="tabpanel" aria-labelledby="tab-products" tabindex="0" hidden>
+        <p class="panel-note">Same discipline, other rooms: agents, security, consumer products and private
+          tooling. Each one is a pattern we can rebuild for a client.</p>
+        <div class="products">
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Training simulators</p>
+              <h3 class="pname">Grand Atlantic</h3>
+              <p class="ptoday">A casino floor built to teach rather than take: five table trainers sharing one bankroll and one walk-away goal.</p>
+              <p class="pfor"><b>For you</b>A simulator that teaches your team the game before they play it with real money.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Take a seat <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/agentswarm.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The AgentSwarm landing page: the headline Describe it, watch it build itself, above a worked example of a swarm building a game." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Agents that build</p>
+              <h3 class="pname">AgentSwarm</h3>
+              <p class="ptoday">Describe an app in plain English and a swarm of agents builds it in parallel — priced before anything runs.</p>
+              <p class="pfor"><b>For you</b>The internal tools your team keeps asking for, specified in a sentence and shipped.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/AgentSwarm/" target="_blank" rel="noopener">Build something <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/tridelphi.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The TriDelPhi site: the headline Check your code, choose your route, beside Manual Setup Studio and Cloud Scan Studio panels." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Supply-chain security</p>
+              <h3 class="pname">TriDelPhi</h3>
+              <p class="ptoday">Finds the CI job where a stranger's comment becomes code execution. Offline by default.</p>
+              <p class="pfor"><b>For you</b>An audit of your GitHub Actions before an attacker runs one.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/TriDelPhi/" target="_blank" rel="noopener">Check your code <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The FitForge app: the headline Your personal trainer, forged around you, beside an illustrated figure with highlighted muscle groups." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Personalization engines</p>
+              <h3 class="pname">FitForge</h3>
+              <p class="ptoday">Learns the equipment you have and the movements you avoid, then builds the plan around them.</p>
+              <p class="pfor"><b>For you</b>Personalization that bends to each customer's constraints instead of a template.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">Start training <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/vibenyc.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The VibeNYC landing page: the headline Read the city before you go, beside a dark panel of city readouts." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Sourced local intelligence</p>
+              <h3 class="pname">VibeNYC</h3>
+              <p class="ptoday">A living read on what is happening across New York tonight, with every claim traceable to its source.</p>
+              <p class="pfor"><b>For you</b>A sourced, always-current guide to your market, city or community.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">Open demo <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">AI operations</p>
+              <h3 class="pname">Hatch</h3>
+              <p class="ptoday">An always-on orchestrator running a three-machine fleet: coding harnesses, a mixture-of-experts router and shared memory.</p>
+              <p class="pfor"><b>For you</b>A private AI operations layer that runs your team's recurring work.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Mission control</p>
+              <h3 class="pname">Hatch for iOS</h3>
+              <p class="ptoday">The fleet from a phone — streaming chat, approvals and dispatch.</p>
+              <p class="pfor"><b>For you</b>Approve what your agents want to do, from anywhere.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Deal underwriting</p>
+              <h3 class="pname">CRE AI Agent</h3>
+              <p class="ptoday">Pulls commercial listings into a private underwriting dashboard for per-deal deep dives.</p>
+              <p class="pfor"><b>For you</b>Your deal flow — gathered, underwritten and ranked, private by design.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="plaque is-wide is-closed reveal">
-        <div class="plaque-body">
-          <p class="plaque-room">The Back Office · private tooling</p>
-          <h3 class="plaque-name">CRE AI Agent</h3>
-          <p class="plaque-tag">Closed to the public</p>
-          <p class="plaque-desc">
-            Scrapes commercial listings past bot protection using a remote-debugged browser,
-            then serves the deal set through an underwriting dashboard for per-deal deep dives.
-            It works on live broker data, so there is no public deployment — and no screenshot
-            here.
-          </p>
-          <ul class="plaque-tech"><li>Python</li><li>Selenium / CDP</li><li>Streamlit</li></ul>
-          <p class="plaque-closed-note"><i class="dot dot--off"></i> No public deployment</p>
+  <!-- ===================== PROCESS ===================== -->
+  <section class="sec process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <p class="kicker reveal">How a build works</p>
+      <h2 class="h2 reveal" id="process-title">From your morning to a machine, <em>in four moves.</em></h2>
+      <ol class="steps">
+        <li class="step reveal"><i class="dot"></i><span class="n">01</span>
+          <h3>Sit with the desk</h3>
+          <p>We map a real morning: what you read, what you skip, and what you wish you had known by seven.</p></li>
+        <li class="step reveal"><i class="dot"></i><span class="n">02</span>
+          <h3>Fork the closest engine</h3>
+          <p>Nobody starts from a blank page. We start from an engine that already runs in public every day.</p></li>
+        <li class="step reveal"><i class="dot"></i><span class="n">03</span>
+          <h3>Tune it to the mandate</h3>
+          <p>Your sources, your universe, your house view, your voice — delivered where your desk already works.</p></li>
+        <li class="step reveal"><i class="dot"></i><span class="n">04</span>
+          <h3>It runs. We iterate.</h3>
+          <p>Every edition is a draft of the next. Your notes reshape it week over week, until it reads like your best analyst.</p></li>
+      </ol>
+
+      <div class="outcomes">
+        <article class="outcome reveal"><span class="mark">What changes · 01</span>
+          <h3>The reading is done before you sit down.</h3>
+          <p>Your edition is waiting at six. The overnight is already digested, ranked and written up.</p></article>
+        <article class="outcome reveal"><span class="mark">What changes · 02</span>
+          <h3>Nothing that moves your book goes unread.</h3>
+          <p>Filings, wires, timelines and video — the whole surface, not the two tabs you happened to have open.</p></article>
+        <article class="outcome reveal"><span class="mark">What changes · 03</span>
+          <h3>Every claim arrives with its source.</h3>
+          <p>Each line links back to where it came from, so trusting it is a click rather than a leap.</p></article>
+        <article class="outcome reveal"><span class="mark">What changes · 04</span>
+          <h3>It gets sharper every week.</h3>
+          <p>Your notes become its instincts. By the third month it reads like your best analyst on their best day.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== START ===================== -->
+  <section class="sec start" id="start" aria-labelledby="start-title">
+    <div class="wrap">
+      <div class="start-card reveal">
+        <img class="crest" src="assets/girnar-mark.png" width="76" height="76" loading="lazy" decoding="async"
+             alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath a sunburst." />
+        <p class="kicker">Start a build</p>
+        <h2 class="h2" id="start-title">Tell us what eats <em>your morning.</em></h2>
+        <p class="sub">Bring one workflow — the reading you never get to. We will come back with the engine
+          it becomes, running on your sources, in your voice.</p>
+        <div class="start-ctas">
+          <a class="btn" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Start a build <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#configure">Configure your desk first</a>
         </div>
       </div>
-
     </div>
   </section>
 
 </main>
 
-<footer class="foot wrap">
-  <span>Girnar Holdings · project map</span>
-  <span>Screenshots <!--shots-asof:start-->captured 20 Oct 2026<!--shots-asof:end--></span>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top" aria-label="Girnar Holdings, back to top">
+      <img src="assets/favicon-64.png" width="26" height="26" alt="" />
+      <span>Girnar Holdings</span>
+    </a>
+    <p class="foot-line">Research engines, built around your desk.</p>
+    <nav aria-label="Footer">
+      <a href="#premise">Premise</a>
+      <a href="#configure">Configure</a>
+      <a href="#engines">Engines</a>
+      <a href="#process">Process</a>
+    </nav>
+    <p class="foot-meta">Screenshots <!--shots-asof:start-->captured 27 Oct 2026<!--shots-asof:end--> · tape refreshed each weekday · © 2026 Girnar Holdings</p>
+  </div>
 </footer>
 
 <script>
 (function () {
-  var tabs   = [document.getElementById('tab-desk'), document.getElementById('tab-floor')];
-  var panels = [document.getElementById('panel-desk'), document.getElementById('panel-floor')];
-  var views  = ['desk', 'floor'];
-  var tape   = document.getElementById('tape');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  'use strict';
 
-  var io = null;
-  if (!reduce && 'IntersectionObserver' in window) {
-    io = new IntersectionObserver(function (entries) {
+  var doc = document;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
+  function $(sel, root) { return (root || doc).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || doc).querySelectorAll(sel)); }
+
+  /* ---------- contact ----------
+     Set CONTACT_EMAIL to publish an address. Until it is set, every "start a build"
+     control opens the GitHub profile instead of a mailto addressed to nobody. */
+  var CONTACT_EMAIL = '';
+  var FALLBACK = 'https://github.com/girnarholdings';
+
+  function wireContact(a, subject, body) {
+    if (!CONTACT_EMAIL) {
+      a.href = FALLBACK; a.target = '_blank'; a.rel = 'noopener';
+      return;
+    }
+    a.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) +
+             '&body=' + encodeURIComponent(body);
+    a.removeAttribute('target'); a.removeAttribute('rel');
+  }
+  $$('[data-contact]').forEach(function (a) {
+    wireContact(a, 'A desk build', 'Hi Girnar Holdings,\n\nThe reading we never get to:\n\n');
+  });
+
+  /* ---------- nav ---------- */
+  var nav = $('#nav');
+  function onScroll() { nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- reveal on scroll ---------- */
+  var revealables = $$('.reveal, .steps');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         var el = entry.target;
-        var siblings = Array.prototype.slice.call(el.parentNode.children);
-        var delay = Math.min(siblings.indexOf(el), 3) * 70;
-        setTimeout(function () { el.classList.add('is-in'); }, delay);
+        var peers = Array.prototype.filter.call(el.parentNode.children, function (n) {
+          return n.classList.contains('reveal');
+        });
+        el.style.setProperty('--rd', Math.min(Math.max(peers.indexOf(el), 0), 5) * 70 + 'ms');
+        el.classList.add('is-in');
         io.unobserve(el);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    revealables.forEach(function (el) { io.observe(el); });
   }
 
-  function revealIn(panel) {
-    var items = panel.querySelectorAll('.reveal');
-    if (!io) {
-      Array.prototype.forEach.call(items, function (el) { el.classList.add('is-in'); });
-      return;
-    }
-    Array.prototype.forEach.call(items, function (el) {
-      if (!el.classList.contains('is-in')) io.observe(el);
-    });
-    // anything already on screen when the panel appears should not wait for a scroll
-    requestAnimationFrame(function () {
-      Array.prototype.forEach.call(items, function (el, i) {
-        if (el.classList.contains('is-in')) return;
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-          setTimeout(function () { el.classList.add('is-in'); }, Math.min(i, 3) * 70);
-          io.unobserve(el);
-        }
+  /* ---------- hero counters ---------- */
+  if (!reduce) {
+    setTimeout(function () {
+      $$('[data-count]').forEach(function (el) {
+        var target = parseInt(el.textContent.replace(/\D/g, ''), 10);
+        if (!target) return;
+        var t0 = null, dur = 1500;
+        el.textContent = '0';
+        requestAnimationFrame(function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(step);
+        });
       });
-    });
+    }, 650);
   }
 
-  function activate(index, focusTab) {
-    tabs.forEach(function (tab, i) {
-      var on = i === index;
+  /* ---------- tabs ---------- */
+  var tabs = [$('#tab-markets'), $('#tab-products')];
+  var panels = [$('#panel-markets'), $('#panel-products')];
+  function activate(i, focus) {
+    tabs.forEach(function (tab, j) {
+      var on = i === j;
       tab.setAttribute('aria-selected', on ? 'true' : 'false');
       tab.tabIndex = on ? 0 : -1;
-      panels[i].hidden = !on;
+      panels[j].hidden = !on;
     });
-    document.body.setAttribute('data-view', views[index]);
-    // the tape carries market data; it belongs to the desk only
-    tape.hidden = index !== 0;
-    if (focusTab) tabs[index].focus();
-    revealIn(panels[index]);
-    try { history.replaceState(null, '', '#' + views[index]); } catch (e) {}
+    if (focus) tabs[i].focus();
   }
-
   tabs.forEach(function (tab, i) {
     tab.addEventListener('click', function () { activate(i, false); });
     tab.addEventListener('keydown', function (e) {
       var next = null;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % tabs.length;
-      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i + 1) % tabs.length;
       else if (e.key === 'Home') next = 0;
       else if (e.key === 'End') next = tabs.length - 1;
       if (next === null) return;
@@ -1194,9 +1281,451 @@ body[data-view="floor"] .dot {
       activate(next, true);
     });
   });
+  // links into the old two-room directory still land somewhere sensible
+  var hash = (location.hash || '').slice(1);
+  if (hash === 'desk' || hash === 'floor') {
+    activate(hash === 'floor' ? 1 : 0, false);
+    requestAnimationFrame(function () { $('#engines').scrollIntoView(); });
+  }
 
-  var start = views.indexOf((location.hash || '').replace('#', ''));
-  activate(start === -1 ? 0 : start, false);
+  /* ---------- the cursor's light across the cards ---------- */
+  if (finePointer) {
+    var spots = $$('.spot'), px = 0, py = 0, raf = 0;
+    var paint = function () {
+      raf = 0;
+      for (var k = 0; k < spots.length; k++) {
+        var el = spots[k];
+        if (!el.offsetParent) continue;
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -40 || r.top > window.innerHeight + 40) continue;
+        el.style.setProperty('--mx', (px - r.left) + 'px');
+        el.style.setProperty('--my', (py - r.top) + 'px');
+      }
+    };
+    doc.addEventListener('pointermove', function (e) {
+      px = e.clientX; py = e.clientY;
+      if (!raf) raf = requestAnimationFrame(paint);
+    }, { passive: true });
+  }
+
+  /* ---------- magnetic primary buttons ---------- */
+  if (finePointer && !reduce) {
+    $$('[data-magnetic]').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) / r.width;
+        var y = (e.clientY - (r.top + r.height / 2)) / r.height;
+        b.style.transform = 'translate(' + (x * 9).toFixed(1) + 'px,' + (y * 7).toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* ---------- configure your desk ---------- */
+
+  // Today's figures, read off the tape that the refresh workflow rewrites each weekday.
+  var TAPE = {};
+  $$('#tape .tape-group:not([aria-hidden]) .tape-item').forEach(function (it) {
+    var sym = $('.sym', it), pxEl = $('.px', it);
+    if (!sym || !pxEl) return;
+    var chg = pxEl.nextElementSibling;
+    TAPE[sym.textContent.trim()] = {
+      px: pxEl.textContent.trim(),
+      chg: chg ? chg.textContent.trim() : '',
+      dir: chg ? chg.className : 'flat'
+    };
+  });
+
+  var NAME = { ES1: 'S&P 500', NQ1: 'Nasdaq 100', RTY1: 'Russell 2000', TU1: '2Y note', TY1: '10Y note',
+               US1: 'Long bond', CL1: 'WTI crude', NG1: 'Nat gas', GC1: 'Gold', VIX: 'VIX' };
+  var LABEL = { ES1: 'S&P futures', NQ1: 'Nasdaq futures', RTY1: 'Russell futures', TU1: 'The 2-year',
+                TY1: 'The 10-year', US1: 'The long bond', CL1: 'Crude', NG1: 'Natural gas', GC1: 'Gold', VIX: 'The VIX' };
+
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  var ENG = {
+    news:     { name: 'BoltNews',            pain: 'The overnight news',
+                tune: function (n) { return 'Sources narrowed to ' + n.universe + '. Every line footnoted.'; } },
+    x:        { name: 'X Feed Intelligence', pain: 'The voices on X',
+                tune: function (n) { return 'Curated to ' + n.voices + '; every claim checked before it reaches you.'; } },
+    video:    { name: 'YouTube Briefings',   pain: 'Hours of video',
+                tune: function (n) { return cap(n.video) + ', watched for you.'; } },
+    factors:  { name: 'BoltFactors',         pain: 'Regime shifts',
+                tune: function (n) { return cap(n.regime) + ', read five times a day against your positions.'; } },
+    screen:   { name: 'Equity Screener',     pain: 'Screening the universe',
+                tune: function (n) { return 'Screens rebuilt around ' + n.screen + '.'; } },
+    earnings: { name: 'Earnings Screener',   pain: 'Earnings season',
+                tune: function (n) { return 'Calendar rebuilt around ' + n.earnings + '.'; } }
+  };
+  var ORDER = ['news', 'x', 'video', 'factors', 'screen', 'earnings'];
+
+  var SEATS = {
+    rates: {
+      label: 'Rates & credit', desk: 'The Rates & Credit Desk', syms: ['TU1', 'TY1', 'US1'],
+      n: { universe: 'your issuers, curve points and auction calendar',
+           voices: 'the rates and credit voices you trust',
+           video: 'dealer calls, Fed speakers and rates podcasts',
+           regime: 'risk-on, risk-off and the shape of the curve',
+           screen: 'your issuers — spread versus rating drift',
+           earnings: 'issuers reporting, read for leverage and coverage' },
+      sample: {
+        news: 'Four overnight stories touch your book — a rating action, two supply headlines and a Fed speaker — each footnoted to source.',
+        x: 'Two voices you follow changed their call on duration overnight. Both claims checked against the curve; one holds up.',
+        video: 'A 52-minute dealer call in one paragraph: they still like the belly, and they gave three reasons.',
+        factors: 'Defensive leadership into the open, third session running — the regime your book is positioned for.',
+        screen: 'Six issuers flagged overnight on spread versus rating drift, each with the reason it made the cut.',
+        earnings: 'Three issuers in your universe report this week. The leverage and coverage questions are already written.'
+      }
+    },
+    equity: {
+      label: 'Equity long/short', desk: 'The Long/Short Desk', syms: ['ES1', 'NQ1', 'RTY1'],
+      n: { universe: 'your book, your watchlist and their suppliers',
+           voices: 'the accounts that actually move your names',
+           video: 'sector conferences, management interviews and analyst calls',
+           regime: 'value, momentum, quality and size on your universe',
+           screen: 'your screens, liquidity limits and exclusions',
+           earnings: "your book's names, not the whole market" },
+      sample: {
+        news: 'Three names in your book gapped on overnight news. What happened, and whether it touches the thesis.',
+        x: 'The accounts that move your names, read and checked — one rumour flagged as unsourced before the open.',
+        video: 'Two hours of conference video on your sector, boiled down to the four views that disagree with yours.',
+        factors: 'Momentum is paying and value is not — and your book leans into the wrong one.',
+        screen: 'Twenty names ranked overnight against your screens. Five are new, each with its reason.',
+        earnings: 'Six of your names report in the next fortnight. Setups scored; the case for each written.'
+      }
+    },
+    macro: {
+      label: 'Macro & multi-asset', desk: 'The Macro Desk', syms: ['ES1', 'TY1', 'CL1', 'GC1'],
+      n: { universe: 'every asset class, your central banks and your data calendar',
+           voices: 'the macro accounts worth the noise',
+           video: 'central-bank speakers and strategist calls',
+           regime: 'risk appetite across assets',
+           screen: 'cross-asset relative value',
+           earnings: 'bellwethers, read for what they say about the economy' },
+      sample: {
+        news: 'Overnight across assets on one page: what moved, the reason it moved, and what it sets up for today.',
+        x: 'The macro voices you follow, read and checked. Three disagree on the next data print — here is the split.',
+        video: 'Every central-bank speaker and strategist call since the close, one paragraph each.',
+        factors: 'Risk appetite read five times a day — and whether the regime changed since yesterday.',
+        screen: 'Cross-asset relative value ranked overnight: the stretched trades, sorted.',
+        earnings: 'This week\'s bellwethers, read for the economy rather than the stock.'
+      }
+    },
+    allocator: {
+      label: 'Allocator & family office', desk: 'The Allocator’s Desk', syms: ['ES1', 'TY1', 'GC1', 'VIX'],
+      n: { universe: 'your managers’ markets and holdings',
+           voices: 'your managers’ public commentary',
+           video: 'manager interviews and conference panels',
+           regime: 'style leadership across your managers’ books',
+           screen: 'look-through exposure across your managers',
+           earnings: 'your largest look-through positions' },
+      sample: {
+        news: 'Your managers’ world on one page — the moves that matter to your allocation, and nothing else.',
+        x: 'What your managers said in public this week, and whether it matches their letters.',
+        video: 'Manager interviews and conference panels, each distilled to the actual view.',
+        factors: 'Which styles are paying across your managers’ books — and who is fighting the tide.',
+        screen: 'Exposure overlaps flagged across managers before they become one big bet.',
+        earnings: 'The prints landing on your largest look-through positions this month.'
+      }
+    },
+    event: {
+      label: 'Event-driven', desk: 'The Event Desk', syms: ['ES1', 'NQ1', 'VIX'],
+      n: { universe: 'your catalyst watchlist',
+           voices: 'the timeline into each event',
+           video: 'prior calls and investor days',
+           regime: 'the factor tide running into each event',
+           screen: 'names with a dated catalyst',
+           earnings: 'the next fourteen days of prints' },
+      sample: {
+        news: 'Overnight catalysts on your watchlist — deals, filings, guidance — each footnoted to source.',
+        x: 'The timeline into the print: what is being claimed, and which claims have a source behind them.',
+        video: 'Last quarter\'s calls re-read for tone, so you know what changed before they speak.',
+        factors: 'Where the factor tide runs into each event — whether the setup swims with it or against it.',
+        screen: 'Names with a catalyst inside thirty days, ranked on setup quality.',
+        earnings: 'Fourteen days of prints, scored. The three worth taking, with the case written out.'
+      }
+    }
+  };
+
+  var LAND = {
+    inbox:    { line: 'Lands in your inbox at 06:00 ET.',            short: 'Inbox at 06:00' },
+    slack:    { line: 'Posts to #desk-morning in Slack at 06:00 ET.', short: 'Slack at 06:00' },
+    terminal: { line: 'Opens as a page on your terminal at 06:00 ET.', short: 'Terminal page at 06:00' },
+    pdf:      { line: 'Prints as a PDF on the desk at 06:00 ET.',     short: 'PDF at 06:00' }
+  };
+
+  var DAY = [
+    { t: '05:40', k: '*',        b: 'The sweep closes',       s: 'Everything in your mandate, read while you slept.' },
+    { t: '06:00', k: '*',        b: 'Your edition lands',     s: null },
+    { t: '06:05', k: 'x',        b: 'The feed, checked',      s: 'What the timeline said overnight, and which claims held.' },
+    { t: '06:10', k: 'video',    b: 'Last night’s video', s: 'Every call worth hearing, in a paragraph each.' },
+    { t: '07:15', k: 'screen',   b: 'The shortlist',          s: 'Ranked overnight, each name with its reason.' },
+    { t: '07:30', k: 'earnings', b: 'Setups into the print',  s: 'Who reports, what to ask, and the case for each.' },
+    { t: '09:35', k: 'factors',  b: 'Regime read, 1 of 5',    s: 'Which style is paying into the open.' },
+    { t: '12:30', k: 'news',     b: 'Mid-day edition',        s: 'What changed since the open.' },
+    { t: '16:30', k: 'news',     b: 'Post-market edition',    s: 'The day closed out, and tomorrow set up.' }
+  ];
+
+  function num(chg) { return parseFloat(String(chg).replace('−', '-').replace(/[^\d.+-]/g, '')) || 0; }
+
+  // A true sentence about today's tape: which of the seat's instruments did the moving.
+  function leader(syms) {
+    var rows = syms.filter(function (s) { return TAPE[s]; })
+                   .map(function (s) { return { s: s, chg: TAPE[s].chg }; });
+    if (!rows.length) return '';
+    var groups = {};
+    rows.forEach(function (r) {
+      var u = /bp$/.test(r.chg) ? 'bp' : '%';
+      (groups[u] = groups[u] || []).push(r);
+    });
+    var g = Object.keys(groups).map(function (k) { return groups[k]; })
+                  .sort(function (a, b) { return b.length - a.length; })[0];
+    var lead = g.slice().sort(function (a, b) { return Math.abs(num(b.chg)) - Math.abs(num(a.chg)); })[0];
+    if (num(lead.chg) === 0) return 'A quiet tape: nothing here moved.';
+    var out = LABEL[lead.s] + ' did the moving: ' + lead.chg + '.';
+    var still = g.filter(function (r) { return num(r.chg) === 0; });
+    if (still.length) out += ' ' + LABEL[still[0].s] + ' didn’t move.';
+    return out;
+  }
+
+  var form = $('#composer'), brief = $('#brief'), hint = $('#pain-hint');
+  var statusEl = $('#brief-status'), buildBtn = $('#build-this');
+
+  function decode(nodes) {
+    nodes.forEach(function (el) {
+      var final = el.getAttribute('data-v'), start = performance.now(), dur = 560;
+      requestAnimationFrame(function tick(now) {
+        var p = Math.min(1, (now - start) / dur), out = '';
+        for (var c = 0; c < final.length; c++) {
+          var ch = final.charAt(c);
+          out += (/\d/.test(ch) && c / final.length >= p) ? String((Math.random() * 10) | 0) : ch;
+        }
+        el.textContent = p < 1 ? out : final;
+        if (p < 1) requestAnimationFrame(tick);
+      });
+    });
+  }
+
+  function render(animate) {
+    var seatKey = (form.querySelector('input[name="seat"]:checked') || {}).value || 'rates';
+    var seat = SEATS[seatKey];
+    var pains = ORDER.filter(function (k) {
+      var i = form.querySelector('input[name="pain"][value="' + k + '"]');
+      return i && i.checked;
+    });
+    var landKey = (form.querySelector('input[name="land"]:checked') || {}).value || 'inbox';
+    var land = LAND[landKey];
+    hint.hidden = pains.length > 0;
+
+    var i = 0;
+    function a() { return animate && !reduce ? ' data-anim style="--i:' + (i++) + '"' : ''; }
+
+    var h = '';
+    h += '<div class="brief-head"' + a() + '><span class="live"><i class="ping"></i>Sample edition</span><span>06:00 ET</span></div>';
+    h += '<h3 class="brief-title"' + a() + '>' + esc(seat.desk) + '</h3>';
+    h += '<p class="brief-sub"' + a() + '>' + (pains.length
+      ? 'Built on ' + pains.map(function (k) { return esc(ENG[k].name); }).join(' · ')
+      : 'Pick what eats your morning to see it built') + '</p>';
+
+    var q = '';
+    seat.syms.forEach(function (s) {
+      var t = TAPE[s];
+      if (!t) return;
+      q += '<div class="q"><span class="sym">' + esc(NAME[s] || s) + '</span>' +
+           '<span class="px" data-v="' + esc(t.px) + '">' + esc(t.px) + '</span>' +
+           '<span class="chg ' + esc(t.dir) + '">' + esc(t.chg) + '</span></div>';
+    });
+    if (q) {
+      h += '<section class="brief-sec"' + a() + '><p class="brief-label">What moved <span>· today’s tape</span></p>' +
+           '<div class="quotes">' + q + '</div><p class="brief-line">' + esc(leader(seat.syms)) + '</p></section>';
+    }
+
+    if (pains.length) {
+      var li = '';
+      pains.forEach(function (k) {
+        li += '<li' + a() + '><span class="eng">' + esc(ENG[k].name) + '</span>' +
+              '<p>' + esc(seat.sample[k]) + '</p><small>' + esc(ENG[k].tune(seat.n)) + '</small></li>';
+      });
+      h += '<section class="brief-sec"><p class="brief-label"' + a() + '>Inside <span>· sample lines</span></p>' +
+           '<ul class="items">' + li + '</ul></section>';
+    }
+
+    var d = '';
+    DAY.forEach(function (e) {
+      if (e.k !== '*' && pains.indexOf(e.k) === -1) return;
+      d += '<li' + a() + '><time>' + e.t + '</time><div><b>' + esc(e.b) + '</b><span>' + esc(e.s || land.line) + '</span></div></li>';
+    });
+    h += '<section class="brief-sec"><p class="brief-label"' + a() + '>Your day <span>· eastern time</span></p><ol class="day">' + d + '</ol></section>';
+    h += '<div class="brief-foot"' + a() + '><span>' + esc(land.line) + '</span><span><b>' + pains.length + '</b> of 6 engines</span></div>';
+
+    brief.innerHTML = h;
+    if (animate && !reduce) decode($$('.px', brief));
+
+    statusEl.textContent = seat.desk + ', built on ' + pains.length + ' engine' + (pains.length === 1 ? '' : 's') + '. ' + land.line;
+    wireContact(buildBtn, 'Desk build: ' + seat.label,
+      'Hi Girnar Holdings,\n\n' +
+      'Seat: ' + seat.label + '\n' +
+      'What eats our morning: ' + (pains.length ? pains.map(function (k) { return ENG[k].pain; }).join('; ') : '(not sure yet)') + '\n' +
+      'Where it should land: ' + land.short + '\n\n' +
+      'A little about our desk:\n\n');
+  }
+
+  if (form && brief) {
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    form.addEventListener('change', function () { render(true); });
+    render(false);
+    // play the build once, the first time the sketch scrolls into view
+    if (!reduce && 'IntersectionObserver' in window) {
+      var seen = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        render(true);
+        seen.disconnect();
+      }, { threshold: 0.25 });
+      seen.observe(brief);
+    }
+
+    $$('[data-make]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var k = btn.getAttribute('data-make');
+        var input = form.querySelector('input[name="pain"][value="' + k + '"]');
+        if (input) input.checked = true;
+        render(true);
+        $('#configure').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        var chip = input && input.closest('.chip');
+        if (chip) {
+          chip.classList.remove('flash');
+          void chip.offsetWidth;
+          chip.classList.add('flash');
+          setTimeout(function () { input.focus({ preventScroll: true }); }, reduce ? 0 : 700);
+        }
+      });
+    });
+  }
+
+  /* ---------- the hero: every source streams into one edition ---------- */
+  (function streams() {
+    var hero = $('#top'), cv = $('#streams'), card = $('.edition');
+    var bars = $$('.edition .bar');
+    if (!hero || !cv || !card || !cv.getContext) return;
+    if (reduce) { bars.forEach(function (b) { b.classList.add('is-printed'); }); return; }
+
+    var ctx = cv.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, target = null, origins = [];
+    var parts = [], running = false, visible = true, last = 0, acc = 0;
+    var arrivals = 0, printed = 0, resetAt = 0, rate = 9, armed = false;
+
+    function measure() {
+      var hr = hero.getBoundingClientRect();
+      W = hr.width; H = hr.height;
+      cv.width = Math.max(1, Math.round(W * dpr));
+      cv.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var cr = card.getBoundingClientRect();
+      target = { x: cr.left - hr.left, y: cr.top - hr.top, w: cr.width, h: cr.height };
+      origins = $$('.src', hero).filter(function (s) { return s.offsetParent; }).map(function (s) {
+        var r = s.getBoundingClientRect();
+        return { el: s, x: r.left - hr.left + r.width / 2, y: r.top - hr.top + r.height / 2, t: 0 };
+      });
+      rate = W < 700 ? 5 : 9;
+    }
+
+    function spawn() {
+      if (!origins.length || !target) return;
+      var o = origins[(Math.random() * origins.length) | 0];
+      o.el.classList.add('is-emitting');
+      clearTimeout(o.t);
+      o.t = setTimeout(function () { o.el.classList.remove('is-emitting'); }, 420);
+      var n = 2 + ((Math.random() * 3) | 0);
+      for (var k = 0; k < n; k++) {
+        var tx = target.x + target.w * (0.25 + Math.random() * 0.5);
+        var ty = target.y + target.h * (0.22 + Math.random() * 0.56);
+        var dx = tx - o.x, dy = ty - o.y, len = Math.sqrt(dx * dx + dy * dy) || 1;
+        var bend = (Math.random() - 0.5) * 0.7 * len;
+        parts.push({
+          x0: o.x + (Math.random() - 0.5) * 12, y0: o.y + (Math.random() - 0.5) * 6,
+          cx: (o.x + tx) / 2 - (dy / len) * bend, cy: (o.y + ty) / 2 + (dx / len) * bend,
+          x1: tx, y1: ty,
+          t: -k * 0.07, v: 0.38 + Math.random() * 0.32, r: 0.9 + Math.random() * 1.1,
+          c: Math.random() < 0.16 ? '245,185,59' : '242,217,166'
+        });
+      }
+    }
+
+    function arrive(now) {
+      arrivals++;
+      if (resetAt) return;
+      if (arrivals % 4 === 0 && printed < bars.length) {
+        bars[printed++].classList.add('is-printed');
+        if (printed === bars.length) resetAt = now + 2800;
+      }
+    }
+
+    function frame(now) {
+      if (!running) return;
+      var dt = Math.min(0.05, last ? (now - last) / 1000 : 0.016);
+      last = now;
+      acc += dt * rate;
+      while (acc >= 1) { spawn(); acc -= 1; }
+
+      // fade what is already drawn, so every particle leaves a short trail
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.fillStyle = 'rgba(0,0,0,0.2)';
+      ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+
+      for (var k = parts.length - 1; k >= 0; k--) {
+        var p = parts[k];
+        p.t += dt * p.v;
+        if (p.t <= 0) continue;
+        var t = Math.min(1, p.t), e = Math.pow(t, 1.35), u = 1 - e;
+        var x = u * u * p.x0 + 2 * u * e * p.cx + e * e * p.x1;
+        var y = u * u * p.y0 + 2 * u * e * p.cy + e * e * p.y1;
+        var alpha = Math.min(1, t * 4) * (t > 0.85 ? (1 - t) / 0.15 : 1);
+        ctx.fillStyle = 'rgba(' + p.c + ',' + (0.15 * alpha).toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(x, y, p.r * 3.4, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = 'rgba(' + p.c + ',' + (0.92 * alpha).toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(x, y, p.r, 0, 6.2832); ctx.fill();
+        if (t >= 1) { parts.splice(k, 1); arrive(now); }
+      }
+
+      if (resetAt && now > resetAt) {
+        resetAt = 0; printed = 0;
+        bars.slice().reverse().forEach(function (b, j) {
+          setTimeout(function () { b.classList.remove('is-printed'); }, j * 70);
+        });
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running || !armed || !visible || doc.hidden) return;
+      running = true; last = 0;
+      requestAnimationFrame(frame);
+    }
+    function stop() { running = false; }
+
+    measure();
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(hero);
+    else window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(measure);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) start(); else stop();
+      }).observe(hero);
+    }
+    doc.addEventListener('visibilitychange', function () { if (doc.hidden) stop(); else start(); });
+    // let the headline land before the room fills with light
+    setTimeout(function () { armed = true; start(); }, 900);
+  })();
 })();
 </script>
 
