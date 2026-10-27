@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Girnar Holdings — Your mandate, read overnight</title>
-<meta name="description" content="Girnar Holdings builds research engines that read the filings, wires, timelines and video in your coverage overnight — then rebuilds each one around how your desk works. Six run in public today." />
+<meta name="description" content="Girnar Holdings builds research engines that read the filings, wires, timelines and video overnight and hand back one page by the open. Six run in public every day." />
 <meta name="theme-color" content="#04060C" />
 
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -17,14 +17,14 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Girnar Holdings" />
 <meta property="og:title" content="Girnar Holdings — Your mandate, read overnight" />
-<meta property="og:description" content="Research engines that read your coverage while you sleep, rebuilt around how your desk works. Six run in public today — the next one is yours." />
+<meta property="og:description" content="Research engines that read the market while you sleep. Six run in public every day — open any of them." />
 <meta property="og:url" content="https://girnarholdings.github.io/Project-Map/" />
 <meta property="og:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Girnar Holdings — Your mandate, read overnight" />
-<meta name="twitter:description" content="Research engines, built around your desk. Six run in public today — the next one is yours." />
+<meta name="twitter:description" content="Research engines, running in public. Six live every day." />
 <meta name="twitter:image" content="https://girnarholdings.github.io/Project-Map/assets/og-image.png" />
 
 <script>document.documentElement.classList.add('js');</script>
@@ -264,6 +264,20 @@ body::after {
 }
 .hero-visual:hover .edition { transform: perspective(1200px) rotateY(-3deg) rotateX(1.5deg); }
 @media (max-width: 1059px) { .edition { transform: none; } .hero-visual:hover .edition { transform: none; } }
+/* on a phone the products matter more than the animation: drop the visual, shorten the hero */
+@media (max-width: 760px) {
+  .hero-visual { display: none; }
+  .hero { padding: 2rem 0 2.5rem; }
+  .hero h1 { margin: 1rem 0 1rem; }
+  .proof { margin-top: 1.8rem; }
+  .engines.sec { padding-top: 2.5rem; }
+  .ebody { gap: 0.75rem; }
+  .hero-ctas { margin-top: 1.5rem; }
+  .proof { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; padding-top: 1rem; margin-top: 1.5rem; }
+  .proof li { font-size: 0.56rem; letter-spacing: 0.04em; }
+  .proof b { font-size: 1.7rem; }
+  .tape-note { display: none; }
+}
 .edition::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px; border-radius: var(--r) var(--r) 0 0;
   background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.8; }
 .edition-head { display: flex; justify-content: space-between; align-items: center;
@@ -431,6 +445,7 @@ body::after {
   .b-7 { grid-column: span 7; } .b-5 { grid-column: span 5; }
   .b-4 { grid-column: span 4; } .b-6 { grid-column: span 6; }
   .b-4 .shot { aspect-ratio: 16 / 9; }
+  .b-12 { grid-column: 1 / -1; }
 }
 
 .engine, .product { position: relative; isolation: isolate; display: flex; flex-direction: column; overflow: hidden;
@@ -479,6 +494,9 @@ body::after {
 .efuture ul { list-style: none; margin: 0.55rem 0 0; padding: 0; display: grid; gap: 0.42rem; }
 .efuture li { position: relative; padding-left: 1.15rem; font-size: 0.92rem; color: var(--text); }
 .efuture li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 0.5rem; height: 1px; background: var(--gold); }
+.epossible { margin: 0; padding-top: 0.75rem; border-top: 1px dashed rgba(234, 215, 180, 0.14);
+  color: var(--text-2); font-size: 0.88rem; }
+.epossible .tag { color: var(--gold); }
 .ectas { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: auto; padding-top: 0.2rem; }
 .link-btn { appearance: none; border: 0; background: none; cursor: pointer; padding: 0.55rem 0.2rem;
   display: inline-flex; align-items: center; gap: 0.45rem; color: var(--gold-lt); font-size: 0.875rem; font-weight: 500;
@@ -586,6 +604,16 @@ body::after {
 .foot-meta { grid-column: 1 / -1; margin: 0.4rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--hair);
   font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-3); }
 
+/* ---------- phones: the products should be the first thing a thumb reaches ---------- */
+@media (max-width: 760px) {
+  .engines .h2 { font-size: 2.3rem; margin-bottom: 0.6rem; }
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; margin-top: 1.4rem; }
+  .tab { justify-content: center; padding: 0.7rem 0.4rem; font-size: 0.84rem; white-space: nowrap; }
+  .panel { margin-top: 1.1rem; }
+  .ebody { padding: 1.1rem 1.1rem 1.25rem; }
+  .ename { font-size: 1.75rem; }
+}
+
 /* ---------- motion, respectfully ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -609,13 +637,12 @@ body::after {
       <span>Girnar Holdings</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#premise">Premise</a>
-      <a href="#configure">Configure</a>
-      <a href="#engines">Engines</a>
-      <a href="#process">Process</a>
+      <a href="#engines">Products</a>
+      <a href="#configure">What's possible</a>
+      <a href="#start">Contact</a>
     </nav>
     <span class="live nav-live"><i class="ping"></i>6 engines live</span>
-    <a class="btn btn-sm" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Start a build <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn-sm" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Get in touch <span class="arr" aria-hidden="true">→</span></a>
   </div>
 </header>
 
@@ -626,25 +653,25 @@ body::after {
     <canvas id="streams" aria-hidden="true"></canvas>
     <div class="hero-grid wrap">
       <div class="hero-copy">
-        <p class="eyebrow fade d1"><i class="ping"></i>Research engines · built around your desk</p>
+        <p class="eyebrow fade d1"><i class="ping"></i>Research engines · running in public</p>
         <h1 id="hero-title">
           <span class="line"><span>Your mandate,</span></span>
           <span class="line"><span><em>read overnight.</em></span></span>
         </h1>
         <p class="lede fade d2">
-          Every call your desk makes is downstream of reading — filings, wires, timelines, hours of
-          video. We build engines that read all of it while you sleep, then rebuild each one around
-          how <b>your</b> desk actually works. Six run in public right now. <b>The next one is yours.</b>
+          Engines that read the filings, wires, timelines and hours of video overnight, and hand back
+          one page you can act on by the open. <b>Six run in public every day</b> — open any of them
+          and you are looking at this morning's real output.
         </p>
         <div class="hero-ctas fade d3">
-          <a class="btn" href="#configure" data-magnetic>Configure your desk <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#engines">See them running</a>
+          <a class="btn" href="#engines" data-magnetic>See the products <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#configure">What's possible</a>
         </div>
         <ul class="proof fade d4" aria-label="Running today">
           <li><b data-count><!--sources:start-->115<!--sources:end--></b>sources read overnight</li>
           <li><b data-count>3</b>editions a day</li>
           <li><b data-count>5</b>regime reads a day</li>
-          <li><b data-count>11</b>systems live</li>
+          <li><b data-count>10</b>systems live</li>
         </ul>
       </div>
 
@@ -678,7 +705,7 @@ body::after {
   <!-- ===================== TAPE =====================
        Rewritten each weekday by .github/workflows/refresh.yml — keep the markers. -->
   <section class="tape" id="tape" aria-label="Market tape from the BoltNews desk">
-    <p class="tape-head"><i class="dot"></i>Tape · <!--tape-asof:start-->BoltNews pre-market edition · 26 Oct 2026, 06:20 ET<!--tape-asof:end--> · refreshed each weekday, not streaming</p>
+    <p class="tape-head"><i class="dot"></i>Tape · <!--tape-asof:start-->BoltNews pre-market edition · 26 Oct 2026, 06:20 ET<!--tape-asof:end--><span class="tape-note"> · refreshed each weekday, not streaming</span></p>
     <div class="tape-viewport">
   <div class="tape-track">
     <!--tape:start-->
@@ -711,34 +738,246 @@ body::after {
     </div>
   </section>
 
-  <!-- ===================== PREMISE ===================== -->
-  <section class="sec premise" id="premise" aria-labelledby="premise-title">
+  <!-- ===================== ENGINES ===================== -->
+  <section class="sec engines" id="engines" aria-labelledby="engines-title">
     <div class="wrap">
-      <p class="kicker reveal">The premise</p>
-      <h2 class="h2 reveal" id="premise-title">Every decision is downstream of <em>reading.</em></h2>
+      <p class="kicker reveal">The products</p>
+      <h2 class="h2 reveal" id="engines-title">Six engines, <em>running every day.</em></h2>
       <p class="sub reveal">
-        Strip a desk to first principles and it is a reading operation with a balance sheet
-        attached. The desks that win read more, read it sooner, and know which claims hold up.
+        Open any of them — that is this morning's real output, not a mock-up.
       </p>
-      <div class="premise-grid">
-        <article class="tenet reveal">
-          <span class="num">01</span>
-          <h3>The reading outgrew the people.</h3>
-          <p>Filings, wires, transcripts, timelines, video. No desk reads a tenth of it — so most read
-             the same two things everyone else did, and call it research.</p>
-        </article>
-        <article class="tenet reveal">
-          <span class="num">02</span>
-          <h3>Edge is knowing first — and knowing it holds.</h3>
-          <p>The call that matters breaks somewhere unglamorous at five in the morning and is buried by
-             lunch. Speed is half of it. A claim you can trust is the other half.</p>
-        </article>
-        <article class="tenet reveal">
-          <span class="num">03</span>
-          <h3>So we build the reader — around you.</h3>
-          <p>Engines that read everything overnight, check it against the source and write the one page
-             your mandate needs. Then we rebuild the closest one around your desk.</p>
-        </article>
+
+      <div class="tabs reveal" role="tablist" aria-label="The work">
+        <button class="tab" type="button" id="tab-markets" role="tab" aria-selected="true" aria-controls="panel-markets" tabindex="0">Market intelligence <span class="count">6</span></button>
+        <button class="tab" type="button" id="tab-products" role="tab" aria-selected="false" aria-controls="panel-products" tabindex="-1">Agents &amp; products <span class="count">7</span></button>
+      </div>
+
+      <div class="panel" id="panel-markets" role="tabpanel" aria-labelledby="tab-markets" tabindex="0">
+        <div class="bento">
+
+          <article class="engine spot b-7 b-hero reveal" data-engine="news">
+            <div class="shot">
+              <img src="assets/shots/boltnews.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The BoltNews dashboard: an edition header with its source count above a cross-asset market table of equity futures, rates, commodities and volatility." />
+              <span class="badge"><i class="ping"></i>Live · news.bolt.ceo</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Walk in already knowing</p>
+              <h3 class="ename">BoltNews</h3>
+              <p class="etoday"><span class="tag">Today</span>Reads <!--sources:start-->115<!--sources:end--> sources overnight and writes three editions a day —
+                what moved, why it moved, and what is set up — across stocks, rates, credit, FX,
+                commodities and crypto.</p>
+              <p class="epossible"><span class="tag">Possible</span>Pointed at your coverage, with your house view as the lens.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://news.bolt.ceo/" target="_blank" rel="noopener">Read this morning's edition <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="news">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-5 reveal" data-engine="x">
+            <div class="shot">
+              <img src="assets/shots/x-feed.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The x.bolt.ceo live feed: the headline What your feed is actually saying above a written read of the timeline, four counters and a signal chart beside a keyword ranking." />
+              <span class="badge"><i class="ping"></i>Live · x.bolt.ceo</span>
+              <span class="badge is-new">Newest</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">It reads the timeline so you don't</p>
+              <h3 class="ename">X Feed Intelligence</h3>
+              <p class="etoday"><span class="tag">Today</span>Reads the timeline on its own schedule, checks what each post
+                actually claims against the sources, and writes back what was really said. The feed
+                on screen is the owner's own.</p>
+              <p class="epossible"><span class="tag">Possible</span>Curated to a mandate — fixed income, credit, a single sector.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://x.bolt.ceo/" target="_blank" rel="noopener">See what the feed said <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="x">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="video">
+            <div class="shot">
+              <img src="assets/shots/yt-briefings.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The YT-Briefing dashboard: a Latest Video Highlights header above a Creator Pulse panel of trailing-week themes and a row of creator filters." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Catch the call while it still works</p>
+              <h3 class="ename">YouTube Briefings</h3>
+              <p class="etoday"><span class="tag">Today</span>Watches every tracked creator and returns each one's actual thesis in a paragraph, daily.</p>
+              <p class="epossible"><span class="tag">Possible</span>Your expert network, dealer calls and podcasts, distilled.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener">See what they're saying <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="video">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="factors">
+            <div class="shot">
+              <img src="assets/shots/boltfactors.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The BoltFactors dashboard: a market-stats header, a regime playbook and factor leadership bars." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Trade with the tide</p>
+              <h3 class="ename">BoltFactors</h3>
+              <p class="etoday"><span class="tag">Today</span>Says which style is paying right now — value, momentum, quality or safety — five times a day.</p>
+              <p class="epossible"><span class="tag">Possible</span>Run on your own factor model and universe.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener">Check today's regime <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="factors">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-4 reveal" data-engine="screen">
+            <div class="shot">
+              <img src="assets/shots/equity-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Equity Screener cockpit: a universe pulse panel, factor leadership bars and leaders-and-laggards tables." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Twenty names worth your morning</p>
+              <h3 class="ename">Equity Screener</h3>
+              <p class="etoday"><span class="tag">Today</span>Seven independent passes rank the whole universe overnight; each name arrives with the reason it made the cut.</p>
+              <p class="epossible"><span class="tag">Possible</span>Your screens and limits, each pick with a first-draft memo.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener">See today's shortlist <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="screen">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="engine spot b-12 b-hero b-wide reveal" data-engine="earnings">
+            <div class="shot">
+              <img src="assets/shots/earnings-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Earnings Screener: summary tiles for universe size and average score, a top-five opportunities list and per-name commentary." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="ebody">
+              <p class="ekicker">Positioned before the print</p>
+              <h3 class="ename">Earnings Screener</h3>
+              <p class="etoday"><span class="tag">Today</span>Looks ahead at who reports, scores which setups are worth taking, and writes the case for each one.</p>
+              <p class="epossible"><span class="tag">Possible</span>Your book's calendar, with what changed minutes after the print.</p>
+              <div class="ectas">
+                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">See what's reporting <span aria-hidden="true">↗</span></a>
+                <button class="link-btn" type="button" data-make="earnings">Try it on a desk <span class="arr" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="panel panel-products" id="panel-products" role="tabpanel" aria-labelledby="tab-products" tabindex="0" hidden>
+        <p class="panel-note">Same discipline, other rooms: agents, security, consumer products and private tooling.</p>
+        <div class="products">
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Training simulators</p>
+              <h3 class="pname">Grand Atlantic</h3>
+              <p class="ptoday">A casino floor built to teach rather than take: five table trainers sharing one bankroll and one walk-away goal.</p>
+              <p class="pfor"><b>Possible</b>A simulator that teaches your team the game before they play it with real money.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Take a seat <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/agentswarm.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The AgentSwarm landing page: the headline Describe it, watch it build itself, above a worked example of a swarm building a game." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Agents that build</p>
+              <h3 class="pname">AgentSwarm</h3>
+              <p class="ptoday">Describe an app in plain English and a swarm of agents builds it in parallel — priced before anything runs.</p>
+              <p class="pfor"><b>Possible</b>The internal tools your team keeps asking for, specified in a sentence and shipped.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/AgentSwarm/" target="_blank" rel="noopener">Build something <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/tridelphi.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The TriDelPhi site: the headline Check your code, choose your route, beside Manual Setup Studio and Cloud Scan Studio panels." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Supply-chain security</p>
+              <h3 class="pname">TriDelPhi</h3>
+              <p class="ptoday">Finds the CI job where a stranger's comment becomes code execution. Offline by default.</p>
+              <p class="pfor"><b>Possible</b>An audit of your GitHub Actions before an attacker runs one.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/TriDelPhi/" target="_blank" rel="noopener">Check your code <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot">
+              <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
+                   alt="The FitForge app: the headline Your personal trainer, forged around you, beside an illustrated figure with highlighted muscle groups." />
+              <span class="badge"><i class="ping"></i>Live</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Personalization engines</p>
+              <h3 class="pname">FitForge</h3>
+              <p class="ptoday">Learns the equipment you have and the movements you avoid, then builds the plan around them.</p>
+              <p class="pfor"><b>Possible</b>Personalization that bends to each customer's constraints instead of a template.</p>
+              <a class="pcta" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">Start training <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">AI operations</p>
+              <h3 class="pname">Hatch</h3>
+              <p class="ptoday">An always-on orchestrator running a three-machine fleet: coding harnesses, a mixture-of-experts router and shared memory.</p>
+              <p class="pfor"><b>Possible</b>A private AI operations layer that runs your team's recurring work.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Mission control</p>
+              <h3 class="pname">Hatch for iOS</h3>
+              <p class="ptoday">The fleet from a phone — streaming chat, approvals and dispatch.</p>
+              <p class="pfor"><b>Possible</b>Approve what your agents want to do, from anywhere.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="product spot reveal">
+            <div class="shot is-private">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <span>Private build</span>
+            </div>
+            <div class="pbody">
+              <p class="pkicker">Deal underwriting</p>
+              <h3 class="pname">CRE AI Agent</h3>
+              <p class="ptoday">Pulls commercial listings into a private underwriting dashboard for per-deal deep dives.</p>
+              <p class="pfor"><b>Possible</b>Your deal flow — gathered, underwritten and ranked, private by design.</p>
+              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </div>
   </section>
@@ -746,15 +985,15 @@ body::after {
   <!-- ===================== CONFIGURE ===================== -->
   <section class="sec configure" id="configure" aria-labelledby="configure-title">
     <div class="wrap">
-      <p class="kicker reveal">Configure your desk</p>
-      <h2 class="h2 reveal" id="configure-title">Tell it how you work. <em>Watch it rebuild.</em></h2>
+      <p class="kicker reveal">What's possible</p>
+      <h2 class="h2 reveal" id="configure-title">Every engine bends <em>to a desk.</em></h2>
       <p class="sub reveal">
-        Pick your seat and what eats your morning. Beside it is a sketch of the edition we would
-        build you — drawn on today's real tape.
+        These read for us today. If you are curious how one might look on your desk, pick a seat —
+        it is only a sketch, drawn on today's real tape.
       </p>
 
       <div class="composer">
-        <form class="controls reveal" id="composer" aria-label="Configure your desk">
+        <form class="controls reveal" id="composer" aria-label="Sketch a desk">
           <fieldset class="field">
             <legend><b>01</b>Your seat</legend>
             <div class="chips">
@@ -790,359 +1029,14 @@ body::after {
 
         <div class="brief-wrap reveal">
           <div class="brief" id="brief">
-            <noscript><p class="fine">Turn on JavaScript to configure a desk — or open the live engines below.</p></noscript>
+            <noscript><p class="fine">Turn on JavaScript to sketch a desk — or open the live engines above.</p></noscript>
           </div>
           <p class="sr-only" id="brief-status" aria-live="polite"></p>
           <div class="compose-cta">
-            <a class="btn" id="build-this" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Build this desk <span class="arr" aria-hidden="true">→</span></a>
-            <p class="fine">Sample lines are illustrative. The figures are today's tape, and every engine underneath is running in public — open any of them below.</p>
+            <a class="btn" id="build-this" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Talk about this <span class="arr" aria-hidden="true">→</span></a>
+            <p class="fine">Sample lines are illustrative. The figures are today's tape, and every engine underneath is running in public — open any of them above.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== ENGINES ===================== -->
-  <section class="sec engines" id="engines" aria-labelledby="engines-title">
-    <div class="wrap">
-      <p class="kicker reveal">The engines</p>
-      <h2 class="h2 reveal" id="engines-title">Six run every day. <em>Each one is a starting point.</em></h2>
-      <p class="sub reveal">
-        Open any of them — that is this morning's real output. Then picture it rebuilt around your
-        book: your sources, your universe, your voice.
-      </p>
-
-      <div class="tabs reveal" role="tablist" aria-label="The work">
-        <button class="tab" type="button" id="tab-markets" role="tab" aria-selected="true" aria-controls="panel-markets" tabindex="0">Market intelligence <span class="count">6</span></button>
-        <button class="tab" type="button" id="tab-products" role="tab" aria-selected="false" aria-controls="panel-products" tabindex="-1">Agents &amp; products <span class="count">8</span></button>
-      </div>
-
-      <div class="panel" id="panel-markets" role="tabpanel" aria-labelledby="tab-markets" tabindex="0">
-        <div class="bento">
-
-          <article class="engine spot b-7 b-hero reveal" data-engine="news">
-            <div class="shot">
-              <img src="assets/shots/boltnews.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The BoltNews dashboard: an edition header with its source count above a cross-asset market table of equity futures, rates, commodities and volatility." />
-              <span class="badge"><i class="ping"></i>Live · news.bolt.ceo</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">Walk in already knowing</p>
-              <h3 class="ename">BoltNews</h3>
-              <p class="etoday"><span class="tag">Today</span>Reads <!--sources:start-->115<!--sources:end--> sources overnight and writes three editions a day —
-                what moved, why it moved, and what is set up — across stocks, rates, credit, FX,
-                commodities and crypto.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Your coverage universe becomes the source list</li>
-                  <li>Your house view becomes the lens — every line footnoted</li>
-                  <li>A desk memory that flags the moment the story changes</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://news.bolt.ceo/" target="_blank" rel="noopener">Read this morning's edition <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="news">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine spot b-5 reveal" data-engine="x">
-            <div class="shot">
-              <img src="assets/shots/x-feed.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The x.bolt.ceo live feed: the headline What your feed is actually saying above a written read of the timeline, four counters and a signal chart beside a keyword ranking." />
-              <span class="badge"><i class="ping"></i>Live · x.bolt.ceo</span>
-              <span class="badge is-new">Newest</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">It reads the timeline so you don't</p>
-              <h3 class="ename">X Feed Intelligence</h3>
-              <p class="etoday"><span class="tag">Today</span>Reads the timeline on its own schedule, checks what each post
-                actually claims against the sources, and writes back what was really said. The feed
-                on screen is the owner's own.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Curated to your mandate — fixed income, credit, one sector</li>
-                  <li>The accounts that move your book, tracked by name</li>
-                  <li>An alert the minute a voice you trust changes their call</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://x.bolt.ceo/" target="_blank" rel="noopener">See what the feed said <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="x">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine spot b-4 reveal" data-engine="video">
-            <div class="shot">
-              <img src="assets/shots/yt-briefings.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The YT-Briefing dashboard: a Latest Video Highlights header above a Creator Pulse panel of trailing-week themes and a row of creator filters." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">Catch the call while it still works</p>
-              <h3 class="ename">YouTube Briefings</h3>
-              <p class="etoday"><span class="tag">Today</span>Watches every tracked creator and returns each one's actual thesis in a paragraph, daily.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Your expert network, dealer calls and podcasts, distilled</li>
-                  <li>Every speaker's view tracked over time — who was right</li>
-                  <li>Earnings calls in paragraphs before the Q&amp;A ends</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/yt-briefing/" target="_blank" rel="noopener">See what they're saying <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="video">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine spot b-4 reveal" data-engine="factors">
-            <div class="shot">
-              <img src="assets/shots/boltfactors.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The BoltFactors dashboard: a market-stats header, a regime playbook and factor leadership bars." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">Trade with the tide</p>
-              <h3 class="ename">BoltFactors</h3>
-              <p class="etoday"><span class="tag">Today</span>Says which style is paying right now — value, momentum, quality or safety — five times a day.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Your factor model, run on your universe</li>
-                  <li>Regime shifts mapped to your positions, not an index</li>
-                  <li>What you did the last time this regime showed up</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/BoltFactors/" target="_blank" rel="noopener">Check today's regime <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="factors">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine spot b-4 reveal" data-engine="screen">
-            <div class="shot">
-              <img src="assets/shots/equity-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The Equity Screener cockpit: a universe pulse panel, factor leadership bars and leaders-and-laggards tables." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">Twenty names worth your morning</p>
-              <h3 class="ename">Equity Screener</h3>
-              <p class="etoday"><span class="tag">Today</span>Seven independent passes rank the whole universe overnight; each name arrives with the reason it made the cut.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Your screens and limits — liquidity, caps, exclusions</li>
-                  <li>Each pick arrives with its first-draft memo</li>
-                  <li>Every screen tested against your own history</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/equity-screener/" target="_blank" rel="noopener">See today's shortlist <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="screen">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine spot b-6 reveal" data-engine="earnings">
-            <div class="shot">
-              <img src="assets/shots/earnings-screener.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The Earnings Screener: summary tiles for universe size and average score, a top-five opportunities list and per-name commentary." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="ebody">
-              <p class="ekicker">Positioned before the print</p>
-              <h3 class="ename">Earnings Screener</h3>
-              <p class="etoday"><span class="tag">Today</span>Looks ahead at who reports, scores which setups are worth taking, and writes the case for each one.</p>
-              <div class="efuture"><span class="tag">Built for you</span>
-                <ul>
-                  <li>Your book's calendar, not the whole market's</li>
-                  <li>Setup memos before the print, "what changed" minutes after</li>
-                  <li>Guidance and tone shifts flagged line by line</li>
-                </ul>
-              </div>
-              <div class="ectas">
-                <a class="btn btn-sm btn-ghost" href="https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/" target="_blank" rel="noopener">See what's reporting <span aria-hidden="true">↗</span></a>
-                <button class="link-btn" type="button" data-make="earnings">Make it yours <span class="arr" aria-hidden="true">→</span></button>
-              </div>
-            </div>
-          </article>
-
-          <article class="engine is-yours spot b-6 reveal">
-            <p class="ekicker">Engine 07</p>
-            <h3 class="ename">Yours.</h3>
-            <p>The reading you never get to — a niche market, a region, an asset class, a set of
-               voices nobody else is tracking. Tell us what it is, and it becomes the seventh engine.</p>
-            <div class="ectas">
-              <a class="btn btn-sm" href="#configure">Configure it <span class="arr" aria-hidden="true">→</span></a>
-              <a class="link-btn" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Or just tell us <span class="arr" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <div class="panel panel-products" id="panel-products" role="tabpanel" aria-labelledby="tab-products" tabindex="0" hidden>
-        <p class="panel-note">Same discipline, other rooms: agents, security, consumer products and private
-          tooling. Each one is a pattern we can rebuild for a client.</p>
-        <div class="products">
-
-          <article class="product spot reveal">
-            <div class="shot">
-              <img src="assets/shots/grand-atlantic.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The Grand Atlantic training floor: a gold masthead above illustrated Blackjack, Roulette and Baccarat table cards." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Training simulators</p>
-              <h3 class="pname">Grand Atlantic</h3>
-              <p class="ptoday">A casino floor built to teach rather than take: five table trainers sharing one bankroll and one walk-away goal.</p>
-              <p class="pfor"><b>For you</b>A simulator that teaches your team the game before they play it with real money.</p>
-              <a class="pcta" href="https://girnarholdings.github.io/GrandAtlanticLive/" target="_blank" rel="noopener">Take a seat <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot">
-              <img src="assets/shots/agentswarm.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The AgentSwarm landing page: the headline Describe it, watch it build itself, above a worked example of a swarm building a game." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Agents that build</p>
-              <h3 class="pname">AgentSwarm</h3>
-              <p class="ptoday">Describe an app in plain English and a swarm of agents builds it in parallel — priced before anything runs.</p>
-              <p class="pfor"><b>For you</b>The internal tools your team keeps asking for, specified in a sentence and shipped.</p>
-              <a class="pcta" href="https://girnarholdings.github.io/AgentSwarm/" target="_blank" rel="noopener">Build something <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot">
-              <img src="assets/shots/tridelphi.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The TriDelPhi site: the headline Check your code, choose your route, beside Manual Setup Studio and Cloud Scan Studio panels." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Supply-chain security</p>
-              <h3 class="pname">TriDelPhi</h3>
-              <p class="ptoday">Finds the CI job where a stranger's comment becomes code execution. Offline by default.</p>
-              <p class="pfor"><b>For you</b>An audit of your GitHub Actions before an attacker runs one.</p>
-              <a class="pcta" href="https://girnarholdings.github.io/TriDelPhi/" target="_blank" rel="noopener">Check your code <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot">
-              <img src="assets/shots/fitforge.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The FitForge app: the headline Your personal trainer, forged around you, beside an illustrated figure with highlighted muscle groups." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Personalization engines</p>
-              <h3 class="pname">FitForge</h3>
-              <p class="ptoday">Learns the equipment you have and the movements you avoid, then builds the plan around them.</p>
-              <p class="pfor"><b>For you</b>Personalization that bends to each customer's constraints instead of a template.</p>
-              <a class="pcta" href="https://girnarholdings.github.io/FitForge/" target="_blank" rel="noopener">Start training <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot">
-              <img src="assets/shots/vibenyc.jpg" width="1120" height="700" loading="lazy" decoding="async"
-                   alt="The VibeNYC landing page: the headline Read the city before you go, beside a dark panel of city readouts." />
-              <span class="badge"><i class="ping"></i>Live</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Sourced local intelligence</p>
-              <h3 class="pname">VibeNYC</h3>
-              <p class="ptoday">A living read on what is happening across New York tonight, with every claim traceable to its source.</p>
-              <p class="pfor"><b>For you</b>A sourced, always-current guide to your market, city or community.</p>
-              <a class="pcta" href="https://girnarholdings.github.io/VibeNYC/" target="_blank" rel="noopener">Open demo <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot is-private">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
-              <span>Private build</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">AI operations</p>
-              <h3 class="pname">Hatch</h3>
-              <p class="ptoday">An always-on orchestrator running a three-machine fleet: coding harnesses, a mixture-of-experts router and shared memory.</p>
-              <p class="pfor"><b>For you</b>A private AI operations layer that runs your team's recurring work.</p>
-              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot is-private">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
-              <span>Private build</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Mission control</p>
-              <h3 class="pname">Hatch for iOS</h3>
-              <p class="ptoday">The fleet from a phone — streaming chat, approvals and dispatch.</p>
-              <p class="pfor"><b>For you</b>Approve what your agents want to do, from anywhere.</p>
-              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot is-private">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
-              <span>Private build</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Deal underwriting</p>
-              <h3 class="pname">CRE AI Agent</h3>
-              <p class="ptoday">Pulls commercial listings into a private underwriting dashboard for per-deal deep dives.</p>
-              <p class="pfor"><b>For you</b>Your deal flow — gathered, underwritten and ranked, private by design.</p>
-              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROCESS ===================== -->
-  <section class="sec process" id="process" aria-labelledby="process-title">
-    <div class="wrap">
-      <p class="kicker reveal">How a build works</p>
-      <h2 class="h2 reveal" id="process-title">From your morning to a machine, <em>in four moves.</em></h2>
-      <ol class="steps">
-        <li class="step reveal"><i class="dot"></i><span class="n">01</span>
-          <h3>Sit with the desk</h3>
-          <p>We map a real morning: what you read, what you skip, and what you wish you had known by seven.</p></li>
-        <li class="step reveal"><i class="dot"></i><span class="n">02</span>
-          <h3>Fork the closest engine</h3>
-          <p>Nobody starts from a blank page. We start from an engine that already runs in public every day.</p></li>
-        <li class="step reveal"><i class="dot"></i><span class="n">03</span>
-          <h3>Tune it to the mandate</h3>
-          <p>Your sources, your universe, your house view, your voice — delivered where your desk already works.</p></li>
-        <li class="step reveal"><i class="dot"></i><span class="n">04</span>
-          <h3>It runs. We iterate.</h3>
-          <p>Every edition is a draft of the next. Your notes reshape it week over week, until it reads like your best analyst.</p></li>
-      </ol>
-
-      <div class="outcomes">
-        <article class="outcome reveal"><span class="mark">What changes · 01</span>
-          <h3>The reading is done before you sit down.</h3>
-          <p>Your edition is waiting at six. The overnight is already digested, ranked and written up.</p></article>
-        <article class="outcome reveal"><span class="mark">What changes · 02</span>
-          <h3>Nothing that moves your book goes unread.</h3>
-          <p>Filings, wires, timelines and video — the whole surface, not the two tabs you happened to have open.</p></article>
-        <article class="outcome reveal"><span class="mark">What changes · 03</span>
-          <h3>Every claim arrives with its source.</h3>
-          <p>Each line links back to where it came from, so trusting it is a click rather than a leap.</p></article>
-        <article class="outcome reveal"><span class="mark">What changes · 04</span>
-          <h3>It gets sharper every week.</h3>
-          <p>Your notes become its instincts. By the third month it reads like your best analyst on their best day.</p></article>
       </div>
     </div>
   </section>
@@ -1153,13 +1047,13 @@ body::after {
       <div class="start-card reveal">
         <img class="crest" src="assets/girnar-mark.png" width="76" height="76" loading="lazy" decoding="async"
              alt="The Girnar Holdings house mark: a blue and gold medallion showing Mount Girnar beneath a sunburst." />
-        <p class="kicker">Start a build</p>
-        <h2 class="h2" id="start-title">Tell us what eats <em>your morning.</em></h2>
-        <p class="sub">Bring one workflow — the reading you never get to. We will come back with the engine
-          it becomes, running on your sources, in your voice.</p>
+        <p class="kicker">Get in touch</p>
+        <h2 class="h2" id="start-title">Curious what one could <em>read for you?</em></h2>
+        <p class="sub">Every engine here started as one person's reading problem. If you have one, we would
+          like to hear it.</p>
         <div class="start-ctas">
-          <a class="btn" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Start a build <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#configure">Configure your desk first</a>
+          <a class="btn" data-contact data-magnetic href="https://github.com/girnarholdings" target="_blank" rel="noopener">Get in touch <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#engines">Back to the products</a>
         </div>
       </div>
     </div>
@@ -1173,12 +1067,11 @@ body::after {
       <img src="assets/favicon-64.png" width="26" height="26" alt="" />
       <span>Girnar Holdings</span>
     </a>
-    <p class="foot-line">Research engines, built around your desk.</p>
+    <p class="foot-line">Research engines, running in public.</p>
     <nav aria-label="Footer">
-      <a href="#premise">Premise</a>
-      <a href="#configure">Configure</a>
-      <a href="#engines">Engines</a>
-      <a href="#process">Process</a>
+      <a href="#engines">Products</a>
+      <a href="#configure">What's possible</a>
+      <a href="#start">Contact</a>
     </nav>
     <p class="foot-meta">Screenshots <!--shots-asof:start-->captured 27 Oct 2026<!--shots-asof:end--> · tape refreshed each weekday · © 2026 Girnar Holdings</p>
   </div>
