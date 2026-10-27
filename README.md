@@ -13,7 +13,8 @@ the nudge towards "this could be built for you" is there, but it stays quiet.
 |---|---|
 | **Hero** — *"Your mandate, read overnight."* | One line of promise, and on desktop the core metaphor drawn live: kinds of source (a 10-K, the wires, FOMC minutes, the X timeline…) stream into one edition card. On phones the animation is dropped so the products are one swipe away. |
 | **Tape** | Real figures off the BoltNews desk, rewritten each weekday. |
-| **Products** | The six market engines in a bento grid, then the seven agents and products behind a second tab. Each card is what it does **today**, plus one quiet **Possible** line. |
+| **Products** | The six market engines in a bento grid, then the five agents and products behind a second tab. Each card is what it does **today**, plus one quiet **Possible** line. |
+| **Hatch — the core** | A ten-slide rotating deck on the orchestrator that runs the whole loop, and a 51-second vertical clip of the same slides. |
 | **What's possible** | An optional sketch: pick a seat and see how an edition might look on that desk, drawn on today's tape. |
 | **Get in touch** | A soft close. |
 
@@ -47,6 +48,56 @@ keep it from misleading a client:
 3. **No invented evidence.** No testimonials, client names, logos, performance figures or
    delivery timelines appear anywhere — there are none to cite yet, and a client who asks
    about one should get a true answer.
+
+## ◈ Hatch — the core
+
+Hatch is the always-on orchestrator the six engines feed: the overnight **dream** reads all
+seven reports and writes the one page of ranked edges; the chat surface (web, iPhone,
+Telegram, CLI) can reach internal signals, the open web, local and cloud models and five
+coding harnesses in one turn. It gets its own section, between the products and *What's
+possible*, built from the `hatch` and `hatch-ios` repositories' own documentation and source.
+
+**The deck** (`#deck`) is ten slides in Hatch's own graphite and signal amber, read off the iOS
+app's `Theme.swift`:
+
+| # | Slide | Built from |
+|---|---|---|
+| 01 | One mind running the whole desk — 38 tools · 5 harnesses · 3 machines · 1 memory · 7 reports · 28 health checks | `README.md` badges and tool inventory |
+| 02 | The market loop — seven reports in, one page out | `dream.py` (its `SOURCES` tuple and design notes) |
+| 03 | Chat with the whole stack — internal signals, internet, models, harnesses | tool inventory, `skills/trading.md` |
+| 04 | The model ladder — local first, cloud on purpose | `docs/ARCHITECTURE.md` §4 |
+| 05 | The agent loop — wrap-up, tools-off, fingerprints, budgets, checkpoints | `docs/ARCHITECTURE.md` §3, durability table |
+| 06 | Five coding harnesses, one orchestrator | `code_agent`, `hatch_git` |
+| 07 | Shared memory, nightly hygiene, the skill flywheel, the daily rhythm | `docs/ARCHITECTURE.md` §5 |
+| 08 | Approval cards and the ten-minute trust window | `docs/ARCHITECTURE.md` §6 |
+| 09 | Three machines and the fleet bus | fleet table, nervous-system section |
+| 10 | Hatch for iOS — Cockpit, Hatch, Fleet, Approvals, Dispatch | `hatch-ios` `README.md` and `CockpitView.swift` |
+
+It advances every nine seconds with a progress bar per slide, and stops the moment a person
+takes over: hover, focus, the arrow keys, a swipe, the pause button, the tab going to the
+background or the deck leaving the screen. Under reduced motion it never advances on its own.
+Only the visible slide is reachable by keyboard; a slide a person picks is announced, an
+automatic advance is not. The chat on slide 03 and the approval card on slide 08 are labelled
+illustrative.
+
+**What the deck deliberately leaves out.** Both repositories are private and their READMEs
+carry operational detail that does not belong on a public page: tailnet and bridge addresses,
+ports, where tokens and keys live, brokerage integrations, and the provenance notes on how the
+architecture was first studied. None of it appears. Machines are named by role — *the brain*,
+*the GPU box*, *the relay* — rather than by hostname.
+
+**The clip** — `assets/video/hatch-tour.mp4`, 1080×1920, 51 seconds, about 4.7 MB, with
+`assets/video/hatch-tour-poster.jpg` as its poster. It is generated from the deck itself, so the
+two cannot drift: `scripts/hatch-reel.mjs` lifts the page's stylesheet and the deck markup out of
+`index.html`, lays each slide out in a phone-shaped frame (scaling any slide that would overflow
+it), adds a title and an end card, and has ffmpeg crossfade the stills. Holds are static on
+purpose — a push-in made every frame unique and the file eight times larger. The page loads it
+with `preload="none"`, so nobody downloads it who does not press play. Re-render after any
+deck edit:
+
+```bash
+cd scripts && npm install && node hatch-reel.mjs     # needs ffmpeg with libx264
+```
 
 ## Contact — set this before sending the link to anyone
 
@@ -311,9 +362,7 @@ Each card ends with a one-line **Possible**.
 | 2 | **AgentSwarm** | [girnarholdings.github.io/AgentSwarm](https://girnarholdings.github.io/AgentSwarm/) | Cloudflare Workers, multi-pool inference routing, 223 tests | Describe an app in plain English and a swarm of cheap agents builds it in parallel — every file its own agent, priced before anything runs, online in one tap. Trivial parts fan out across free inference pools; only hard parts reach the paid model. |
 | 3 | **TriDelPhi** | [girnarholdings.github.io/TriDelPhi](https://girnarholdings.github.io/TriDelPhi/) | Python 3.11–3.13, Apache-2.0, zero default network calls | A static *Agents Rule of Two* analyzer for GitHub Actions: it finds the CI job where an attacker's comment becomes remote code execution. Runs fully offline by default and never certifies a project as safe. |
 | 4 | **FitForge** | [girnarholdings.github.io/FitForge](https://girnarholdings.github.io/FitForge/) | Next.js 15, SwiftUI (iOS 17+), Supabase, TypeScript shared package | Learns the equipment you have, the lifts you prefer and the movements you avoid, then substitutes equivalents by muscle group and movement pattern instead of handing out a generic plan. Macro targets follow Mifflin–St Jeor. |
-| 5 | **Hatch** | — *(private, runs on the fleet)* | Python, MoE routing, shared memory, fleet M2M bus | A local orchestrator running a three-machine fleet: four coding harnesses, a mixture-of-experts router, shared memory with nightly hygiene, a skill flywheel and a machine-to-machine bus. |
-| 6 | **Hatch for iOS** | — *(private, no public build)* | SwiftUI, zero dependencies, VPN optional | Mission control for Hatch from a phone — cockpit (dreams, feed, routines), streaming chat, approvals and dispatch. |
-| 7 | **CRE AI Agent** | — *(private, no public deployment)* | Python, browser automation, Streamlit | Gathers commercial listings into a private, interactive underwriting dashboard for per-deal deep dives. |
+| 5 | **CRE AI Agent** | — *(private, no public deployment)* | Python, browser automation, Streamlit | Gathers commercial listings into a private, interactive underwriting dashboard for per-deal deep dives. |
 
 ### Off the page right now
 
@@ -347,8 +396,7 @@ twice made the directory longer without making it more useful. Their repositorie
 unchanged.
 
 Link convention: each card opens the project's live deployment. Source repositories are
-private, so there are no repository links. The three projects with no public deployment —
-Hatch, Hatch for iOS and CRE AI Agent — carry a "Private build" panel in place of a
-screenshot, and their only control is "Ask for a walkthrough", which goes to the contact
+private, so there are no repository links. CRE AI Agent has no public deployment and carries
+a "Private build" panel in place of a screenshot, and their only control is "Ask for a walkthrough", which goes to the contact
 address. CRE AI Agent is still never screenshotted: it works on live broker listings, so a
 capture would publish proprietary deal data.

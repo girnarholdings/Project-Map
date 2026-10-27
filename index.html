@@ -604,6 +604,203 @@ body::after {
 .foot-meta { grid-column: 1 / -1; margin: 0.4rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--hair);
   font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-3); }
 
+/* ---------- hatch: the core, in its own graphite and signal amber ---------- */
+.hatch { --hg0: #0E1113; --hg1: #14181B; --hg2: #1B2024; --hg3: #232A2F; --hline: #262D33;
+  --hink: #E9E4D8; --hink2: #A6ADB2; --hink3: #6E777D; --hamber: #FFB454; --hgreen: #7FC98A; --hred: #E5735F; }
+.deck { position: relative; margin-top: 2.6rem; border-radius: calc(var(--r) + 6px); overflow: hidden;
+  background: radial-gradient(40rem 22rem at 100% 0%, rgba(255, 180, 84, 0.10), transparent 60%),
+              linear-gradient(180deg, var(--hg1), var(--hg0));
+  box-shadow: inset 0 0 0 1px var(--hline), 0 50px 120px -50px rgba(0, 0, 0, 0.9); }
+.deck::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hamber), transparent); opacity: 0.7; }
+.dk-top { display: flex; align-items: center; gap: 1rem; padding: 1rem clamp(1rem, 3vw, 2.4rem) 0; }
+.dk-progress { flex: 1; display: flex; gap: 6px; }
+.dk-progress button { flex: 1; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; position: relative; }
+.dk-progress button::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 3px; border-radius: 2px; background: var(--hg3); }
+.dk-progress button i { position: absolute; left: 0; top: 8px; height: 3px; border-radius: 2px; width: 0; background: var(--hamber); }
+.dk-progress button.is-done i { width: 100%; opacity: 0.55; }
+.dk-progress button.is-on i { animation: dkfill var(--dk-ms, 9000ms) linear forwards; }
+.deck.is-paused .dk-progress button.is-on i { animation-play-state: paused; }
+.deck.is-static .dk-progress button.is-on i { animation: none; width: 100%; }
+@keyframes dkfill { from { width: 0; } to { width: 100%; } }
+.dk-controls { display: flex; align-items: center; gap: 0.4rem; }
+.dk-count { font-family: var(--mono); font-size: 0.72rem; color: var(--hink3); margin-right: 0.4rem; white-space: nowrap; }
+.dk-count b { color: var(--hamber); font-weight: 500; }
+.dk-btn { width: 34px; height: 34px; border-radius: 50%; border: 0; cursor: pointer; color: var(--hink);
+  background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); font-size: 0.8rem; transition: background 0.2s, color 0.2s; }
+.dk-btn:hover { background: var(--hg3); color: var(--hamber); }
+.dk-slides { display: grid; grid-template-columns: minmax(0, 1fr); touch-action: pan-y; }
+.dk-slide { grid-area: 1 / 1; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: clamp(1.4rem, 3vw, 3rem); align-items: center;
+  padding: clamp(1.3rem, 3.2vw, 2.6rem) clamp(1rem, 3vw, 2.4rem) clamp(1.6rem, 3.5vw, 2.8rem);
+  opacity: 0; visibility: hidden; transform: translateX(24px);
+  transition: opacity 0.6s var(--ease), transform 0.7s var(--ease), visibility 0s linear 0.7s; }
+.dk-slide.is-active { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.dk-slide.is-leaving { transform: translateX(-24px); }
+@media (min-width: 980px) { .dk-slide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-content: center; } }
+.dk-k { margin: 0; display: flex; align-items: center; gap: 0.7rem; font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--hamber); }
+.dk-k span { padding: 0.2rem 0.45rem; border-radius: 6px; background: rgba(255, 180, 84, 0.12); letter-spacing: 0.06em; }
+.dk-copy h3 { margin: 0.9rem 0 0.9rem; font-family: var(--serif); font-weight: 400; color: var(--hink);
+  font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+.dk-copy h3 em { font-style: italic; color: var(--hamber); }
+.dk-copy p { margin: 0 0 0.8rem; color: var(--hink2); font-size: 0.98rem; max-width: 36rem; }
+.dk-copy p b { color: var(--hink); font-weight: 500; }
+.dk-reach { margin: 0.9rem 0 0; display: grid; gap: 0.55rem; }
+.dk-reach div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 0.8rem; align-items: baseline;
+  padding-top: 0.55rem; border-top: 1px dashed var(--hline); }
+.dk-reach dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hamber); }
+.dk-reach dd { margin: 0; color: var(--hink); font-size: 0.9rem; }
+@media (max-width: 560px) { .dk-reach div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; } }
+.dk-note { margin: 0.7rem 0 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hink3); }
+
+/* 01 stats */
+.dk-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+.dk-stats div { padding: 1.1rem 1rem; border-radius: 14px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; color: var(--hamber); }
+.dk-stats span { display: block; margin-top: 0.45rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hink2); }
+@media (max-width: 520px) { .dk-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 02 flow */
+.dk-flow { display: grid; grid-template-columns: minmax(0, 1.05fr) 34px minmax(0, 1.15fr) 34px minmax(0, 0.9fr); align-items: center; }
+.dk-srcs, .dk-outs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.dk-srcs li, .dk-outs li { padding: 0.42rem 0.6rem; border-radius: 9px; font-size: 0.78rem; color: var(--hink);
+  background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dk-outs li { color: var(--hamber); box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.3); }
+.dk-wires { display: grid; gap: 1.6rem; }
+.dk-wires i { height: 2px; background: repeating-linear-gradient(90deg, var(--hamber) 0 6px, transparent 6px 12px);
+  background-size: 24px 2px; animation: dkdash 0.9s linear infinite; opacity: 0.8; }
+@keyframes dkdash { to { background-position: 24px 0; } }
+.dk-node { padding: 1rem 0.9rem; border-radius: 16px; text-align: center; color: var(--hink);
+  background: radial-gradient(12rem 8rem at 50% 0%, rgba(255, 180, 84, 0.22), transparent 70%), var(--hg2);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.5), 0 0 40px -10px rgba(255, 180, 84, 0.5); }
+.dk-moon { display: block; font-size: 1.6rem; color: var(--hamber); line-height: 1; }
+.dk-node b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; margin-top: 0.3rem; }
+.dk-node small { display: block; font-family: var(--mono); font-size: 0.6rem; color: var(--hink3); letter-spacing: 0.06em; }
+.dk-node ol { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; gap: 0.25rem; font-family: var(--mono); font-size: 0.64rem; color: var(--hink2); }
+@media (max-width: 640px) {
+  .dk-flow { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; }
+  .dk-wires { display: none; }
+  .dk-srcs, .dk-outs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 03 chat */
+.dk-chat { padding: 1.2rem; border-radius: 18px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-me { margin: 0 0 0.9rem auto; max-width: 85%; padding: 0.7rem 0.9rem; border-radius: 14px 14px 4px 14px;
+  background: rgba(255, 180, 84, 0.14); color: var(--hink); font-size: 0.92rem; box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.35); }
+.dk-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.8rem; }
+.dk-tools span { font-family: var(--mono); font-size: 0.66rem; padding: 0.25rem 0.5rem; border-radius: 6px; color: var(--hink2);
+  background: var(--hg3); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-tools span::before { content: "⚙ "; color: var(--hamber); }
+.dk-bot { margin: 0; max-width: 92%; padding: 0.8rem 0.95rem; border-radius: 14px 14px 14px 4px; background: var(--hg1);
+  color: var(--hink); font-size: 0.92rem; box-shadow: inset 0 0 0 1px var(--hline); }
+
+/* 04 ladder */
+.dk-rows { display: grid; gap: 0.5rem; }
+.dk-rows div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) auto; gap: 0.8rem; align-items: center;
+  padding: 0.8rem 0.95rem; border-radius: 12px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-rows span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hamber); }
+.dk-rows b { font-weight: 400; color: var(--hink); font-size: 0.9rem; }
+.dk-rows i { font-style: normal; font-family: var(--mono); font-size: 0.62rem; color: var(--hink3); white-space: nowrap; }
+@media (max-width: 560px) { .dk-rows div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; } }
+
+/* 05 terminal */
+.dk-term { margin: 0; padding: 1.2rem 1.3rem; border-radius: 14px; overflow-x: auto; background: #0A0C0E; color: var(--hink2);
+  box-shadow: inset 0 0 0 1px var(--hline); font-family: var(--mono); font-size: clamp(0.68rem, 1.1vw, 0.82rem); line-height: 1.65; }
+.dk-term b { color: var(--hamber); font-weight: 500; }
+.dk-term .c { color: var(--hink3); }
+
+/* 06 harness */
+.dk-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
+.dk-chips span { padding: 0.5rem 0.85rem; border-radius: 999px; font-size: 0.86rem; color: var(--hink);
+  background: var(--hg2); box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.35); }
+.dk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; counter-reset: st; }
+.dk-steps li { position: relative; display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 0.6rem; align-items: baseline;
+  padding: 0.7rem 0.9rem 0.7rem 2.6rem; border-radius: 12px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline);
+  color: var(--hink2); font-size: 0.88rem; counter-increment: st; }
+.dk-steps li::before { content: counter(st); position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%);
+  width: 1.2rem; height: 1.2rem; border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: 0.62rem;
+  color: #1A1306; background: var(--hamber); }
+.dk-steps b { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hamber); font-weight: 500; }
+
+/* 07 memory */
+.dk-orbit { position: relative; width: min(100%, 340px); aspect-ratio: 1; margin: 0 auto; container-type: inline-size; }
+.dk-orbit::before { content: ""; position: absolute; inset: 14%; border-radius: 50%; border: 1px dashed rgba(255, 180, 84, 0.35);
+  animation: dkspin 40s linear infinite; }
+@keyframes dkspin { to { transform: rotate(360deg); } }
+.dk-core { position: absolute; inset: 33%; border-radius: 50%; display: grid; place-items: center; text-align: center;
+  font-family: var(--serif); font-size: 1.15rem; line-height: 1.05; color: var(--hink);
+  background: radial-gradient(circle, rgba(255, 180, 84, 0.3), rgba(255, 180, 84, 0.05) 70%), var(--hg2);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.55), 0 0 50px -8px rgba(255, 180, 84, 0.55); }
+.dk-orbit span { position: absolute; left: 50%; top: 50%; padding: 0.32rem 0.6rem; border-radius: 999px; white-space: nowrap;
+  font-size: 0.74rem; color: var(--hink); background: var(--hg3); box-shadow: inset 0 0 0 1px var(--hline);
+  transform: translate(-50%, -50%) rotate(var(--a)) translateY(-40cqw) rotate(calc(-1 * var(--a))); }
+.dk-rhythm { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; }
+.dk-rhythm li { padding: 0.35rem 0.6rem; border-radius: 8px; font-size: 0.74rem; color: var(--hink2); background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-rhythm time { font-family: var(--mono); color: var(--hamber); margin-right: 0.4rem; }
+
+/* 08 approval */
+.dk-card { max-width: 25rem; margin: 0 auto; padding: 1.2rem 1.2rem 1rem; border-radius: 18px; background: var(--hg2);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.45), 0 30px 70px -30px rgba(0, 0, 0, 0.9); }
+.dk-card-h { margin: 0; display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--hamber); }
+.dk-card-h i { margin-left: auto; font-style: normal; color: var(--hink3); letter-spacing: 0.04em; text-transform: none; }
+.dk-card-t { margin: 0.8rem 0 0.3rem; font-family: var(--serif); font-size: 1.5rem; color: var(--hink); }
+.dk-card-w { margin: 0 0 0.7rem; color: var(--hink2); font-size: 0.9rem; }
+.dk-card pre { margin: 0 0 0.9rem; padding: 0.6rem 0.75rem; border-radius: 10px; background: #0A0C0E; color: var(--hink2);
+  font-family: var(--mono); font-size: 0.72rem; box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-card-b { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem; }
+.dk-card-b span { padding: 0.55rem 0.3rem; border-radius: 10px; text-align: center; font-size: 0.76rem; color: var(--hink);
+  background: var(--hg3); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-card-b .ok { color: #10140F; background: var(--hgreen); box-shadow: none; font-weight: 600; }
+.dk-card-b .no { color: var(--hred); }
+
+/* 09 fleet */
+.dk-fleet { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+.dk-box { padding: 0.95rem 1rem; border-radius: 14px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.dk-box b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.35rem; color: var(--hink); }
+.dk-box span { display: block; margin-top: 0.3rem; font-size: 0.8rem; color: var(--hink2); }
+.dk-box:first-child { grid-row: span 2; background: radial-gradient(14rem 9rem at 0% 0%, rgba(255, 180, 84, 0.16), transparent 70%), var(--hg2);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.45); }
+.dk-box.is-cloud { grid-column: 1 / -1; box-shadow: none; border: 1px dashed var(--hline); }
+.dk-bus { grid-column: 1 / -1; position: relative; margin-top: 0.3rem; padding: 0.7rem 0.9rem; border-radius: 12px; overflow: hidden;
+  background: var(--hg1); box-shadow: inset 0 0 0 1px var(--hline); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; color: var(--hink2); }
+.dk-bus i { position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: repeating-linear-gradient(90deg, var(--hamber) 0 10px, transparent 10px 22px); background-size: 44px 2px; animation: dkdash2 1.4s linear infinite; }
+@keyframes dkdash2 { to { background-position: 44px 0; } }
+
+/* 10 phone */
+.dk-phone { position: relative; width: 250px; margin: 0 auto; padding: 10px; border-radius: 40px; background: #050607;
+  box-shadow: inset 0 0 0 2px #2a3035, 0 40px 90px -30px rgba(0, 0, 0, 0.95), 0 0 70px -20px rgba(255, 180, 84, 0.35); }
+.dk-notch { position: absolute; left: 50%; top: 18px; width: 70px; height: 20px; border-radius: 12px; background: #000; transform: translateX(-50%); z-index: 2; }
+.dk-screen { position: relative; height: 470px; overflow: hidden; border-radius: 31px; padding: 44px 12px 0; background: var(--hg0); color: var(--hink); font-size: 11px; }
+.ph-h { margin: 0 0 10px; display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 19px; }
+.ph-mark { color: var(--hamber); }
+.ph-card { margin-bottom: 7px; padding: 9px 10px; border-radius: 12px; background: var(--hg2); box-shadow: inset 0 0 0 1px var(--hline); }
+.ph-dream p { margin: 0 0 5px; display: flex; justify-content: space-between; color: #B9A6F0; font-size: 10px; }
+.ph-dream i { font-style: normal; color: var(--hink3); }
+.ph-dream b { display: block; font-weight: 600; font-size: 11.5px; line-height: 1.3; }
+.ph-dream em { display: block; margin-top: 4px; font-style: normal; color: var(--hink3); font-size: 9.5px; }
+.ph-alert { margin-bottom: 9px; padding: 7px 10px; border-radius: 10px; color: var(--hamber); background: rgba(255, 180, 84, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 84, 0.4); font-weight: 600; }
+.ph-sec { margin: 9px 0 6px; font-weight: 600; font-size: 12px; }
+.ph-row { display: flex; justify-content: space-between; }
+.ph-row i { font-style: normal; color: var(--hink3); }
+.ph-feed { display: flex; align-items: center; gap: 7px; padding: 5px 2px; color: var(--hink2); border-bottom: 1px solid var(--hline); }
+.ph-feed i { width: 6px; height: 6px; border-radius: 50%; flex: none; }
+.ph-feed .k1 { background: var(--hamber); } .ph-feed .k2 { background: #6FB3FF; } .ph-feed .k3 { background: var(--hgreen); }
+.ph-tabs { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-around; padding: 9px 6px 16px;
+  background: rgba(20, 24, 27, 0.95); border-top: 1px solid var(--hline); color: var(--hink3); font-size: 15px; }
+.ph-tabs .on { color: var(--hamber); }
+
+/* the clip */
+.tour { display: grid; gap: 1.5rem 2.5rem; align-items: center; margin-top: 2.2rem; }
+@media (min-width: 760px) { .tour { grid-template-columns: 280px minmax(0, 1fr); } }
+.tour-video { width: 100%; max-width: 300px; height: auto; aspect-ratio: 9 / 16; border-radius: 22px; background: #0A0C0E;
+  box-shadow: inset 0 0 0 1px var(--hair-2), 0 30px 80px -30px rgba(0, 0, 0, 0.9); justify-self: center; }
+.tour-copy h3 { margin: 0.8rem 0 0.6rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.05; }
+.tour-copy h3 em { font-style: italic; color: var(--gold-lt); }
+.tour-copy p { margin: 0 0 1.1rem; color: var(--text-2); max-width: 30rem; }
+
 /* ---------- phones: the products should be the first thing a thumb reaches ---------- */
 @media (max-width: 760px) {
   .engines .h2 { font-size: 2.3rem; margin-bottom: 0.6rem; }
@@ -638,6 +835,7 @@ body::after {
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#engines">Products</a>
+      <a href="#hatch">Hatch</a>
       <a href="#configure">What's possible</a>
       <a href="#start">Contact</a>
     </nav>
@@ -665,7 +863,7 @@ body::after {
         </p>
         <div class="hero-ctas fade d3">
           <a class="btn" href="#engines" data-magnetic>See the products <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#configure">What's possible</a>
+          <a class="btn btn-ghost" href="#hatch">Meet Hatch, the core</a>
         </div>
         <ul class="proof fade d4" aria-label="Running today">
           <li><b data-count><!--sources:start-->115<!--sources:end--></b>sources read overnight</li>
@@ -749,7 +947,7 @@ body::after {
 
       <div class="tabs reveal" role="tablist" aria-label="The work">
         <button class="tab" type="button" id="tab-markets" role="tab" aria-selected="true" aria-controls="panel-markets" tabindex="0">Market intelligence <span class="count">6</span></button>
-        <button class="tab" type="button" id="tab-products" role="tab" aria-selected="false" aria-controls="panel-products" tabindex="-1">Agents &amp; products <span class="count">7</span></button>
+        <button class="tab" type="button" id="tab-products" role="tab" aria-selected="false" aria-controls="panel-products" tabindex="-1">Agents &amp; products <span class="count">5</span></button>
       </div>
 
       <div class="panel" id="panel-markets" role="tabpanel" aria-labelledby="tab-markets" tabindex="0">
@@ -872,7 +1070,7 @@ body::after {
       </div>
 
       <div class="panel panel-products" id="panel-products" role="tabpanel" aria-labelledby="tab-products" tabindex="0" hidden>
-        <p class="panel-note">Same discipline, other rooms: agents, security, consumer products and private tooling.</p>
+        <p class="panel-note">Same discipline, other rooms: agents, security, consumer products and private tooling. Hatch, the core that runs them, has <a href="#hatch">its own section</a>.</p>
         <div class="products">
 
           <article class="product spot reveal">
@@ -935,33 +1133,6 @@ body::after {
             </div>
           </article>
 
-          <article class="product spot reveal">
-            <div class="shot is-private">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
-              <span>Private build</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">AI operations</p>
-              <h3 class="pname">Hatch</h3>
-              <p class="ptoday">An always-on orchestrator running a three-machine fleet: coding harnesses, a mixture-of-experts router and shared memory.</p>
-              <p class="pfor"><b>Possible</b>A private AI operations layer that runs your team's recurring work.</p>
-              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="product spot reveal">
-            <div class="shot is-private">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
-              <span>Private build</span>
-            </div>
-            <div class="pbody">
-              <p class="pkicker">Mission control</p>
-              <h3 class="pname">Hatch for iOS</h3>
-              <p class="ptoday">The fleet from a phone — streaming chat, approvals and dispatch.</p>
-              <p class="pfor"><b>Possible</b>Approve what your agents want to do, from anywhere.</p>
-              <a class="pcta" data-contact href="https://github.com/girnarholdings" target="_blank" rel="noopener">Ask for a walkthrough <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
 
           <article class="product spot reveal">
             <div class="shot is-private">
@@ -977,6 +1148,303 @@ body::after {
             </div>
           </article>
 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HATCH =====================
+       The core. A rotating deck in Hatch's own graphite-and-amber, then the short tour video. -->
+  <section class="sec hatch" id="hatch" aria-labelledby="hatch-title">
+    <div class="wrap">
+      <p class="kicker reveal">The core</p>
+      <h2 class="h2 reveal" id="hatch-title">Hatch, <em>the mind behind the desk.</em></h2>
+      <p class="sub reveal">
+        Every engine above publishes on its own schedule. Hatch is what reads them all, remembers
+        them and answers for them — the always-on orchestrator that runs the whole loop, from the
+        overnight sweep to the question you ask from your phone. Ten slides on how it is put together.
+      </p>
+
+      <div class="deck reveal" id="deck" role="region" aria-roledescription="carousel" aria-label="How Hatch works">
+        <div class="dk-top">
+          <div class="dk-progress" role="tablist" aria-label="Slides"></div>
+          <div class="dk-controls">
+            <span class="dk-count" aria-hidden="true"><b>01</b> / 10</span>
+            <button class="dk-btn" type="button" data-dk="prev" aria-label="Previous slide">←</button>
+            <button class="dk-btn" type="button" data-dk="pause" aria-label="Pause the deck">❚❚</button>
+            <button class="dk-btn" type="button" data-dk="next" aria-label="Next slide">→</button>
+          </div>
+        </div>
+
+        <div class="dk-slides" aria-live="off">
+
+          <!-- 01 -->
+          <article class="dk-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 10: One mind running the whole desk">
+            <div class="dk-copy">
+              <p class="dk-k"><span>01</span>Hatch · the core</p>
+              <h3>One mind running the <em>whole desk.</em></h3>
+              <p>The six engines each publish on their own. Hatch is the orchestrator that reads them,
+                 remembers them, answers questions about them — and goes and gets more when the answer
+                 is not already in the building. It runs on three machines on a desk, not in someone
+                 else's cloud.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-stats">
+                <div><b>38</b><span>agent tools</span></div>
+                <div><b>5</b><span>coding harnesses</span></div>
+                <div><b>3</b><span>machines</span></div>
+                <div><b>1</b><span>shared memory</span></div>
+                <div><b>7</b><span>reports read nightly</span></div>
+                <div><b>28</b><span>health checks</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="2 of 10: Seven reports in, one page out">
+            <div class="dk-copy">
+              <p class="dk-k"><span>02</span>The market loop</p>
+              <h3>Seven reports in. <em>One page out.</em></h3>
+              <p>Overnight, the <b>dream</b> reads every report the fleet produced — one source at a time,
+                 so a five-megabyte dashboard never shares a context window with a bookmark — all on the
+                 local model, in about five and a half minutes.</p>
+              <p>It writes the page that matters: ranked <b>edges</b> with catalyst, invalidation and
+                 conviction; the <b>conflicts</b> between reports; a <b>watch list</b>. Agreement across
+                 sources is the product, and a missing source is named, never quietly dropped.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-flow">
+                <ul class="dk-srcs">
+                  <li>BoltNews</li><li>BoltFactors</li><li>Equity Screener</li><li>Earnings Screener</li>
+                  <li>YouTube Briefings</li><li>X saves</li><li>X feed</li>
+                </ul>
+                <div class="dk-wires" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="dk-node"><span class="dk-moon">☾</span><b>Dream</b><small>04:00 · local · ~5.5 min</small>
+                  <ol><li>framing</li><li>ranked edges</li><li>conflicts</li><li>watch list</li></ol></div>
+                <div class="dk-wires" aria-hidden="true"><i></i><i></i></div>
+                <ul class="dk-outs"><li>Cockpit</li><li>iPhone</li><li>Inbox</li><li>Shared memory</li></ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="3 of 10: Chat with the whole stack">
+            <div class="dk-copy">
+              <p class="dk-k"><span>03</span>The surface</p>
+              <h3>Chat with <em>the whole stack.</em></h3>
+              <p>Hatch is what you talk to — on the phone, the web, Telegram or the command line. One
+                 question can reach four kinds of thing in the same turn:</p>
+              <dl class="dk-reach">
+                <div><dt>Internal signals</dt><dd>the market warehouse, every report, the dream, screeners, charts, watchlists, the X notebook</dd></div>
+                <div><dt>The internet</dt><dd>deep web research, a browser pool across three machines, X search</dd></div>
+                <div><dt>Models</dt><dd>the local orchestrator, GPU sub-agents, cloud experts</dd></div>
+                <div><dt>Coding harnesses</dt><dd>Claude Code, Codex, pi, dsh, omp</dd></div>
+              </dl>
+            </div>
+            <div class="dk-art">
+              <div class="dk-chat">
+                <p class="dk-me">Anything in last night's dream worth acting on before the open?</p>
+                <div class="dk-tools"><span>dream_latest</span><span>warehouse_query</span><span>web_research</span><span>memory_recall</span></div>
+                <p class="dk-bot">Two edges agree across three reports — the factor brief, the screener and a saved post.
+                  The first has a dated catalyst; the second is invalidated below yesterday's low.
+                  Live versus end-of-day is stated on every number.</p>
+                <p class="dk-note">illustrative exchange</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="4 of 10: Local first, cloud on purpose">
+            <div class="dk-copy">
+              <p class="dk-k"><span>04</span>The model ladder</p>
+              <h3>Local first. <em>Cloud on purpose.</em></h3>
+              <p>The thinking happens on hardware on the desk. The cloud is a tool like any other —
+                 called explicitly, visible in the approvals, and never the default. Expert models
+                 resolve to the newest mainline at the moment they are called, so nothing goes stale.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-rows">
+                <div><span>Orchestrator</span><b>On-device, native tool calls, ~570 tok/s class</b><i>brain box</i></div>
+                <div><span>Sub-agents</span><b>Four lanes — analysis, quant, cron, fallback</b><i>GPU box</i></div>
+                <div><span>Expert review</span><b>GLM ⇄ DeepSeek ⇄ NIM, newest mainline at call time</b><i>cloud · approved</i></div>
+                <div><span>Vision</span><b>Reads screenshots and charts, privately</b><i>brain box</i></div>
+                <div><span>Video</span><b>Wan2.1 open weights</b><i>GPU box</i></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="5 of 10: Engineered to finish">
+            <div class="dk-copy">
+              <p class="dk-k"><span>05</span>The agent loop</p>
+              <h3>Engineered <em>to finish.</em></h3>
+              <p>"Researches forever, answers never" is designed out. Every call is fingerprinted so it
+                 cannot repeat itself, every tool has a budget, and the loop is told to wrap up — then
+                 has its tools taken away — before it can spin.</p>
+              <p>A turn is a row, not a thread: it checkpoints after every model call and every tool
+                 result, so a restart is visible and a retried request reuses the run instead of
+                 doing the work twice.</p>
+            </div>
+            <div class="dk-art">
+<pre class="dk-term" aria-label="The agent loop, in outline"><span class="c"># one turn</span>
+for step in 0..8:
+  if step &gt;= 5: <b>inject wrap-up</b>
+  if step &gt;= 7: <b>tools off</b> → answer from material
+  call orchestrator →
+    tool call?
+      seen before      → "synthesize instead"
+      over budget      → "answer now"
+      dangerous        → <b>approval card</b>
+      else             → run · <b>checkpoint</b>
+    answer?  → persist · done
+
+<span class="c"># budgets per turn</span>
+web_search 6 · browser_read 5 · expert_review 3
+subagent 4 · warehouse_query 8 · memory_recall 6</pre>
+            </div>
+          </article>
+
+          <!-- 06 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="6 of 10: Five coding agents, one orchestrator">
+            <div class="dk-copy">
+              <p class="dk-k"><span>06</span>Coding harnesses</p>
+              <h3>Five coding agents, <em>one orchestrator.</em></h3>
+              <p>Hatch picks the right harness for the job, puts it behind your approval, then re-runs
+                 the tests itself before it tells you it is done. Its own source is versioned the same
+                 way — Hatch commits and pushes its own changelog.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-harness">
+                <div class="dk-chips"><span>Claude Code</span><span>Codex</span><span>pi</span><span>dsh</span><span>omp</span></div>
+                <ol class="dk-steps">
+                  <li><b>Ask</b>"Fix the failing test in the screener."</li>
+                  <li><b>Gate</b>An approval card lands on the phone.</li>
+                  <li><b>Build</b>The chosen harness edits and commits.</li>
+                  <li><b>Verify</b>Hatch re-runs the tests itself.</li>
+                  <li><b>Report</b>What changed, and the proof.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="7 of 10: Everything it learns, everyone remembers">
+            <div class="dk-copy">
+              <p class="dk-k"><span>07</span>Memory — the moat</p>
+              <h3>Everything it learns, <em>everyone remembers.</em></h3>
+              <p>One memory pool — vector plus full-text search — shared by Hatch, every coding
+                 harness and the dream. It recalls before assuming, retains what lasts, and reflects
+                 across many memories at once. A nightly hygiene pass deduplicates and reconciles it;
+                 the first one retired 208 stale facts.</p>
+              <p>The <b>skill flywheel</b>: when something goes wrong, Hatch writes the lesson down as a
+                 skill it loads next time, and a weekly reflection audits them.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-orbit" aria-hidden="true">
+                <div class="dk-core">Shared<br />memory</div>
+                <span style="--a:0deg">Hatch</span><span style="--a:60deg">Claude Code</span><span style="--a:120deg">Codex</span>
+                <span style="--a:180deg">pi</span><span style="--a:240deg">Hermes</span><span style="--a:300deg">The dream</span>
+              </div>
+              <ul class="dk-rhythm">
+                <li><time>08:30</time>morning brief</li><li><time>23:30</time>heartbeat</li>
+                <li><time>02:30</time>hygiene</li><li><time>04:00</time>dream</li><li><time>Sun</time>reflection</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 08 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="8 of 10: Power, with a hand on the switch">
+            <div class="dk-copy">
+              <p class="dk-k"><span>08</span>Human-gated</p>
+              <h3>Power, with a hand <em>on the switch.</em></h3>
+              <p>Anything consequential — running commands on a machine, writing code, sending a
+                 message, changing a routine, rendering video — raises an approval card first: what it
+                 wants to do, why, and the exact arguments.</p>
+              <p>One tap from the phone or Telegram: once, for the session, or no. An approval opens a
+                 ten-minute trust window for that tool — sudo, not a click-farm.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-card">
+                <p class="dk-card-h"><span class="dk-lock">🔒</span>Approval needed<i>expires in 14:52</i></p>
+                <p class="dk-card-t">code_agent · Claude Code</p>
+                <p class="dk-card-w">Fix the failing date parse in the earnings calendar, then re-run its tests.</p>
+                <pre>repo: earnings-screener
+branch: fix/calendar-parse</pre>
+                <div class="dk-card-b"><span class="ok">Approve once</span><span>For this session</span><span class="no">Deny</span></div>
+                <p class="dk-note">illustrative card</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="9 of 10: Three machines and a bus">
+            <div class="dk-copy">
+              <p class="dk-k"><span>09</span>The fleet</p>
+              <h3>Three machines <em>and a bus.</em></h3>
+              <p>Dreams, cron reports, heartbeats and machine-to-machine work all ride one message bus.
+                 Every turn sees the last eight hours of fleet life — as context, never as commands —
+                 and any machine can hand Hatch a job.</p>
+              <p>When a pipeline fails, the bus tells Hatch; it diagnoses, fixes or stands down, files
+                 the lesson and reports back.</p>
+            </div>
+            <div class="dk-art">
+              <div class="dk-fleet">
+                <div class="dk-box"><b>The brain</b><span>orchestrator · shared memory · cockpit · market warehouse · a sandboxed desktop it can see and drive</span></div>
+                <div class="dk-box"><b>The GPU box</b><span>model lanes · video · browser identity #2</span></div>
+                <div class="dk-box"><b>The relay</b><span>Telegram · public bridge · browser identity #3</span></div>
+                <div class="dk-box is-cloud"><b>Cloud</b><span>expert models — explicit and approval-visible</span></div>
+                <div class="dk-bus" aria-hidden="true"><i></i><span>fleet bus · dreams · crons · heartbeats · machine-to-machine</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="dk-slide" role="group" aria-roledescription="slide" aria-label="10 of 10: Mission control in your pocket">
+            <div class="dk-copy">
+              <p class="dk-k"><span>10</span>Hatch for iOS</p>
+              <h3>Mission control <em>in your pocket.</em></h3>
+              <p>A native SwiftUI app — no third-party dependencies — that talks straight to the same
+                 gateway as the web cockpit.</p>
+              <dl class="dk-reach">
+                <div><dt>Cockpit</dt><dd>last dream, routines, a 48-hour fleet feed</dd></div>
+                <div><dt>Hatch</dt><dd>streaming chat with tool chips and a session switcher</dd></div>
+                <div><dt>Fleet</dt><dd>every machine, live coding harnesses, GPU, the delegation ledger</dd></div>
+                <div><dt>Approvals · Dispatch</dt><dd>the gate, and work fired at any machine</dd></div>
+              </dl>
+            </div>
+            <div class="dk-art">
+              <div class="dk-phone" aria-hidden="true">
+                <div class="dk-notch"></div>
+                <div class="dk-screen">
+                  <p class="ph-h"><span class="ph-mark">◈</span>Cockpit</p>
+                  <div class="ph-card ph-dream"><p><span>☾ last dream</span><i>4h ago</i></p>
+                    <b>Two edges agree across three reports</b><em>framing · edges · conflicts · watch</em></div>
+                  <div class="ph-alert">2 approvals waiting</div>
+                  <p class="ph-sec">Routines</p>
+                  <div class="ph-card ph-row"><span>Morning brief</span><i>in 3h</i></div>
+                  <div class="ph-card ph-row"><span>Weekly reflection</span><i>Sun · 20:00</i></div>
+                  <p class="ph-sec">Fleet feed · 48h</p>
+                  <div class="ph-feed"><i class="k1"></i>BoltNews pre-market published</div>
+                  <div class="ph-feed"><i class="k2"></i>Factor brief refreshed</div>
+                  <div class="ph-feed"><i class="k3"></i>Harness finished · tests pass</div>
+                  <nav class="ph-tabs"><span class="on">☾</span><span>◈</span><span>▣</span><span>✓</span><span>➤</span><span>⚙</span></nav>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="tour reveal">
+        <video class="tour-video" src="assets/video/hatch-tour.mp4" poster="assets/video/hatch-tour-poster.jpg"
+               width="360" height="640" controls muted playsinline preload="none"
+               aria-label="A 51-second vertical tour of Hatch"></video>
+        <div class="tour-copy">
+          <p class="kicker">The short version</p>
+          <h3>Hatch in <em>under a minute.</em></h3>
+          <p>The same ten slides as a vertical clip — made for a phone, and for sending to someone.</p>
+          <a class="btn btn-sm btn-ghost" href="assets/video/hatch-tour.mp4" download>Download the clip <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </div>
@@ -1070,6 +1538,7 @@ body::after {
     <p class="foot-line">Research engines, running in public.</p>
     <nav aria-label="Footer">
       <a href="#engines">Products</a>
+      <a href="#hatch">Hatch</a>
       <a href="#configure">What's possible</a>
       <a href="#start">Contact</a>
     </nav>
@@ -1499,6 +1968,89 @@ body::after {
       });
     });
   }
+
+  /* ---------- the Hatch deck: rotates on its own, stops the moment you take over ---------- */
+  (function deck() {
+    var root = $('#deck');
+    if (!root) return;
+    var slides = $$('.dk-slide', root), bar = $('.dk-progress', root), count = $('.dk-count b', root);
+    var pauseBtn = $('[data-dk="pause"]', root);
+    var MS = 9000, i = 0, timer = 0, userPaused = false, hovering = false, inView = false;
+    root.style.setProperty('--dk-ms', MS + 'ms');
+
+    var dots = slides.map(function (s, k) {
+      var b = doc.createElement('button');
+      b.type = 'button'; b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', 'Slide ' + (k + 1) + ' of ' + slides.length);
+      b.appendChild(doc.createElement('i'));
+      b.addEventListener('click', function () { go(k, true); });
+      bar.appendChild(b);
+      return b;
+    });
+
+    function running() { return !reduce && !userPaused && !hovering && inView && !doc.hidden; }
+    function schedule() {
+      clearTimeout(timer);
+      root.classList.toggle('is-paused', !running() && !reduce);
+      if (running()) timer = setTimeout(function () { go(i + 1, false); }, MS);
+    }
+    function go(n, byUser) {
+      var prev = i;
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) {
+        s.classList.toggle('is-active', k === i);
+        s.classList.toggle('is-leaving', k === prev && k !== i);
+        s.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+        if (k === i) s.removeAttribute('inert'); else s.setAttribute('inert', '');
+      });
+      dots.forEach(function (d, k) {
+        d.classList.toggle('is-done', k < i);
+        d.classList.remove('is-on');
+        d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+      void dots[i].offsetWidth;          // restart the fill animation
+      dots[i].classList.add('is-on');
+      count.textContent = String(i + 1).padStart(2, '0');
+      // a person driving the deck gets their slides announced; the autoplay stays quiet
+      $('.dk-slides', root).setAttribute('aria-live', byUser ? 'polite' : 'off');
+      schedule();
+    }
+    function setPaused(p) {
+      userPaused = p;
+      pauseBtn.textContent = p ? '▶' : '❚❚';
+      pauseBtn.setAttribute('aria-label', p ? 'Play the deck' : 'Pause the deck');
+      if (!p) { dots[i].classList.remove('is-on'); void dots[i].offsetWidth; dots[i].classList.add('is-on'); }
+      schedule();
+    }
+
+    $('[data-dk="prev"]', root).addEventListener('click', function () { go(i - 1, true); });
+    $('[data-dk="next"]', root).addEventListener('click', function () { go(i + 1, true); });
+    pauseBtn.addEventListener('click', function () { setPaused(!userPaused); });
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { go(i + 1, true); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { go(i - 1, true); e.preventDefault(); }
+    });
+    if (finePointer) {
+      root.addEventListener('mouseenter', function () { hovering = true; schedule(); });
+      root.addEventListener('mouseleave', function () { hovering = false; dots[i].classList.remove('is-on'); void dots[i].offsetWidth; dots[i].classList.add('is-on'); schedule(); });
+    }
+    // swipe on touch screens
+    var x0 = null;
+    $('.dk-slides', root).addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') x0 = e.clientX; });
+    $('.dk-slides', root).addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1), true);
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { inView = es[0].isIntersecting; schedule(); }, { threshold: 0.35 }).observe(root);
+    }
+    doc.addEventListener('visibilitychange', schedule);
+    if (reduce) { root.classList.add('is-static'); setPaused(true); }
+    // a ?slide=N in the address opens the deck there (used to render the tour clip)
+    var m = /[?&]slide=(\d+)/.exec(location.search);
+    go(m ? parseInt(m[1], 10) - 1 : 0, false);
+  })();
 
   /* ---------- the hero: every source streams into one edition ---------- */
   (function streams() {
