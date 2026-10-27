@@ -9,7 +9,7 @@ its own visual world:
 
 | Tab | Room | Contents |
 |---|---|---|
-| **Markets & Trading** | *the desk* — night trading terminal | Five tools that read overnight and publish before the open |
+| **Markets & Trading** | *the desk* — night trading terminal | Six tools that read overnight and publish before the open |
 | **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Eight products built to be used |
 
 Tabs deep-link (`#desk`, `#floor`), support arrow-key navigation, and use proper
@@ -145,8 +145,8 @@ was a hand-typed capture. `.github/workflows/refresh.yml` now re-reads both on a
 - **When.** `23:37 UTC` on weekdays, which lands after the BoltNews post-market edition has
   published, so the tape and the cards agree with each other. Also `workflow_dispatch` for an
   immediate run.
-- **What it does.** `scripts/refresh.mjs` drives Playwright Chromium: it re-captures all ten
-  live cards, re-reads the ten futures/rates/commodity/volatility rows off the BoltNews market
+- **What it does.** `scripts/refresh.mjs` drives Playwright Chromium: it re-captures all
+  eleven live cards, re-reads the ten futures/rates/commodity/volatility rows off the BoltNews market
   table along with that edition's dateline and source count, and rewrites the index in place.
   Then the workflow commits and pushes, and publishes.
 - **Why it deploys itself.** A push made with `GITHUB_TOKEN` does not start another workflow,
@@ -187,8 +187,10 @@ green minus sign just reads as a bug.
 
 Per-site quirks live as comments on the `CARDS` rows in `scripts/refresh.mjs`: YouTube
 Briefings is shot at 860 px so its third-party thumbnail grid falls below the fold, FitForge at
-1280 px because its floating readouts collide narrower, and Grand Atlantic is clicked once to
-get past its splash screen.
+1280 px because its floating readouts collide narrower, Grand Atlantic is clicked once to get
+past its splash screen, and X Feed Intelligence is captured with `colorScheme: 'dark'` because
+it follows the viewer's own system preference and the desk frames dark UIs only — a visitor on
+a light system sees the same site in light, which is the site working, not a mismatch.
 
 Adding or removing a card means editing both `index.html` and that `CARDS` list. Playwright is
 pinned in `scripts/package.json`; the browser is installed by the workflow, not committed.
@@ -214,9 +216,10 @@ still claiming six and four desks is the first thing a stranger sees when the li
 
 ## 📡 Markets & Trading — *the desk*
 
-Five tools that do the overnight reading a person cannot: 115 news sources, hours of video and
-a whole equity universe, read while the market is shut and handed back as one page you can act
-on before the open. All five are live. The page lists them in this order.
+Six tools that do the overnight reading a person cannot: 115 news sources, hours of video, a
+whole equity universe and your own timeline, read while the market is shut and handed back as
+one page you can act on before the open. All six are live. The page lists them in this
+order.
 
 The source count appears twice in the page copy and is **not** hand-maintained — the refresh
 workflow reads it out of the BoltNews dateline and rewrites both, so the pitch cannot drift
@@ -225,10 +228,22 @@ away from what the pipeline actually sweeps.
 | # | Project | Live site | What it gets you | Tech |
 |---|---|---|---|---|
 | 1 | **BoltNews** | [news.bolt.ceo](https://news.bolt.ceo/) | Walk in already knowing. Reads every source in the sweep overnight and returns one page: what moved, why, and what is set up for today — equities, rates, credit, FX, commodities, volatility, crypto. Pre-market, mid-day and weekend editions. | Python 3.12, multi-agent LLM pipeline, cron, GitHub Pages |
-| 2 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Hear the call while it is still tradeable. Watches every tracked creator's output and returns each one's actual thesis in a paragraph, instead of an endless subscriptions feed. | Python, GitHub Actions → Pages, static HTML |
-| 3 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Stop trading into the tide. Says which style is paying right now — value, momentum, quality or safety — and refreshes five times a day as the regime shifts. | Python, DuckDB/Polygon warehouse, cron (5× daily) |
-| 4 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | A short list worth your morning. Seven deterministic sleeves (RSI inflection, value, momentum, squeeze) rank the universe nightly, with a wave-stage classifier and a factor-momentum-tilted EV master score — each name carrying the reason it made the cut. | Python, DuckDB/Polygon warehouse, pandas |
-| 5 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Be positioned before the print, not reacting after it. Cross-references the holdings universe against a SEC EDGAR/DoltHub calendar, scores which setups are worth taking and writes the case for each. | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary |
+| 2 | **X Feed Intelligence** | [x.bolt.ceo](https://x.bolt.ceo/) | Stop scrolling for the one post that mattered. An agent reads the timeline on its own schedule, checks what each post actually claims against the sources, and writes back what was really said — so a call that breaks at 7am is not lost by lunch. Pointed at a mandate, it keeps only what moves that book. | Scheduled reader over the signed-in session, per-post research notes, static site |
+| 3 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Hear the call while it is still tradeable. Watches every tracked creator's output and returns each one's actual thesis in a paragraph, instead of an endless subscriptions feed. | Python, GitHub Actions → Pages, static HTML |
+| 4 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Stop trading into the tide. Says which style is paying right now — value, momentum, quality or safety — and refreshes five times a day as the regime shifts. | Python, DuckDB/Polygon warehouse, cron (5× daily) |
+| 5 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | A short list worth your morning. Seven deterministic sleeves (RSI inflection, value, momentum, squeeze) rank the universe nightly, with a wave-stage classifier and a factor-momentum-tilted EV master score — each name carrying the reason it made the cut. | Python, DuckDB/Polygon warehouse, pandas |
+| 6 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Be positioned before the print, not reacting after it. Cross-references the holdings universe against a SEC EDGAR/DoltHub calendar, scores which setups are worth taking and writes the case for each. | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary |
+
+**On X Feed Intelligence specifically.** Its own pages carry `robots: noindex,nofollow` — the
+owner did not want it in search results. Linking it from this directory does not change that
+(a link is not an index), but it does make a site that was effectively unlisted publicly
+reachable, which was asked for deliberately. The card is written as a proposal: the agent
+scanning and researching the timeline is what ships today, and shaping it to a mandate is the
+offer around it, so the copy says "point it at a mandate" rather than claiming the feed on
+screen is already filtered to one. That matters, because it is not — the capture is the
+owner's real feed, and it reads as AI infrastructure, trading playbooks and product launches.
+Writing "a fixed-income feed" over that screenshot would have been a caption the picture
+contradicts.
 
 ## 🎭 Creative & Agentic — *the floor*
 

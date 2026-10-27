@@ -27,6 +27,8 @@ const BOLTNEWS = 'https://news.bolt.ceo/';
 // Anything unusual about a site is noted on its row.
 const CARDS = [
   { slug: 'boltnews',          url: BOLTNEWS,                                                        w: 1440, h: 900 },
+  // follows the viewer's own colour scheme; shot dark so it sits in the room with the rest
+  { slug: 'x-feed',            url: 'https://x.bolt.ceo/',                                           w: 1440, h: 900, scheme: 'dark' },
   // narrower: pushes the video grid (thumbnails from third-party hosts) below the fold
   { slug: 'yt-briefings',      url: 'https://girnarholdings.github.io/yt-briefing/',                 w: 860,  h: 538 },
   { slug: 'boltfactors',       url: 'https://girnarholdings.github.io/BoltFactors/',                 w: 1440, h: 900 },
@@ -77,6 +79,7 @@ async function capture(browser, card) {
   const page = await browser.newPage({
     viewport: { width: card.w, height: card.h },
     deviceScaleFactor: 2,
+    colorScheme: card.scheme || 'light',
   });
   try {
     const res = await page.goto(card.url, { waitUntil: 'load', timeout: 45000 });
