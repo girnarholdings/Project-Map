@@ -9,12 +9,19 @@ its own visual world:
 
 | Tab | Room | Contents |
 |---|---|---|
-| **Markets & Trading** | *the desk* — night trading terminal | Eight systems that publish on a schedule |
-| **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Eight products that run all the time |
+| **Markets & Trading** | *the desk* — night trading terminal | Six tools that read overnight and publish before the open |
+| **Creative & Agentic** | *the floor* — the house itself, in lapis and gold | Eight products built to be used |
 
 Tabs deep-link (`#desk`, `#floor`), support arrow-key navigation, and use proper
 `tablist`/`tab`/`tabpanel` roles. The tables below are the underlying source of truth, and
 they list projects in the same order the page does.
+
+**The copy is written to be clicked, not skimmed.** Each card leads with the problem the tool
+removes and what the visitor gets out of it, in plain English, and closes on an imperative
+("Read this morning's edition", "See today's shortlist") rather than a feature list. The
+technical facts still live in this README and in the small `card-tech` chips on the page —
+they just stopped being the first thing a stranger reads. Nothing on the page offers anything
+for sale or implies it is available; the register is a showroom, not a listing.
 
 ## Design
 
@@ -24,15 +31,16 @@ and both rooms are night rooms. There is no light variant, by choice rather than
 **The desk** (default tab) keeps the trading-terminal treatment:
 
 - **Palette lifted from the products, not invented.** Amber `#F5B93B` is the accent BoltNews,
-  BoltFactors and bolt.ceo already use. It appears as a hairline across the top of every
+  BoltFactors and the screeners already use. It appears as a hairline across the top of every
   screenshot. FitForge has since rebranded to forge-copper and no longer matches, which is why
   that claim now names the desks rather than the whole portfolio.
 - **Monospace as the display face** — the honest register for a room where every project is a
   terminal — against a system grotesque for running text.
-- **The tape** shows real prices read off the BoltNews post-market edition of 2026-10-19,
-  18:24 ET. It is explicitly labelled as a capture rather than a live feed, is not wired to any
-  data source, and will not update. It belongs to the desk and is hidden on the floor. Refresh
-  it by rebuilding BoltNews and re-reading its market-table values.
+- **The tape** shows real prices read off the BoltNews desk. Its header names the edition and
+  timestamp the figures actually came from, written by the refresh workflow out of the live
+  dateline, so it cannot claim a post-market tape when the run picked up a pre-market one. It
+  is labelled a capture rather than a live feed because that is what it is — rewritten once a
+  day, not streamed. It belongs to the desk and is hidden on the floor.
 
 **The floor** switches to antique gold on lapis:
 
@@ -100,22 +108,17 @@ Everything visual here is either the owner's own work or generated for this repo
 Every image on the page is a **real screenshot of the actual deployed project**, not stylised
 preview art. They live in `assets/shots/` (one JPEG per project, 1120×700).
 
-They were captured by pulling each project's own built output through the GitHub API and
-rendering it locally in headless Chromium, because this build environment's network policy
-blocks `*.github.io` and cannot reach the live sites directly:
+They are now captured from the **live deployments** by the refresh workflow (see below).
+Earlier passes had to render them from each project's committed build output instead — pulled
+through the GitHub API and rendered in local headless Chromium — because the sandbox the page
+was authored in refuses `*.github.io` at CONNECT. An Actions runner has no such restriction,
+which is the whole reason the capture moved into CI.
 
-| Source of the build | Projects |
-|---|---|
-| `gh-pages` branch (deployed output committed) | BoltNews, BoltFactors, Earnings Screener, BetNews |
-| Static site committed on `main` | Equity Screener (`docs/`), VibeNYC (`site/`), Grand Atlantic (`gateway/`) |
-| Built from source locally (`npm ci`, Next.js static export) | FitForge |
-| Static landing committed on `main`, served over HTTP to capture | bolt.ceo (`public/`), AgentSwarm (`gateway-worker/public/`), TriDelPhi (`site/`) |
-| Generated from source locally (`python -c "from src import builder; builder.build_dashboard()"`, the same command its deploy workflow runs) | YouTube Briefings |
+Caveats worth knowing before regenerating them by hand:
 
-Caveats worth knowing before regenerating them:
-
-- Several sites load webfonts from Google Fonts, which the sandbox also blocks, so those
-  screenshots render in fallback faces and differ very slightly from production.
+- Capturing locally in the sandbox renders webfonts, video thumbnails and avatars in
+  fallbacks, because those hosts are blocked there. Captures taken by the workflow do not
+  have this problem, so prefer re-running the workflow over re-shooting by hand.
 - YouTube Briefings embeds video thumbnails and channel avatars from `i.ytimg.com` and
   `yt3.googleusercontent.com`, both of which are blocked here. Those images load fine for real
   visitors. Rather than ship a card full of broken-image glyphs — which would misrepresent the
@@ -124,16 +127,73 @@ Caveats worth knowing before regenerating them:
   viewport to 860 px pushes the video grid below the fold and does this naturally.
 - Grand Atlantic opens on a splash screen; its screenshot is taken after clicking through to
   the training floor, which is the view worth showing.
-- bolt.ceo, AgentSwarm and TriDelPhi reference assets by absolute path (`/styles.css`), which
-  resolves to the filesystem root under `file://` and renders an unstyled page. Serve the
-  landing directory over HTTP and capture from `127.0.0.1` instead. bolt.ceo additionally
-  renders a `Launchpad unavailable (404)` line when captured without its Worker API, so its
-  card is framed above that line rather than by editing the page.
-- The screenshots are point-in-time. Dashboards that publish daily will have moved on — the
-  footer records the capture date so the page never implies the numbers are current.
+- AgentSwarm and TriDelPhi reference assets by absolute path (`/styles.css`), which resolves
+  to the filesystem root under `file://` and renders an unstyled page. If you do capture
+  locally, serve the directory over HTTP and shoot `127.0.0.1` instead.
+- The screenshots are point-in-time. Dashboards that publish several times a day will have
+  moved on between refreshes — the footer records the capture date so the page never implies
+  the numbers are current.
 - **CRE AI Agent is deliberately not screenshotted.** It is a private tool operating on live
   broker listings and underwriting, so publishing its dashboard here would leak proprietary
   deal data. Its card is a non-clickable panel that says so.
+
+## Keeping itself current
+
+The page used to go stale the moment it shipped: the snapshots were point-in-time and the tape
+was a hand-typed capture. `.github/workflows/refresh.yml` now re-reads both on a schedule.
+
+- **When.** `23:37 UTC` on weekdays, which lands after the BoltNews post-market edition has
+  published, so the tape and the cards agree with each other. Also `workflow_dispatch` for an
+  immediate run.
+- **What it does.** `scripts/refresh.mjs` drives Playwright Chromium: it re-captures all
+  eleven live cards, re-reads the ten futures/rates/commodity/volatility rows off the BoltNews market
+  table along with that edition's dateline and source count, and rewrites the index in place.
+  Then the workflow commits and pushes, and publishes.
+- **Why it deploys itself.** A push made with `GITHUB_TOKEN` does not start another workflow,
+  so `deploy.yml`'s push trigger never fires for the refresh commit. `refresh.yml` therefore
+  carries its own `deploy` job, gated on something having actually changed.
+- **Where it writes.** Four marker regions in `index.html`, which must not be removed:
+
+  | Markers | Content |
+  |---|---|
+  | `<!--tape:start-->` / `<!--tape:end-->` | the two tape row groups (the second is the `aria-hidden` duplicate that makes the marquee seamless) |
+  | `<!--tape-asof:start-->` / `<!--tape-asof:end-->` | the edition and timestamp in the tape header |
+  | `<!--shots-asof:start-->` / `<!--shots-asof:end-->` | the capture date in the footer |
+  | `<!--sources:start-->` / `<!--sources:end-->` (×2) | the BoltNews source count, in the panel blurb and on the BoltNews card |
+
+**The rule the script is built around: never replace good content with worse.** A card that
+404s, times out, or renders under 150 characters of text keeps the snapshot already committed,
+and the run says it skipped it. A market table that does not parse cleanly into all ten
+symbols leaves the committed figures alone rather than shipping a half-filled tape. Images
+that fail to load are hidden before the shot so no card ships broken-image glyphs. Every
+capture is taken at 16:10 and downscaled to 1120×700, never cropped, so framing stays
+consistent with the hand-shot originals. Only if *nothing at all* could be refreshed does the
+run exit non-zero — a scheduled job that silently succeeds forever while doing nothing is
+worse than a red one.
+
+**The tape is read out of the DOM, not out of text**, and it has to stay that way. BoltNews
+renders its market table semantically — one `<tr>` per instrument, the ticker in
+`th > .mt-code`, the price in `td.mt-last`, the one-day change in the *first* `td.mt-val` (the
+columns after it are week, month, quarter and year to date). Scraping `innerText` instead
+looks easier and is wrong: the ticker and its label render with no space between them
+(`ES1S&P 500`, `TU12Y Note`), so a text scan happily reads the `500` out of "S&P 500" as the
+price. The DOM read was checked against a real published edition before it shipped; all ten
+rows come back clean.
+
+One deliberate divergence: the tape colours each figure **by its own sign**, not by BoltNews'
+`tone-up`/`tone-down` classes. BoltNews paints a rising yield red and a falling VIX green,
+which is the correct call in a briefing that explains itself — but on a bare one-line ticker a
+green minus sign just reads as a bug.
+
+Per-site quirks live as comments on the `CARDS` rows in `scripts/refresh.mjs`: YouTube
+Briefings is shot at 860 px so its third-party thumbnail grid falls below the fold, FitForge at
+1280 px because its floating readouts collide narrower, Grand Atlantic is clicked once to get
+past its splash screen, and X Feed Intelligence is captured with `colorScheme: 'dark'` because
+it follows the viewer's own system preference and the desk frames dark UIs only — a visitor on
+a light system sees the same site in light, which is the site working, not a mismatch.
+
+Adding or removing a card means editing both `index.html` and that `CARDS` list. Playwright is
+pinned in `scripts/package.json`; the browser is installed by the workflow, not committed.
 
 ## Favicon & link-preview assets
 
@@ -143,7 +203,11 @@ house mark and masked to a circular disc so the medallion stays legible at 32 px
 title, `og:site_name`, and both card titles all read **Girnar Holdings**. These are committed
 as real files rather than inline data URIs — link-preview crawlers (iMessage, Slack, X) and
 iOS's apple-touch-icon need a fetchable URL and won't reliably resolve a `data:` URI.
-`og-image.png` is a rendered 1200×630 card matching the page's design.
+`og-image.png` is a rendered 1200×630 card matching the page's design, and its source lives
+beside the refresh script at `scripts/og-card.html` — rendering instructions are in a comment
+at the top of that file. It is **not** generated by the refresh workflow, so its counts and
+lede are hand-maintained: whenever the directory's shape changes, re-render it. A share card
+still claiming six and four desks is the first thing a stranger sees when the link is pasted.
 
 > **Account rename, July 2026:** this account renamed from `ZeusNightBolt` to `girnarholdings`
 > (same account, same numeric ID). GitHub redirects repository URLs but **not** `*.github.io`
@@ -152,19 +216,34 @@ iOS's apple-touch-icon need a fetchable URL and won't reliably resolve a `data:`
 
 ## 📡 Markets & Trading — *the desk*
 
-Research pipelines that run themselves — each ingests messy public data on a cron and ships a
-finished, readable briefing.
+Six tools that do the overnight reading a person cannot: 115 news sources, hours of video, a
+whole equity universe and your own timeline, read while the market is shut and handed back as
+one page you can act on before the open. All six are live. The page lists them in this
+order.
 
-| # | Project | Live site | Tech | Description |
+The source count appears twice in the page copy and is **not** hand-maintained — the refresh
+workflow reads it out of the BoltNews dateline and rewrites both, so the pitch cannot drift
+away from what the pipeline actually sweeps.
+
+| # | Project | Live site | What it gets you | Tech |
 |---|---|---|---|---|
-| 1 | **bolt.ceo** | [bolt.ceo](https://bolt.ceo) | Cloudflare Worker, zero runtime deps, 246 offline tests | A market-intelligence LLM over the six pipelines below. A plain question returns a verdict, a technical read and a levels ladder; every figure is computed before any prose is generated, so a fabricated citation fails hard. Routing is deterministic regex across eleven analyst profiles, never a model call. |
-| 2 | **BoltNews** | [news.bolt.ceo](https://news.bolt.ceo/) | Python 3.12, multi-agent LLM pipeline, cron, GitHub Pages | Automated news desk for a fundamental long/short PM. Multi-agent discovery lanes sweep equities, rates, credit, FX, commodities, volatility and crypto, then write the pre-market, mid-day and weekend briefings. |
-| 3 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Python, DuckDB/Polygon warehouse, cron (5× daily) | Quantitative factor briefings generated off the market-data warehouse, tracking regime shifts across value, momentum, quality and volatility. |
-| 4 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Python, GitHub Actions → Pages, static HTML | Turns channel and video activity across a tracked list of creators into a structured, digestible briefing instead of an endless subscriptions feed. |
-| 5 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | Python, DuckDB/Polygon warehouse, pandas | Ranks low-priced, large-cap VTI names through seven deterministic scoring sleeves (RSI inflection, value, momentum, squeeze), plus a wave-stage classifier and a factor-momentum-tilted EV master score. |
-| 6 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary | Cross-references the holdings universe against a SEC EDGAR/DoltHub earnings calendar to find the best setups heading into a print, reusing the screener's scoring engine and adding written commentary per name. |
-| 7 | **BetNews** | [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/) | Python 3.11+ (stdlib only), Polymarket Gamma API, RSS, vanilla JS search | The same briefing discipline pointed at betting markets: consensus odds, positive-EV screens and underdog trends aggregated across Polymarket, Kalshi, DraftKings, FanDuel and 60+ other books and sources. |
-| 8 | **HousingTrends** | — *(private, no public deployment)* | Python, official research files only | Listing-free US housing reports for buyers, built only from official research files rather than broker inventory, so a ZIP-code report says what the public record supports and nothing more. |
+| 1 | **BoltNews** | [news.bolt.ceo](https://news.bolt.ceo/) | Walk in already knowing. Reads every source in the sweep overnight and returns one page: what moved, why, and what is set up for today — equities, rates, credit, FX, commodities, volatility, crypto. Pre-market, mid-day and weekend editions. | Python 3.12, multi-agent LLM pipeline, cron, GitHub Pages |
+| 2 | **X Feed Intelligence** | [x.bolt.ceo](https://x.bolt.ceo/) | Stop scrolling for the one post that mattered. An agent reads the timeline on its own schedule, checks what each post actually claims against the sources, and writes back what was really said — so a call that breaks at 7am is not lost by lunch. Pointed at a mandate, it keeps only what moves that book. | Scheduled reader over the signed-in session, per-post research notes, static site |
+| 3 | **YouTube Briefings** | [girnarholdings.github.io/yt-briefing](https://girnarholdings.github.io/yt-briefing/) | Hear the call while it is still tradeable. Watches every tracked creator's output and returns each one's actual thesis in a paragraph, instead of an endless subscriptions feed. | Python, GitHub Actions → Pages, static HTML |
+| 4 | **BoltFactors** | [girnarholdings.github.io/BoltFactors](https://girnarholdings.github.io/BoltFactors/) | Stop trading into the tide. Says which style is paying right now — value, momentum, quality or safety — and refreshes five times a day as the regime shifts. | Python, DuckDB/Polygon warehouse, cron (5× daily) |
+| 5 | **Equity Screener** | [girnarholdings.github.io/equity-screener](https://girnarholdings.github.io/equity-screener/) | A short list worth your morning. Seven deterministic sleeves (RSI inflection, value, momentum, squeeze) rank the universe nightly, with a wave-stage classifier and a factor-momentum-tilted EV master score — each name carrying the reason it made the cut. | Python, DuckDB/Polygon warehouse, pandas |
+| 6 | **Earnings Screener** | [girnarholdings.github.io/AI-Assisted-Earnings-Screener](https://girnarholdings.github.io/AI-Assisted-Earnings-Screener/) | Be positioned before the print, not reacting after it. Cross-references the holdings universe against a SEC EDGAR/DoltHub calendar, scores which setups are worth taking and writes the case for each. | Python, SEC EDGAR, DoltHub, DuckDB, LLM commentary |
+
+**On X Feed Intelligence specifically.** Its own pages carry `robots: noindex,nofollow` — the
+owner did not want it in search results. Linking it from this directory does not change that
+(a link is not an index), but it does make a site that was effectively unlisted publicly
+reachable, which was asked for deliberately. The card is written as a proposal: the agent
+scanning and researching the timeline is what ships today, and shaping it to a mandate is the
+offer around it, so the copy says "point it at a mandate" rather than claiming the feed on
+screen is already filtered to one. That matters, because it is not — the capture is the
+owner's real feed, and it reads as AI infrastructure, trading playbooks and product launches.
+Writing "a fixed-income feed" over that screenshot would have been a caption the picture
+contradicts.
 
 ## 🎭 Creative & Agentic — *the floor*
 
@@ -181,6 +260,22 @@ Things people use rather than things that publish — each shapes itself around 
 | 7 | **Hatch for iOS** | — *(private, no public build)* | SwiftUI, zero dependencies, VPN optional | Mission control for Hatch from a phone — cockpit (dreams, feed, routines), streaming chat, approvals and dispatch. |
 | 8 | **CRE AI Agent** | — *(private, no public deployment)* | Python, Selenium/Firefox CDP scraping, Streamlit | Scrapes commercial listings past Akamai bot protection via Firefox remote-debugging, then serves the deal set through an interactive underwriting dashboard for per-deal deep dives. |
 
+### Off the page right now
+
+Three desk projects that used to have cards no longer do. The repositories and, where they
+exist, the deployments are untouched — this is an editing decision about the directory, not a
+retirement:
+
+| Project | Why it is not on the page |
+|---|---|
+| **bolt.ceo** | Taken down for now, at the owner's instruction. It was the question box over the pipelines; it will come back when it is ready to be the front door again. BoltNews keeps its `news.bolt.ceo` subdomain and is unaffected. |
+| **BetNews** | Live at [girnarholdings.github.io/BetNews](https://girnarholdings.github.io/BetNews/), but betting markets are a different pitch from the market desk, and mixing them blunted both. |
+| **HousingTrends** | Private, with no public deployment. A card nobody can open does not earn its place on a page whose whole promise is that every door opens. |
+
+If any of them goes back up, its card belongs in the desk grid and its snapshot in
+`scripts/refresh.mjs`'s `CARDS` list — the two have to move together or the refresh will
+quietly stop covering it.
+
 ### Not listed here
 
 Three repositories created in this period are deliberately absent, because they are
@@ -196,5 +291,6 @@ twice made the directory longer without making it more useful. Their repositorie
 unchanged.
 
 Link convention: each card opens the project's live GitHub Pages deployment. Source
-repositories are private, so there are no repository links; the one project with no public
-deployment is shown as an explicitly non-clickable card.
+repositories are private, so there are no repository links. The three projects with no public
+deployment — Hatch, Hatch for iOS and CRE AI Agent — are shown as explicitly non-clickable
+plaques that say so, because the page promises that every door it draws as a door opens.

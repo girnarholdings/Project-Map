@@ -1,0 +1,148 @@
+<!doctype html>
+<meta charset="utf-8" />
+<!--
+  Source for assets/og-image.png, the 1200x630 link-preview card.
+
+  Render it at exactly 1200x630, deviceScaleFactor 1, from THIS directory so the
+  ../assets/ paths resolve:
+
+    node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();
+      const p=await b.newPage({viewport:{width:1200,height:630}});
+      await p.goto('file://'+process.cwd()+'/og-card.html',{waitUntil:'load'});
+      await p.waitForTimeout(1200);
+      await p.screenshot({path:'../assets/og-image.png'});await b.close();})()"
+
+  It is kept out of the published site on purpose: Pages serves everything in the
+  repo root, and scripts/ is build tooling, not a page. Update the counts and the
+  lede here whenever the directory's shape changes — a share card that still says
+  six and four is the first thing a stranger sees.
+-->
+<style>
+  @font-face {
+    font-family: "Playfair Display";
+    src: url("../assets/fonts/playfair-roman.woff2") format("woff2");
+    font-weight: 400 900; font-style: normal;
+  }
+  :root {
+    --navy:   #04102F;
+    --navy-2: #0A1B4A;
+    --gold:   #D6B788;
+    --gold-lt:#EAD7B4;
+    --cream:  #F2E7CF;
+    --dim:    #B8C4E0;
+    --faint:  #7C89AE;
+    --amber:  #F5B93B;
+    --mono: ui-monospace, "DejaVu Sans Mono", "Liberation Mono", monospace;
+    --sans: system-ui, "Liberation Sans", Arial, sans-serif;
+    --serif: "Playfair Display", Georgia, serif;
+  }
+  html, body { margin: 0; padding: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: var(--navy); font-family: var(--sans); }
+
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; }
+
+  /* lapis light: a glow up and left, the room falling away to the right */
+  .sky {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(70rem 40rem at 34% -8%, #1D3B86 0%, rgba(29,59,134,0) 62%),
+      radial-gradient(40rem 30rem at 92% 88%, rgba(10,27,74,0.9) 0%, rgba(4,16,47,0) 70%),
+      linear-gradient(168deg, #0B1E55 0%, #04102F 72%);
+  }
+
+  /* the vaulted arcade, drawn rather than photographed — same motif as the floor tab */
+  .arcs { position: absolute; inset: 0; }
+
+  .frame {
+    position: absolute; inset: 0;
+    padding: 64px 72px;
+    display: flex; flex-direction: column;
+  }
+
+  .eyebrow { display: flex; align-items: center; gap: 28px; }
+  .eyebrow span {
+    font-family: var(--mono); font-size: 17px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--faint); white-space: nowrap;
+  }
+  .eyebrow i { flex: 1; height: 1px; background: linear-gradient(90deg, #2B4A92 0%, rgba(43,74,146,0) 100%); }
+
+  .mast { display: flex; align-items: center; gap: 34px; margin-top: 58px; }
+  .mark { width: 152px; height: 152px; border-radius: 50%; flex: none;
+          box-shadow: 0 18px 44px rgba(0,0,0,0.55); }
+  .word { line-height: 0.96; }
+  .word .a { font-family: var(--serif); font-weight: 700; font-size: 74px; color: var(--cream); display: block; }
+  .word .b { font-family: var(--serif); font-weight: 700; font-size: 74px; color: var(--gold); display: block; }
+  .word .c {
+    display: block; margin-top: 16px;
+    font-family: var(--mono); font-size: 17px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--faint);
+  }
+
+  .lede {
+    margin-top: 52px; max-width: 1000px;
+    font-size: 30px; line-height: 1.42; color: #DCE6FA;
+  }
+  .lede b { color: var(--gold-lt); font-weight: 600; }
+
+  .rooms { margin-top: auto; display: flex; align-items: center; gap: 44px; }
+  .room { display: flex; align-items: center; gap: 12px;
+          font-family: var(--mono); font-size: 19px; letter-spacing: 0.17em;
+          text-transform: uppercase; color: var(--cream); }
+  .room .dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .room .n { color: var(--dim); }
+  .d-desk  { background: var(--amber); box-shadow: 0 0 14px rgba(245,185,59,0.6); }
+  .d-floor { background: var(--gold);  box-shadow: 0 0 14px rgba(214,183,136,0.5); }
+</style>
+
+<div class="card">
+  <div class="sky"></div>
+
+  <svg class="arcs" viewBox="0 0 1200 630" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="rib" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#9FB6E6" stop-opacity="0"/>
+        <stop offset="0.55" stop-color="#9FB6E6" stop-opacity="0.30"/>
+        <stop offset="1" stop-color="#E7D6B0" stop-opacity="0.16"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#rib)" stroke-width="1.4">
+      <path d="M1210,620 L1210,300 Q1010,150 760,206"/>
+      <path d="M1150,620 L1150,318 Q965,178 735,230"/>
+      <path d="M1086,620 L1086,338 Q918,208 708,256"/>
+      <path d="M1018,620 L1018,360 Q868,240 679,284"/>
+      <path d="M946,620 L946,384 Q815,274 648,314"/>
+      <path d="M870,620 L870,410 Q759,310 615,346"/>
+      <path d="M790,620 L790,438 Q700,350 580,380"/>
+    </g>
+    <g fill="#CFE0FF" opacity="0.5">
+      <circle cx="918" cy="196" r="2.4"/>
+      <circle cx="1006" cy="232" r="2"/>
+      <circle cx="1092" cy="276" r="2.4"/>
+      <circle cx="848" cy="178" r="1.8"/>
+    </g>
+  </svg>
+
+  <div class="frame">
+    <div class="eyebrow"><span>girnarholdings · project map</span><i></i></div>
+
+    <div class="mast">
+      <img class="mark" src="../assets/girnar-mark.png" alt="" />
+      <div class="word">
+        <span class="a">Girnar</span>
+        <span class="b">Holdings</span>
+        <span class="c">Project Directory</span>
+      </div>
+    </div>
+
+    <p class="lede">
+      Fourteen systems built end to end, in two rooms — <b>six market tools</b> that read
+      overnight so you walk in already knowing, and <b>eight products</b> built to be used.
+      Every one of them is live.
+    </p>
+
+    <div class="rooms">
+      <div class="room"><i class="dot d-desk"></i> Markets &amp; Trading <span class="n">6</span></div>
+      <div class="room"><i class="dot d-floor"></i> Creative &amp; Agentic <span class="n">8</span></div>
+    </div>
+  </div>
+</div>

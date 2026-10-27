@@ -1,0 +1,9 @@
+{
+  "name": "project-map-refresh",
+  "private": true,
+  "type": "module",
+  "description": "Scheduled refresh of the directory's card snapshots and market tape.",
+  "dependencies": {
+    "playwright": "1.49.1"
+  }
+}
